@@ -32,34 +32,34 @@
         padding: 0;
       }
 
-      /* @media (min-width: 320px) {
-  body {
-    font-size: 12px;
-  }
-}
+      @media (min-width: 320px) {
+        body {
+          font-size: 60%;
+        }
+      }
 
-@media (min-width: 470px) {
-  body {
-    font-size: 15px;
-  }
-}
+      @media (min-width: 470px) {
+        body {
+          font-size: 70%;
+        }
+      }
 
-@media (min-width: 992px) {
-  body {
-    font-size: 16px;
-  }
-}
+      @media (min-width: 992px) {
+        body {
+          font-size: 70%;
+        }
+      }
 
-@media (min-width: 1200px) {
-  body {
-    font-size:15px;
-  }
-}
-@media (min-width: 1600px) {
-  body {
-    font-size:16px;
-  }
-} */
+      @media (min-width: 1200px) {
+        body {
+          font-size: 75%;
+        }
+      }
+      @media (min-width: 1600px) {
+        body {
+          font-size: 100%;
+        }
+      }
 
       :root {
         /* colorpallete
@@ -84,11 +84,35 @@
         /* --button-- */
         --btn-custom: orange;
       }
-
+      @media (min-width: 1400px) {
+        .container,
+        .container-lg,
+        .container-md,
+        .container-sm,
+        .container-xl,
+        .container-xxl {
+          max-width: 1420px !important;
+        }
+      }
+      @media (min-width: 1600px) {
+        .container,
+        .container-lg,
+        .container-md,
+        .container-sm,
+        .container-xl,
+        .container-xxl {
+          max-width: 1580px !important;
+        }
+      }
       .section_one {
         background: var(--bg-one);
         color: rgb(106, 106, 106);
       }
+      @media (min-width: 991px) {
+      .bg-s.pt-5 {
+        padding-top: 4.6rem!important;
+      }
+    }
       .header.navbar {
         background: var(--bg-one) !important;
         position: fixed;
@@ -181,7 +205,7 @@
   </head>
 
   <body>
-    <div class="wrapper-page">
+    <div class="wrapper-page" style="overflow: hidden">
       <header class="header navbar navbar-expand-lg bg-light navbar-sticky">
         <div class="container px-3">
           <a href="index.html" class="navbar-brand pe-3">
@@ -245,14 +269,14 @@
       </header>
       <!-- Section 1 -->
 
-      <div class="section section_one" data-section-name="home">
-        <div class="bg-s py-5">
-          <div class="container-fluid">
-            <div class="row justify-content-center">
-              <div class="col-lg-5 col-md-6 text-center mt-5 py-5 box-title-p1">
+      <div class="section section_one justify-content-between flex-column d-flex" data-section-name="home">
+        <div class="bg-s pt-5">
+          <div class="container pt-2 pt-lg-0">
+            <div class="row justify-content-center mt-4 my-lg-5">
+              <div class="col-lg-5 col-md-6 text-center box-title-p1">
                 <h1>Soluții de creditare personalizate</h1>
 
-                <h5 class="col-lg-6 mb-4 w-100">
+                <h5 class="col-lg-6 mb-0 mb-lg-4 w-100">
                   servicii complete de maximizare a șanselor de a obține un
                   credit favorabil
                 </h5>
@@ -271,7 +295,7 @@
               </div>
             </div>
             <br />
-            <div class="row col-lg-12 d-flex justify-content-center">
+            <div class="row col-lg-12 d-flex justify-content-center mb-2 my-lg-2">
               <div class="col-lg-3 col-md-6 text-center">
                 <div class="p-4 bg-white box-bg h-100">
                   <h3>Box 3</h3>
@@ -303,9 +327,9 @@
             </div>
           </div>
         </div>
-        <div class="bg-white p-4 mt-4">
+        <div class="bg-white">
           <div class="container">
-            <div class="row mt-5">
+            <div class="row mt-3">
               <div class="col-sm-6 col-md-4 col-lg-3 text-center">
                 <div class="follower-box">
                   <h3>Box 3</h3>
