@@ -46,6 +46,11 @@
 
       --transition-mask: 0.5s ease-out;
       --transition-input: ease 250ms;
+
+
+
+
+    --soft-green:#39bdabf5;
     }
 
     body {
@@ -109,9 +114,6 @@
       border: 1px solid #dfdfdf;
     }
 
-    body {
-      background: #1745cc;
-    }
 
     .wrapper-container {
       width: 40em;
@@ -124,6 +126,8 @@
       justify-content: center;
       align-items: center;
       margin: 2em auto 0.5em;
+      box-shadow: 0px 2px 5px #969696;
+      border: 1px solid lightgrey;
     }
 
     .parrent-quiz {
@@ -147,9 +151,9 @@
     }
 
     .btn-primary {
-      border: 1px solid #3f72af !important;
-      background: #3f72af !important;
       padding: 0.7em;
+      background: #39bdabf5!important;
+      border: none !important;
     }
 
     @media (orientation: portrait) and (max-width: 480px) {
@@ -164,7 +168,7 @@
 
     .form-control {
       outline: none !important;
-      border: 1px solid lightgrey;
+      border: 1px solid #f1efef;
       position: relative;
     }
 
@@ -216,6 +220,100 @@
     ._input:focus {
       outline: none;
     }
+
+
+    /* steps progress */
+    /* steps progress */
+
+    #steps_progress {
+      width: 100%;
+      margin: 0px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step_p {
+      width: 30px;
+      height: 30px;
+      background:lightgray;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-color: transparent;
+      border-radius: 50%;
+      color: black;
+      font-weight: 600;
+      text-align: center;
+      /* line-height: 66px; */
+      position: relative;
+      z-index: 10;
+    }
+
+    .step_p:nth-child(n+2) {
+      margin: 0 0 0 60px;
+    }
+
+    .step_p:nth-child(n+2):before {
+      content: '';
+      width: 65px;
+      position: absolute;
+      left: 0;
+      height: 3px;
+      left: 0%;
+      top: 50%;
+      display: block;
+      background-color: white;
+      transform: translate(-100%, 0%);
+      
+
+    }
+
+    .step_p:after {
+      width: fit-content;
+      display: block;
+      position: absolute;
+      left: -8px;
+      top: 30px;
+      /* transform: translate(0px, 24px); */
+      color: grey;
+      content: attr(data-desc);
+      font-weight: 400;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step_p.active {
+      border-color: blue;
+
+      color: blue;
+      z-index: 12;
+    }
+
+    .step_p.active:before {
+      background: linear-gradient(to right, green 0%,
+          blue 100%);
+    }
+
+    .step_p.active:after {
+      color: blue;
+    }
+
+    .step_p.done {
+      background: var(--soft-green);
+      color: white;
+      z-index: 13;
+    }
+
+    .step_p.done:before {
+      background-color:  var(--soft-green);
+      z-index: 15;
+    }
+
+    /* end steps progress */
+    /* end steps progress */
   </style>
   <title>Document</title>
 </head>
@@ -226,27 +324,32 @@
       <button class="btn btn-secondary back-btn">Back</button>
     </div>
     <div class="d-flex justify-content-evenly flex-column w-100 h-100">
-      <div class="text-center title_quiz h-25 d-flex justify-content-end flex-column pb-3">
-        <h2>Formular</h2>
-        <div class="mt-2">
-          Completeaza formularul si noi te vom suna in cel mai scurt timp
+  
+      <div class="text-center title_quiz h-25 d-flex justify-content-center flex-column pb-3">
+        <h2 class="mb-4">Formular</h2>
+        <div id="steps_progress">
+          <div class="step_p" data-desc="contact">1</div>
+          <div class="step_p" data-desc="credit">2</div>
+          <div class="step_p active" data-desc="info2">3</div>
+          <div class="step_p" data-desc="trimite">4</div>
         </div>
+   
       </div>
+      <div class="pt-5 text-center">Salut sunt Gabriela,consultantul tau online pentru credite</div>
       <div class="parrent-quiz h-50 w-100 flex-column">
         <div class="mt-3 border-dark w-100">
           <form class="form_class">
             <div id="step1-container" class="_steps">
-              <div class="text_steps py-2">Pasul 1:Date personale</div>
               <div class="form-group my-2 py-2 _forms">
-                <label for="name" class="_label">Nume </label>
+                <label for="name" class="_label">Nume</label>
                 <input type="text" class="form-control form-control-lg _input" id="name" />
               </div>
               <div class="form-group my-2 py-2 _forms">
-                <label for="phone" class="_label">Telefon </label>
+                <label for="phone" class="_label">Telefon</label>
                 <input type="tel" class="form-control form-control-lg _input" id="phone" />
               </div>
               <div class="form-group my-2 py-2 _forms">
-                <label for="email" class="_label">Email </label>
+                <label for="email" class="_label">Email</label>
                 <input type="email" class="form-control form-control-lg _input" id="email" />
               </div>
               <button id="continue-btn" type="button" class="btn btn-primary mt-3 w-100 justify-content-center"
@@ -269,7 +372,7 @@
             </div>
 
             <div id="step3-container" class="step-container _steps _step3 " style="display: none">
-            <h2 class="text-center">some info</h2>
+              <h2 class="text-center">some info</h2>
               <h3 class="my-3 py-2 text-center">Step 3</h3>
               <div class="form-group _forms my-2 py-2">
                 <label for="step2" class="_label">data angajarii</label>
@@ -285,9 +388,9 @@
                 </button> -->
                 </div>
               </div>
-          
+
             </div>
-        
+
             <div id="step4-container" class="_steps" style="display: none">
               <div class="parent_step4 d-flex justify-content-between text-center flex-column">
                 <h3>Step 4</h3>
@@ -460,6 +563,15 @@
       required: "required",
       maxlength: "40",
     });
+
+    $('.step_p').each(function (index, element) {
+      // element == this
+      $(element).not('.active').addClass('done');
+      $('.done').html('<i class="icon-ok"></i>');
+      if ($(this).is('.active')) {
+        return false;
+      }
+    });  
   </script>
   <!-- <script>
       document.addEventListener("DOMContentLoaded", function () {
