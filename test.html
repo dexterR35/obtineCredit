@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+        integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"
+        integrity="sha512-DWtDo/6AXxH1t9p7GCWqmC4XTVK/eje94XTV6QYB39rGllLN8Tr3izDf6lkmebgqRnYh4wtSFm4CvBoA9SrdpA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Libre Franklin", sans-serif;
+            background: #f2f2f2;
+        }
+
+        /* #container {
+        margin: 0 auto;
+      }
+
+      #input-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      #continue-btn {
+        cursor: pointer;
+        display: none;
+      }
+
+      #step1-container {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      #step1-container p {
+        font-size: 18px;
+        font-weight: bold;
+      } */
+
+        ._input {
+            border: none;
+            outline: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #dfdfdf;
+        }
+
+        .wrapper-container {
+            max-width: 500px;
+            max-width: 600px;
+            max-height: 600px;
+            background: aquamarine;
+            padding: 18px;
+            position: relative;
+        }
+
+        .btn-back {
+            position: absolute;
+            top: 0;
+            right: 20px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container wrapper-container">
+        <div class="row text-center title_quiz">
+            <h2>titlu Primar</h2>
+            <div class="mt-2">Completeaza si te suntam plm</div>
+        </div>
+        <div class="mt-3 border-dark">
+            <form class="">
+                <div id="step1-container">
+                    <h3>Step 1</h3>
+
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" class="form-control" id="name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone:</label>
+                        <input type="tel" class="form-control" id="phone" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" class="form-control" id="email" />
+                    </div>
+                    <button id="continue-btn" type="button" class="btn btn-primary mt-3 w-100 justify-content-center"
+                        style="display: flex">
+                        Continue
+                    </button>
+                </div>
+
+                <div id="step2-container" style="display: none">
+                    <h3>Step 2</h3>
+                    <p>Question 2: Do you want to proceed?</p>
+                    <div class="row flex-nowrap gap-2 justify-content-center px-2 buttons_">
+                        <button id="yes-step1" type="button" class="btn btn-primary w-50">
+                            Yes
+                        </button>
+                        <button id="no-step1" type="button" class="btn btn-danger w-50">
+                            No
+                        </button>
+                    </div>
+                </div>
+
+                <div id="step3-container" class="step-container" style="display: none">
+                    <div class="form-group">
+                        <label for="step2">data angajarii</label>
+                        <input type="text" class="form-control" id="jobStart" />
+                    </div>
+                    <div class="question" style="display: none;">
+                        <div class="row flex-nowrap gap-2 justify-content-center px-2 buttons_">
+                            <button id="step3-yes" type="button" class="btn btn-primary w-50">
+                                Yes
+                            </button>
+                            <button id="step3-no" type="button" class="btn btn-primary w-50">
+                                No
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="step4-container" style="display: none">
+                    <h3>Step 4</h3>
+                    <p>Question 4: Do you want to proceed?</p>
+                    <div class="row flex-nowrap gap-2 justify-content-center px-2 buttons_">
+                        <button id="step4-yes" type="button" class="btn btn-primary">
+                            Yes
+                        </button>
+                        <button id="step4-no" type="button" class="btn btn-danger">
+                            No
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mt-3 btn-back">
+                    <button class="btn btn-secondary back-btn">Back</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        // Get input elements and buttons
+        const nameInput = document.getElementById("name");
+        const phoneInput = document.getElementById("phone");
+        const emailInput = document.getElementById("email");
+
+        const continueBtn = document.getElementById("continue-btn");
+
+        const yesStep1Btn = document.getElementById("yes-step1");
+        const noStep1Btn = document.getElementById("no-step1");
+        const answerInput = document.getElementById("answer");
+
+        const step3YesBtn = document.getElementById("step3-yes");
+        const step3NoBtn = document.getElementById("step3-no");
+
+        const step4YesBtn = document.getElementById("step4-yes");
+        const step4NoBtn = document.getElementById("step4-no");
+
+        const jobStart = document.getElementById("jobStart");
+const question = document.querySelector(".question")
+        // Get step containers
+        const step1Container = document.getElementById("step1-container");
+        const step2Container = document.getElementById("step2-container");
+        const step3Container = document.getElementById("step3-container");
+        const step4Container = document.getElementById("step4-container");
+
+        continueBtn.style.display = "none";
+        // Function to check if all inputs are filled
+        function checkInputs() {
+            const nameValue = nameInput.value.trim();
+            const phoneValue = phoneInput.value.trim();
+            const emailValue = emailInput.value.trim();
+            const jobValue = jobStart.value.trim();
+            console.log("jobValue");
+            if (nameValue !== "" && phoneValue !== "" && emailValue !== "") {
+                continueBtn.style.display = "flex";
+            } else {
+                continueBtn.style.display = "none";
+            }
+            if (jobValue !== "") {
+                question.style.display = "inline-block";
+            } else {
+                question.style.display = "none";
+            }
+        }
+
+        // Function to show/hide step containers
+        async function showHideSteps(currentStep, nextStep) {
+            currentStep.style.display = "none";
+
+          
+
+            nextStep.style.display = "block";
+        }
+
+        // Add event listeners to input fields
+        nameInput.addEventListener("input", checkInputs);
+        phoneInput.addEventListener("input", checkInputs);
+        emailInput.addEventListener("input", checkInputs);
+
+        // Add event listener to continue button
+        continueBtn.addEventListener("click", async () => {
+            await showHideSteps(step1Container, step2Container);
+        });
+
+        // Add event listener to yes button in step 2
+        yesStep1Btn.addEventListener("click", async () => {
+            await showHideSteps(step2Container, step3Container);
+        });
+
+        // Add event listener to no button in step 2
+        noStep1Btn.addEventListener("click", async () => {
+            await showHideSteps(step2Container, step4Container);
+        });
+
+        // Add event listener to yes button in step 3
+        step3YesBtn.addEventListener("click", async () => {
+            await showHideSteps(step3Container, step4Container);
+        });
+
+        // Add event listener to no button in step 3
+        step3NoBtn.addEventListener("click", async () => {
+            // Do something else
+            alert("btn4no");
+        });
+
+        // Add event listener to yes button in step 4
+        step4YesBtn.addEventListener("click", async () => {
+            // Do something else
+            alert("btn4Yes");
+        });
+
+        // Add event listener to no button in step 4
+        step4NoBtn.addEventListener("click", async () => {
+            // Do something else
+            alert("btn4no");
+        });
+
+        const backBtns = document.querySelectorAll(".back-btn");
+        backBtns.forEach((backBtn) => {
+            backBtn.addEventListener("click", async () => {
+                const currentStep = backBtn.closest(".step-container");
+                const previousStep =
+                    currentStep && currentStep.previousElementSibling;
+                if (previousStep) {
+                    await showHideSteps(currentStep, previousStep);
+                }
+            });
+        });
+    </script>
+    <!-- <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const nameInput = document.querySelector("#name");
+        const phoneInput = document.querySelector("#phone");
+        const emailInput = document.querySelector("#email");
+        const continueBtn = document.querySelector("#continue-btn");
+
+        const yesBtnStep1 = document.querySelector("#yes-step1");
+        const noBtnStep1 = document.querySelector("#no-step1");
+
+        const step1Container = document.querySelector("#step1-container");
+        const step2Container = document.querySelector("#step2-container");
+        const step3Container = document.querySelector("#step3-container");
+        const step4Container = document.querySelector("#step4-container");
+
+        const noBtnStep2 = document.querySelector("#no-step2");
+        const inputStep3 = document.querySelector("#input-step3");
+        const confirmBtn = document.querySelector("#confirm-btn");
+        const cancelBtn = document.querySelector("#cancel-btn");
+
+        function checkInputs() {
+          const nameValue = nameInput.value.trim();
+          const phoneValue = phoneInput.value.trim();
+          const emailValue = emailInput.value.trim();
+
+          if (nameValue !== "" && phoneValue !== "" && emailValue !== "") {
+            continueBtn.style.display = "block";
+          } else {
+            continueBtn.style.display = "none";
+          }
+        }
+
+        function showQuestion() {
+          const inputContainer = document.querySelector("#input-container");
+          inputContainer.style.display = "none";
+          step1Container.style.display = "flex";
+          step2Container.style.display = "flex";
+        }
+
+        function waitForAnswer(yesBtn, noBtn) {
+          return new Promise((resolve) => {
+            yesBtn.addEventListener("click", () => resolve("yes"), {
+              once: true,
+            });
+            noBtn.addEventListener("click", () => resolve("no"), {
+              once: true,
+            });
+          });
+        }
+
+        function showStep3() {
+          step1Container.style.display = "none";
+          step2Container.style.display = "none";
+          step3Container.style.display = "flex";
+
+          const inputField = document.createElement("input");
+          inputField.type = "text";
+          inputField.id = "input-step3";
+          inputField.placeholder = "Enter some text...";
+          const buttonContainer = document.createElement("div");
+          buttonContainer.classList.add(
+            "d-flex",
+            "justify-content-center",
+            "py-2"
+          );
+          confirmBtn.style.display = "none";
+          const cancelBtn = document.createElement("button");
+          cancelBtn.classList.add("btn", "btn-secondary");
+          cancelBtn.textContent = "Cancel";
+          buttonContainer.appendChild(confirmBtn);
+          buttonContainer.appendChild(cancelBtn);
+          step3Container.appendChild(inputField);
+          step3Container.appendChild(buttonContainer);
+          inputField.addEventListener("input", function () {
+            const inputValue = this.value.trim();
+            if (inputValue !== "") {
+              confirmBtn.style.display = "inline-block";
+            } else {
+              confirmBtn.style.display = "none";
+            }
+          });
+          cancelBtn.addEventListener("click", function () {
+            step3Container.style.display = "none";
+            step1Container.style.display = "flex";
+          });
+        }
+        function showStep4() {
+          step2Container.style.display = "none";
+          step3Container.style.display = "none";
+          const fruits = ["Apple", "Banana", "Orange", "Mango", "Pineapple"];
+          const listContainer = document.createElement("div");
+          listContainer.classList.add("list-container");
+          const listTitle = document.createElement("h3");
+          listTitle.textContent = "Choose a fruit:";
+          const list = document.createElement("ul");
+          list.classList.add("list-group", "list-group-flush");
+          for (let i = 0; i < fruits.length; i++) {
+            const listItem = document.createElement("li");
+            listItem.classList.add("list-group-item");
+            const label = document.createElement("label");
+            const input = document.createElement("input");
+            input.type = "radio";
+            input.name = "fruits";
+            input.value = fruits[i];
+            label.appendChild(input);
+            label.appendChild(document.createTextNode(fruits[i]));
+            listItem.appendChild(label);
+            list.appendChild(listItem);
+          }
+          const buttonContainer = document.createElement("div");
+          buttonContainer.classList.add(
+            "d-flex",
+            "justify-content-center",
+            "py-2"
+          );
+          const submitBtn = document.createElement("button");
+          submitBtn.classList.add("btn", "btn-primary");
+          submitBtn.type = "submit";
+          submitBtn.textContent = "Submit";
+          buttonContainer.appendChild(submitBtn);
+          listContainer.appendChild(listTitle);
+          listContainer.appendChild(list);
+          step4Container.appendChild(listContainer);
+          step4Container.appendChild(buttonContainer);
+          document.querySelector("form").addEventListener("submit", (event) => {
+            event.preventDefault();
+            const selectedFruit = document.querySelector(
+              'input[name="fruits"]:checked'
+            );
+            if (selectedFruit) {
+              alert("You have selected " + selectedFruit.value);
+            } else {
+              alert("Please select a fruit.");
+            }
+          });
+          step4Container.style.display = "flex";
+        }
+        continueBtn.addEventListener("click", showQuestion);
+      });
+    </script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
