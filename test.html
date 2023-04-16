@@ -47,10 +47,7 @@
       --transition-mask: 0.5s ease-out;
       --transition-input: ease 250ms;
 
-
-
-
-    --soft-green:#39bdabf5;
+      --soft-green: #39bdabf5;
     }
 
     body {
@@ -114,7 +111,6 @@
       border: 1px solid #dfdfdf;
     }
 
-
     .wrapper-container {
       width: 40em;
       height: 45em;
@@ -150,7 +146,7 @@
 
     .btn-primary {
       padding: 0.7em;
-      background: #39bdabf5!important;
+      background: #39bdabf5 !important;
       border: none !important;
     }
 
@@ -219,7 +215,6 @@
       outline: none;
     }
 
-
     /* steps progress */
     /* steps progress */
 
@@ -234,7 +229,7 @@
     .step_p {
       width: 30px;
       height: 30px;
-      background:lightgray;
+      background: lightgray;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -248,12 +243,12 @@
       z-index: 10;
     }
 
-    .step_p:nth-child(n+2) {
+    .step_p:nth-child(n + 2) {
       margin: 0 0 0 60px;
     }
 
-    .step_p:nth-child(n+2):before {
-      content: '';
+    .step_p:nth-child(n + 2):before {
+      content: "";
       width: 65px;
       position: absolute;
       left: 0;
@@ -263,8 +258,6 @@
       display: block;
       background-color: white;
       transform: translate(-100%, 0%);
-      
-
     }
 
     .step_p:after {
@@ -291,8 +284,7 @@
     }
 
     .step_p.active:before {
-      background: linear-gradient(to right, green 0%,
-          blue 100%);
+      background: linear-gradient(to right, green 0%, blue 100%);
     }
 
     .step_p.active:after {
@@ -306,11 +298,9 @@
     }
 
     .step_p.done:before {
-      background-color:  var(--soft-green);
+      background-color: var(--soft-green);
       z-index: 15;
     }
-
-
 
     .text-title {
       font-weight: 700;
@@ -318,6 +308,7 @@
       line-height: 1.2;
       /* background-color: red; */
     }
+
     .text-subtitle {
       font-weight: 300;
       font-size: 0.8em;
@@ -327,8 +318,38 @@
       font-size: 0.75em;
       font-weight: 400;
     }
+
     /* end steps progress */
     /* end steps progress */
+
+    /* step 4 ,list banks */
+
+    /* style for the selected list items */
+    .selected_banks {
+      background-color: yellow;
+    }
+
+    /* style for the selected items div */
+    #selectedItems {
+      margin-top: 20px;
+    }
+
+    ._img_Bank {
+      width: 65px;
+    }
+
+  .list_banks li {
+      list-style: none;
+      width: 95px;
+    }
+
+    ._raiff {
+      width: 80px;
+    }
+
+    ._brd {
+      width: 82;
+    }
   </style>
   <title>Document</title>
 </head>
@@ -342,18 +363,20 @@
       <button class="btn btn-secondary back-btn">Back</button>
     </div> -->
     <div class="d-flex justify-content-evenly flex-column w-100 h-100">
-  
-      <div class="text-center title_quiz h-25 d-flex justify-content-end flex-column pb-0 pt-4">
- 
-        <div class="text-title text-start mb-2">Obține Credite cu Succes Ghidul Tău de</div>
-        <div class="text-subtitle text-start">Află cum poți obține cele mai bune oferte de credite prin intermediul experților sssss ssss.</div>
+      <div class="text-center title_quiz h-25 justify-content-end flex-column pb-0 pt-4">
+        <div class="text-title text-start mb-2">
+          Obține Credite cu Succes Ghidul Tău de
+        </div>
+        <div class="text-subtitle text-start">
+          Află cum poți obține cele mai bune oferte de credite prin
+          intermediul experților sssss ssss.
+        </div>
         <!-- <div id="steps_progress">
           <div class="step_p" data-desc="contact">1</div>
           <div class="step_p" data-desc="credit">2</div>
           <div class="step_p active" data-desc="info2">3</div>
           <div class="step_p" data-desc="trimite">4</div>
         </div> -->
-   
       </div>
       <!-- <div class="pt-5 text-center">Salut sunt Gabriela,consultantul tau online pentru credite</div> -->
       <div class="parrent-quiz h-50 w-100 flex-column">
@@ -380,7 +403,9 @@
 
             <div id="step2-container" class="_steps text-center" style="display: none">
               <h3 class="my-3 py-2">Step 2</h3>
-              <p class="my-3 py-2">esti raportat negativ in BIROUL DE CREDIT?</p>
+              <p class="my-3 py-2">
+                esti raportat negativ in BIROUL DE CREDIT?
+              </p>
               <div class="row flex-nowrap gap-2 justify-content-center px-2 my-3 buttons_">
                 <button id="yes-step1" type="button" class="btn btn-primary btn-half">
                   Da
@@ -391,7 +416,7 @@
               </div>
             </div>
 
-            <div id="step3-container" class="step-container _steps _step3 " style="display: none">
+            <div id="step3-container" class="step-container _steps _step3" style="display: none">
               <h2 class="text-center">some info</h2>
               <h3 class="my-3 py-2 text-center">Step 3</h3>
               <div class="form-group _forms my-2 py-2">
@@ -408,22 +433,86 @@
                 </button> -->
                 </div>
               </div>
+            </div>
 
-            </div>
-            <div class="terms_div d-flex justify-content-start flex-column mt-5">
-              <div class="term_one _term_text">first text</div>
-              <div class="term_two _term_text">termeni si conditii</div>
-            </div>
             <div id="step4-container" class="_steps" style="display: none">
               <div class="parent_step4 d-flex justify-content-between text-center flex-column">
                 <h3>Step 4</h3>
                 <p>lista de banci</p>
-                <ul>
-                  <li>1</li>
-                  <li>1</li>
-                  <li>2</li>
-                  <li>3</li>
+                <ul id="list_banks" class="d-flex justify-content-center align-items-center flex-wrap p-0 gap-2 list_banks">
+                  <li>
+                    <img src="./png/logo/bcr.png" class="_img_Bank" alt="Image 1" />
+                    <div>bcr</div>
+                  </li>
+                  <li>
+                    <img src="./png/logo/raiff.png" alt="Image 2" class="_img_Bank _raiff" />
+                    <div>Paragraph 1</div>
+                  </li>
+                  <li>
+                    <img src="./png/logo/brd.png" alt="Image 3" class="_img_Bank" />
+                    <div>Paragraph 1</div>
+                  </li>
+                  <li>
+                    <img src="./png/logo/brd.png" alt="Image 4" class="_img_Bank" />
+                    <div>Paragraph 1</div>
+                  </li>
+                  <li>
+                    <img src="./png/logo/raiff.png" alt="Image 5" class="_img_Bank" />
+                    <div>Paragraph 1</div>
+                  </li>
+                  <li>
+                    <img src="./png/logo/brd.png" alt="Image 6" class="_img_Bank" />
+                    <div>Paragraph 1</div>
+                  </li>
+                  <li>
+                    <img src="./png/logo/raiff.png" alt="Image 7" class="_img_Bank" />
+                    <div>Paragraph 1</div>
+                  </li>
+                  <li>
+                    <img src="./png/logo/brd.png" alt="Image 8" class="_img_Bank" />
+                    <div>Paragraph 1</div>
+                  </li>
+                  <li>
+                    <img src="./png/logo/raiff.png" alt="Image 9" class="_img_Bank" />
+                    <div>Paragraph 1</div>
+                  </li>
+                  <li>
+                    <img src="./png/logo/brd.png" alt="Image 10" class="_img_Bank" />
+                    <div>Paragraph 1</div>
+                  </li>
+              
+                
                 </ul>
+                <h4>Ifn-uri</h4>
+             
+                <ul class="d-flex justify-content-center align-items-center flex-wrap p-0 gap-2 list_banks">
+                
+                  <li>
+                    <img src="./png/logo/brd.png" alt="Image 10" class="_img_Bank" />
+                    <div>Paragraph 1</div>
+                  </li>
+                  <li>
+                    <img src="./png/logo/brd.png" alt="Image 10" class="_img_Bank" />
+                    <div>Paragraph 1</div>
+                  </li>
+                  <li>
+                    <img src="./png/logo/brd.png" alt="Image 10" class="_img_Bank" />
+                    <div>Paragraph 1</div>
+                  </li>
+                  <li>
+                    <img src="./png/logo/brd.png" alt="Image 4" class="_img_Bank" />
+                    <div>Paragraph 1</div>
+                  </li>
+                  <li>
+                    <img src="./png/logo/raiff.png" alt="Image 5" class="_img_Bank" />
+                    <div>Paragraph 1</div>
+                  </li>
+                  <li>
+                    <img src="./png/logo/brd.png" alt="Image 6" class="_img_Bank" />
+                    <div>Paragraph 1</div>
+                  </li>
+                </ul>
+                <div id="selectedItems"></div>
                 <div class="row flex-nowrap gap-2 justify-content-center px-2 buttons_">
                   <button id="step4-yes" type="button" class="btn btn-primary btn-half">
                     Da
@@ -434,12 +523,15 @@
                 </div>
               </div>
             </div>
-
+            <div class="terms_div d-flex justify-content-start flex-column mt-5">
+              <div class="term_one _term_text">first text</div>
+              <div class="term_two _term_text">termeni si conditii</div>
+            </div>
           </form>
         </div>
       </div>
       <div class="footer d-flex justify-content-center align-items-end h-25">
-        <p style="font-size: 0.6em; margin-bottom: 0px;">pwd by Luna</p>
+        <p style="font-size: 0.6em; margin-bottom: 0px">pwd by Luna</p>
       </div>
     </div>
   </div>
@@ -501,7 +593,7 @@
     async function showHideSteps(currentStep, nextStep, titleQuiz) {
       currentStep.style.display = "none";
       nextStep.style.display = "block";
-      titleQuiz.style.visibility = "hidden";
+      titleQuiz.style.display = "none";
     }
 
     // Add event listener to continue button
@@ -516,13 +608,12 @@
 
     // Add event listener to no button in step 2
     noStep1Btn.addEventListener("click", async () => {
-
       await showHideSteps(step2Container, step3Container);
     });
 
     // Add event listener to yes button in step 3
     step3YesBtn.addEventListener("click", async () => {
-      await showHideSteps(step3Container, step4Container);
+      await showHideSteps(step3Container, step4Container, titleQuiz);
     });
 
     // // Add event listener to no button in step 3
@@ -587,14 +678,47 @@
       maxlength: "40",
     });
 
-    $('.step_p').each(function (index, element) {
+    $(".step_p").each(function (index, element) {
       // element == this
-      $(element).not('.active').addClass('done');
-      $('.done').html('<i class="icon-ok"></i>');
-      if ($(this).is('.active')) {
+      $(element).not(".active").addClass("done");
+      $(".done").html('<i class="icon-ok"></i>');
+      if ($(this).is(".active")) {
         return false;
       }
-    });  
+    });
+
+    function listBanks() {
+      // get the unordered list element
+      const list = document.querySelector(".list_banks");
+
+      // get the div where the selected items will be displayed
+      const selectedItems = document.getElementById("selectedItems");
+
+      // add event listener for when a list item is clicked
+      list.addEventListener("click", function (e) {
+        // get the clicked list item
+        const listItem = e.target.closest("li");
+
+        // toggle the "selected" class on the clicked list item
+        listItem.classList.toggle("selected_banks");
+
+        // get all the selected list items
+        const selectedListItems =
+          document.querySelectorAll(".selected_banks");
+
+        // clear the selected items div
+        selectedItems.innerHTML = "";
+
+        // loop through the selected list items and add their content to the selected items div
+        selectedListItems.forEach(function (selectedItem) {
+          const img = selectedItem.querySelector("img").cloneNode(true);
+          const p = selectedItem.querySelector("p").cloneNode(true);
+          selectedItems.appendChild(img);
+          selectedItems.appendChild(p);
+        });
+      });
+    }
+    listBanks();
   </script>
   <!-- <script>
       document.addEventListener("DOMContentLoaded", function () {
