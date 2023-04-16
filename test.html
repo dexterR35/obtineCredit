@@ -42,11 +42,11 @@
 
       --h1-title: #ff4c16;
 
-      --color-focusText: #333743;
-
+      --color-focusText: #393e46;
+--color_text:#393e46;
       --transition-mask: 0.5s ease-out;
       --transition-input: ease 250ms;
-
+--de_salvat:#ff7e7e;
       --soft-green: #39bdabf5;
     }
 
@@ -59,12 +59,12 @@
 
     h2 {
       font-weight: 700;
-      color: #393e46;
+      color: var(--color_text);
     }
 
     div,
     label {
-      color: #393e46;
+      color: var(--color_text);
     }
 
     h3 {
@@ -137,7 +137,7 @@
       position: absolute;
       top: 20px;
       right: 20px;
-      color: black;
+      color: var(--color_text);
     }
 
     .btn-half {
@@ -146,7 +146,7 @@
 
     .btn-primary {
       padding: 0.7em;
-      background: #39bdabf5 !important;
+      background: var(--soft-green) !important;
       border: none !important;
     }
 
@@ -162,7 +162,7 @@
 
     .form-control {
       outline: none !important;
-      border: 1px solid #f1efef;
+      border: 1px solid #f1efef !important;
       position: relative;
     }
 
@@ -178,7 +178,7 @@
     ._label {
       font-size: 0.85em;
       position: absolute;
-      color: black;
+      color: var(--color_text);
       font-weight: 400;
       z-index: 1;
       text-transform: capitalize;
@@ -191,30 +191,30 @@
     }
 
     ._input .input-border-color {
-      border-color: red !important;
+      border-color:var(--soft-green) !important;
     }
 
     ._forms.focus ._label,
     ._forms.active ._label {
-      color: red;
+      color: var(--color-focusText);
       top: -12px;
       /* background: var(--bg-white); */
       font-size: 13px;
       z-index: 1;
       font-weight: 400;
       transition: var(--transition-input);
+
     }
 
     ._input:focus {
-      border-color: lightcoral !important;
+ border: 1px solid !important;
+      border-color:var(--soft-green) !important;
       outline: none;
-      box-shadow: 0px 1px 5px lightblue;
+      box-shadow: 0px 1px 5px rgb(211, 211, 211);
+
     }
 
-    ._input:focus {
-      outline: none;
-    }
-
+ 
     /* steps progress */
     /* steps progress */
 
@@ -235,7 +235,7 @@
       justify-content: center;
       border-color: transparent;
       border-radius: 50%;
-      color: black;
+      color: var(--color_text);
       font-weight: 600;
       text-align: center;
       /* line-height: 66px; */
@@ -353,36 +353,36 @@
   </style>
   <title>Document</title>
 </head>
-
-<body>
-  <div class="container wrapper-container">
-    <div class="header_quiz w-100">
-      <div class="logo text-left">logo</div>
-    </div>
-    <!-- <div class="mt-3 btn-back">
-      <button class="btn btn-secondary back-btn">Back</button>
-    </div> -->
-    <div class="d-flex justify-content-evenly flex-column w-100 h-100">
-      <div class="text-center title_quiz h-25 justify-content-end flex-column pb-0 pt-4">
-        <div class="text-title text-start mb-2">
-          Obține Credite cu Succes Ghidul Tău de
-        </div>
-        <div class="text-subtitle text-start">
-          Află cum poți obține cele mai bune oferte de credite prin
-          intermediul experților sssss ssss.
-        </div>
         <!-- <div id="steps_progress">
           <div class="step_p" data-desc="contact">1</div>
           <div class="step_p" data-desc="credit">2</div>
           <div class="step_p active" data-desc="info2">3</div>
           <div class="step_p" data-desc="trimite">4</div>
         </div> -->
-      </div>
+<body>
+  <div class="container wrapper-container">
+    <div class="header_quiz w-100 pb-4 mb-1">
+      <div class="logo text-left">logo</div>
+    </div>
+    <!-- <div class="mt-3 btn-back">
+      <button class="btn btn-secondary back-btn">Back</button>
+    </div> -->
+    <div class="w-100 h-100">
       <!-- <div class="pt-5 text-center">Salut sunt Gabriela,consultantul tau online pentru credite</div> -->
-      <div class="parrent-quiz h-50 w-100 flex-column">
-        <div class="mt-4 border-dark w-100">
-          <form class="form_class">
-            <div id="step1-container" class="_steps">
+      <div class="parrent-quiz w-100 h-100">
+        <div class="w-100">
+          <form class="form_class h-100">
+            <div id="step1-container" class="_steps pt-4">
+              <div class="title_quiz pb-2 mb-3">
+                <div class="text-title text-start mb-2">
+                  Obține Credite cu Succes Ghidul Tău de
+                </div>
+                <div class="text-subtitle text-start">
+                  Află cum poți obține cele mai bune oferte de credite prin
+                  intermediul experților sssss ssss.
+                </div>
+              </div>
+              <div class="text-center">pasul unu</div>
               <div class="form-group my-2 py-2 _forms">
                 <label for="name" class="_label">nume</label>
                 <input type="text" class="form-control form-control-lg _input" id="name" />
@@ -402,10 +402,26 @@
             </div>
 
             <div id="step2-container" class="_steps text-center" style="display: none">
-              <h3 class="my-3 py-2">Step 2</h3>
-              <p class="my-3 py-2">
-                esti raportat negativ in BIROUL DE CREDIT?
-              </p>
+              <div class="title_quiz text-center">
+                <h2 class="mb-2">hello {numele}</h2>
+                <div class="text-standard w-100">
+                  Salut sunt Gabriela,consultantul tau online pentru credite
+                </div>
+                <div class="text-standard">
+                  Află cum poți obține cele mai bune oferte de credite prin
+                  intermediul experților.
+                </div>
+                <div class="text-standard">
+                  Află cum poți obține cele mai bune oferte de credite prin
+                  intermediul experților.
+                </div>
+              </div>
+              <div class="text-center">pasul 2</div>
+              <div class="col">
+                <p class="my-3 py-2">
+                  esti raportat negativ in BIROUL DE CREDIT?
+                </p>
+              </div>
               <div class="row flex-nowrap gap-2 justify-content-center px-2 my-3 buttons_">
                 <button id="yes-step1" type="button" class="btn btn-primary btn-half">
                   Da
@@ -523,16 +539,21 @@
                 </div>
               </div>
             </div>
-            <div class="terms_div d-flex justify-content-start flex-column mt-5">
-              <div class="term_one _term_text">first text</div>
-              <div class="term_two _term_text">termeni si conditii</div>
-            </div>
+          
           </form>
+      
         </div>
+       
       </div>
-      <div class="footer d-flex justify-content-center align-items-end h-25">
-        <p style="font-size: 0.6em; margin-bottom: 0px">pwd by Luna</p>
-      </div>
+ 
+    </div>
+    <div class="terms_div d-flex justify-content-start flex-column w-100 pt-5" >
+      <div class="term_one _term_text">first text</div>
+      <div class="term_two _term_text">termeni si conditii</div>
+    </div>
+    <div class="footer d-flex justify-content-center align-items-end h-25 w-100">
+      
+      <p style="font-size: 0.6em; margin-bottom: 0px">pwd by Luna</p>
     </div>
   </div>
   <script>
@@ -658,10 +679,7 @@
         boxR.classList.remove("focus");
         $("._input").each(function () {
           let $input = $(this);
-          console.log($input, "test");
-          console.log($(this), "test2");
           let $parent = $input.closest("._forms");
-          console.log($parent, "test3");
           if ($input.val()) {
             $parent.addClass("focus");
           } else {
