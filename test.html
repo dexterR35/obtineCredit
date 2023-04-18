@@ -8,9 +8,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
     integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.js"
-    integrity="sha512-DWtDo/6AXxH1t9p7GCWqmC4XTVK/eje94XTV6QYB39rGllLN8Tr3izDf6lkmebgqRnYh4wtSFm4CvBoA9SrdpA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -112,8 +109,8 @@
     }
 
     .wrapper-container {
-      width: 40em;
-      height: 45em;
+      width: 25em;
+      height: 100%;
       background: #f9f9f9;
       padding: 15px 25px;
       position: relative;
@@ -124,6 +121,7 @@
       margin: 2em auto 0.5em;
       box-shadow: 0px 2px 5px #969696;
       border: 1px solid lightgrey;
+      border-radius: 14px;
     }
 
     .parrent-quiz {
@@ -335,12 +333,17 @@
     }
 
     ._img_Bank {
-      width: 65px;
+      width: 80px;
     }
 
   .list_banks li {
-      list-style: none;
-      width: 95px;
+    list-style: none;
+    width: 95px;
+    height: fit-content;
+    margin: 0 auto;
+    padding: 0.25em 0.3em;
+    border: 1px solid lightgray;
+    border-radius: 5px;
     }
 
     ._raiff {
@@ -453,79 +456,87 @@
 
             <div id="step4-container" class="_steps" style="display: none">
               <div class="parent_step4 d-flex justify-content-between text-center flex-column">
-                <h3>Step 4</h3>
-                <p>lista de banci</p>
+                <h3>Selectie Banci</h3>
+                <p>Selecteaza Bancile la care detii raport negativ</p>
                 <ul id="list_banks" class="d-flex justify-content-center align-items-center flex-wrap p-0 gap-2 list_banks">
                   <li>
-                    <img src="./png/logo/bcr.png" class="_img_Bank" alt="Image 1" />
-                    <div>bcr</div>
+                    <img src="./png/logo/bcr.png" alt="Image 1"  class="_img_Bank _bcr"/>            
                   </li>
                   <li>
                     <img src="./png/logo/raiff.png" alt="Image 2" class="_img_Bank _raiff" />
-                    <div>Paragraph 1</div>
                   </li>
                   <li>
-                    <img src="./png/logo/brd.png" alt="Image 3" class="_img_Bank" />
-                    <div>Paragraph 1</div>
+                    <img src="./png/logo/bt.png" alt="Image 3" class="_img_Bank _bt" />              
                   </li>
                   <li>
-                    <img src="./png/logo/brd.png" alt="Image 4" class="_img_Bank" />
-                    <div>Paragraph 1</div>
+                    <img src="./png/logo/garanti.png" alt="Image 4" class="_img_Bank _garanti" />             
                   </li>
                   <li>
-                    <img src="./png/logo/raiff.png" alt="Image 5" class="_img_Bank" />
-                    <div>Paragraph 1</div>
+                    <img src="./png/logo/unicredit.png" alt="Image 5" class="_img_Bank _unicredit" />             
                   </li>
                   <li>
-                    <img src="./png/logo/brd.png" alt="Image 6" class="_img_Bank" />
-                    <div>Paragraph 1</div>
+                    <img src="./png/logo/otp.png" alt="Image 6" class="_img_Bank _otp" />            
                   </li>
                   <li>
-                    <img src="./png/logo/raiff.png" alt="Image 7" class="_img_Bank" />
-                    <div>Paragraph 1</div>
+                    <img src="./png/logo/tbi-bank.png" alt="Image 7" class="_img_Bank _tbiBank" />          
                   </li>
                   <li>
-                    <img src="./png/logo/brd.png" alt="Image 8" class="_img_Bank" />
-                    <div>Paragraph 1</div>
+                    <img src="./png/logo/banca_romaneasca.png" alt="Image 8" class="_img_Bank _br" />           
                   </li>
                   <li>
-                    <img src="./png/logo/raiff.png" alt="Image 9" class="_img_Bank" />
-                    <div>Paragraph 1</div>
+                    <img src="./png/logo/cetelem.png" alt="Image 9" class="_img_Bank _cetelem" />         
                   </li>
                   <li>
-                    <img src="./png/logo/brd.png" alt="Image 10" class="_img_Bank" />
-                    <div>Paragraph 1</div>
+                    <img src="./png/logo/Libra_Bank.webp" alt="Image 10" class="_img_Bank _libra" />             
                   </li>
-              
-                
+                  <li>
+                    <img src="./png/logo/alpha.png" alt="Image 10" class="_img_Bank _alpha" />             
+                  </li>
+                  <li>
+                    <img src="./png/logo/cec.png" alt="Image 10" class="_img_Bank" />
+                  </li>
+                  <li>
+                    <img src="./png/logo/first-Bank.svg" alt="Image 6" class="_img_Bank _first_bank" />
+                  
+                  </li>
                 </ul>
                 <h4>Ifn-uri</h4>
              
-                <ul class="d-flex justify-content-center align-items-center flex-wrap p-0 gap-2 list_banks">
+                <ul class="d-flex justify-content-center align-items-center flex-wrap p-0 gx-2 list_banks">
                 
                   <li>
                     <img src="./png/logo/brd.png" alt="Image 10" class="_img_Bank" />
-                    <div>Paragraph 1</div>
+             
                   </li>
                   <li>
                     <img src="./png/logo/brd.png" alt="Image 10" class="_img_Bank" />
-                    <div>Paragraph 1</div>
+          
                   </li>
                   <li>
-                    <img src="./png/logo/brd.png" alt="Image 10" class="_img_Bank" />
-                    <div>Paragraph 1</div>
+                    <img src="./png/logo/brd.png" alt="Image 10" class="_img_Bank" />              
+                  </li>
+                  <li>
+                    <img src="./png/logo/brd.png" alt="Image 4" class="_img_Bank" />            
+                  </li>
+                  <li>
+                    <img src="./png/logo/raiff.png" alt="Image 5" class="_img_Bank" />          
+                  </li>
+                  <li>
+                    <img src="./png/logo/brd.png" alt="Image 6" class="_img_Bank" />              
+                  </li>
+                  <li>
+                    <img src="./png/logo/brd.png" alt="Image 10" class="_img_Bank" />              
                   </li>
                   <li>
                     <img src="./png/logo/brd.png" alt="Image 4" class="_img_Bank" />
-                    <div>Paragraph 1</div>
+               
                   </li>
                   <li>
                     <img src="./png/logo/raiff.png" alt="Image 5" class="_img_Bank" />
-                    <div>Paragraph 1</div>
+              
                   </li>
                   <li>
-                    <img src="./png/logo/brd.png" alt="Image 6" class="_img_Bank" />
-                    <div>Paragraph 1</div>
+                    <img src="./png/logo/brd.png" alt="Image 6" class="_img_Bank" />                
                   </li>
                 </ul>
                 <div id="selectedItems"></div>
@@ -583,6 +594,8 @@
     const step4Container = document.getElementById("step4-container");
 
     const titleQuiz = document.querySelector(".title_quiz");
+    const termsDiv = document.querySelector(".terms_div");
+    console.log("termsDiv",termsDiv)
 
     continueBtn.style.visibility = "visible";
     // Function to check if all inputs are filled
@@ -611,10 +624,11 @@
     jobStart.addEventListener("input", checkInputs);
 
     // Function to show/hide step containers
-    async function showHideSteps(currentStep, nextStep, titleQuiz) {
+    async function showHideSteps(currentStep, nextStep, titleQuiz,termsDiv) {
       currentStep.style.display = "none";
       nextStep.style.display = "block";
       titleQuiz.style.display = "none";
+      termsDiv.style.display = "none";
     }
 
     // Add event listener to continue button
@@ -624,17 +638,17 @@
 
     // Add event listener to yes button in step 2
     yesStep1Btn.addEventListener("click", async () => {
-      await showHideSteps(step2Container, step4Container);
+      await showHideSteps(step2Container, step4Container, termsDiv);
     });
 
     // Add event listener to no button in step 2
     noStep1Btn.addEventListener("click", async () => {
-      await showHideSteps(step2Container, step3Container);
+      await showHideSteps(step2Container, step3Container,termsDiv);
     });
 
     // Add event listener to yes button in step 3
     step3YesBtn.addEventListener("click", async () => {
-      await showHideSteps(step3Container, step4Container, titleQuiz);
+      await showHideSteps(step3Container, step4Container, titleQuiz, termsDiv);
     });
 
     // // Add event listener to no button in step 3
