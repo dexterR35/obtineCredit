@@ -40,10 +40,10 @@
       --h1-title: #ff4c16;
 
       --color-focusText: #393e46;
---color_text:#393e46;
+      --color_text: #393e46;
       --transition-mask: 0.5s ease-out;
       --transition-input: ease 250ms;
---de_salvat:#ff7e7e;
+      --de_salvat: #ff7e7e;
       --soft-green: #39bdabf5;
     }
 
@@ -53,6 +53,25 @@
       font-weight: 400;
       font-family: "Poppins", sans-serif;
     }
+
+ 
+
+    /* @media (max-width: 1199px) {
+      body {
+        font-size: 90%;
+      }
+    }
+
+    @media (max-width: 991px) {
+      body {
+        font-size: 85%;
+      }
+    }
+    @media (max-width: 767px) {
+      body {
+        font-size: 75%;
+      }
+    } */
 
     h2 {
       font-weight: 700;
@@ -107,6 +126,10 @@
       border-radius: 5px;
       border: 1px solid #dfdfdf;
     }
+    .myPhone {
+      text-decoration: none;
+      
+    }
 
     .wrapper-container {
       width: 25em;
@@ -151,8 +174,7 @@
     @media (orientation: portrait) and (max-width: 480px) {
       .wrapper-container {
         width: 95%;
-        height: 45em;
-
+        height: 87vh;
         border-radius: 20px;
         margin: 0.5em;
       }
@@ -189,7 +211,7 @@
     }
 
     ._input .input-border-color {
-      border-color:var(--soft-green) !important;
+      border-color: var(--soft-green) !important;
     }
 
     ._forms.focus ._label,
@@ -205,14 +227,14 @@
     }
 
     ._input:focus {
- border: 1px solid !important;
-      border-color:var(--soft-green) !important;
+      border: 1px solid !important;
+      border-color: var(--soft-green) !important;
       outline: none;
       box-shadow: 0px 1px 5px rgb(211, 211, 211);
 
     }
 
- 
+
     /* steps progress */
     /* steps progress */
 
@@ -327,6 +349,36 @@
       background-color: yellow;
     }
 
+
+    /* section 2 */
+    /* section 2 */
+    /* section 2 */
+    /* section 2 */
+
+
+
+
+    .text-standard_s2 {
+      font-size: 1.2em;
+    text-align: start;
+    line-height: 1.15;
+
+    }
+
+    .question-s2 {
+      line-height: 1;
+
+      font-size: 1.15em;
+      font-weight: 700;
+      text-transform: uppercase;
+
+    }
+
+.s-2 .title_quiz h2 {
+  text-transform: uppercase;
+    font-size: 1.4em;
+}
+
     /* style for the selected items div */
     #selectedItems {
       margin-top: 20px;
@@ -336,36 +388,75 @@
       width: 80px;
     }
 
-  .list_banks li {
-    list-style: none;
-    width: 95px;
-    height: fit-content;
-    margin: 0 auto;
-    padding: 0.25em 0.3em;
-    border: 1px solid lightgray;
-    border-radius: 5px;
+    .list_banks li {
+      list-style: none;
+      width: 150px;
+      height: fit-content;
+      margin: 0 auto;
+      padding: 0.25em 0.3em;
+      border: 1px solid lightgray;
+      border-radius: 5px;
     }
 
     ._raiff {
-      width: 80px;
+      width: 73px;
     }
 
     ._brd {
-      width: 82;
+      width: 82px;
+    }
+
+    ._unicredit {
+      width: 75px;
+    }
+
+    ._libra {
+      width: 83px;
+    }
+
+    ._alpha {
+      width: 85px;
+    }
+
+    ._brd {
+      width: 82px;
+    }
+
+    .li_bt,
+    .li_br {
+      width: fit-content !important;
+      margin: 0 !important;
+    }
+
+    .li_bt {
+      padding: 0em 1.1em !important;
+    }
+
+    ._bt {
+      width: 115px !important;
+    }
+
+    .li_br {
+      padding: 0.25em 1em !important;
+    }
+
+    ._br {
+      width: 117px !important;
     }
   </style>
   <title>Document</title>
 </head>
-        <!-- <div id="steps_progress">
+<!-- <div id="steps_progress">
           <div class="step_p" data-desc="contact">1</div>
           <div class="step_p" data-desc="credit">2</div>
           <div class="step_p active" data-desc="info2">3</div>
           <div class="step_p" data-desc="trimite">4</div>
         </div> -->
+
 <body>
   <div class="container wrapper-container">
     <div class="header_quiz w-100 pb-4 mb-1">
-      <div class="logo text-left">logo</div>
+      <div class="logo text-left">FH</div>
     </div>
     <!-- <div class="mt-3 btn-back">
       <button class="btn btn-secondary back-btn">Back</button>
@@ -378,7 +469,7 @@
             <div id="step1-container" class="_steps pt-4">
               <div class="title_quiz pb-2 mb-3">
                 <div class="text-title text-start mb-2">
-                  Obține Credite cu Succes Ghidul Tău de
+                  Soluții de creditare personalizate
                 </div>
                 <div class="text-subtitle text-start">
                   Află cum poți obține cele mai bune oferte de credite prin
@@ -388,15 +479,15 @@
               <div class="text-center">pasul unu</div>
               <div class="form-group my-2 py-2 _forms">
                 <label for="name" class="_label">nume</label>
-                <input type="text" class="form-control form-control-lg _input" id="name" />
+                <input type="text" class="form-control form-control-lg _input" id="f_name" />
               </div>
               <div class="form-group my-2 py-2 _forms">
                 <label for="phone" class="_label">Telefon</label>
-                <input type="tel" class="form-control form-control-lg _input" id="phone" />
+                <input type="number" class="form-control form-control-lg _input" id="p_phone" />
               </div>
               <div class="form-group my-2 py-2 _forms">
                 <label for="email" class="_label">Email</label>
-                <input type="email" class="form-control form-control-lg _input" id="email" />
+                <input type="email" class="form-control form-control-lg _input" id="e_email" />
               </div>
               <button id="continue-btn" type="button" class="btn btn-primary mt-3 w-100 justify-content-center"
                 style="display: flex">
@@ -404,34 +495,29 @@
               </button>
             </div>
 
-            <div id="step2-container" class="_steps text-center" style="display: none">
-              <div class="title_quiz text-center">
-                <h2 class="mb-2">hello {numele}</h2>
-                <div class="text-standard w-100">
-                  Salut sunt Gabriela,consultantul tau online pentru credite
+            <div id="step2-container" class="_steps text-center s-2" style="display: none">
+              <div class="title_quiz text-center pt-3">
+                <h2 class="mb-2">Hello! <div id="output-name"></div></h2>
+                <div class="text-standard_s2 w-100">
+                  Eu sunt <b>Gabriela,</b> consultantul tău online cu o <b> experientă de peste 6 ani in domeniu.</b> Te voi
+                  indruma să găsim cele mai bune <b>soluții</b> pentru nevoile tale de la obținerea unui <b>credit nou</b>, până la
+                  refinanțarea creditelor existente sau chiar <b> eliminarea istoricului negativ</b> din Biroul de Credit.
                 </div>
-                <div class="text-standard">
-                  Află cum poți obține cele mai bune oferte de credite prin
-                  intermediul experților.
-                </div>
-                <div class="text-standard">
-                  Află cum poți obține cele mai bune oferte de credite prin
-                  intermediul experților.
-                </div>
+
               </div>
-              <div class="text-center">pasul 2</div>
               <div class="col">
-                <p class="my-3 py-2">
+                <p class="my-3 py-2 question-s2">
                   esti raportat negativ in BIROUL DE CREDIT?
                 </p>
-              </div>
-              <div class="row flex-nowrap gap-2 justify-content-center px-2 my-3 buttons_">
-                <button id="yes-step1" type="button" class="btn btn-primary btn-half">
-                  Da
-                </button>
-                <button id="no-step1" type="button" class="btn btn-primary btn-half">
-                  Nu
-                </button>
+
+                <div class="row flex-nowrap gap-2 justify-content-center px-2 my-3 buttons_">
+                  <button id="yes-step1" type="button" class="btn btn-primary btn-half">
+                    Da
+                  </button>
+                  <button id="no-step1" type="button" class="btn btn-primary btn-half">
+                    Nu
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -458,85 +544,84 @@
               <div class="parent_step4 d-flex justify-content-between text-center flex-column">
                 <h3>Selectie Banci</h3>
                 <p>Selecteaza Bancile la care detii raport negativ</p>
-                <ul id="list_banks" class="d-flex justify-content-center align-items-center flex-wrap p-0 gap-2 list_banks">
-                  <li>
-                    <img src="./png/logo/bcr.png" alt="Image 1"  class="_img_Bank _bcr"/>            
-                  </li>
-                  <li>
-                    <img src="./png/logo/raiff.png" alt="Image 2" class="_img_Bank _raiff" />
-                  </li>
-                  <li>
-                    <img src="./png/logo/bt.png" alt="Image 3" class="_img_Bank _bt" />              
-                  </li>
-                  <li>
-                    <img src="./png/logo/garanti.png" alt="Image 4" class="_img_Bank _garanti" />             
-                  </li>
-                  <li>
-                    <img src="./png/logo/unicredit.png" alt="Image 5" class="_img_Bank _unicredit" />             
-                  </li>
-                  <li>
-                    <img src="./png/logo/otp.png" alt="Image 6" class="_img_Bank _otp" />            
-                  </li>
-                  <li>
-                    <img src="./png/logo/tbi-bank.png" alt="Image 7" class="_img_Bank _tbiBank" />          
-                  </li>
-                  <li>
-                    <img src="./png/logo/banca_romaneasca.png" alt="Image 8" class="_img_Bank _br" />           
-                  </li>
-                  <li>
-                    <img src="./png/logo/cetelem.png" alt="Image 9" class="_img_Bank _cetelem" />         
-                  </li>
-                  <li>
-                    <img src="./png/logo/Libra_Bank.webp" alt="Image 10" class="_img_Bank _libra" />             
-                  </li>
-                  <li>
-                    <img src="./png/logo/alpha.png" alt="Image 10" class="_img_Bank _alpha" />             
-                  </li>
-                  <li>
-                    <img src="./png/logo/cec.png" alt="Image 10" class="_img_Bank" />
-                  </li>
-                  <li>
-                    <img src="./png/logo/first-Bank.svg" alt="Image 6" class="_img_Bank _first_bank" />
-                  
-                  </li>
+                <ul id="list_banks" class="d-flex justify-content-center align-items-center flex-wrap p-0 list_banks">
+                  <div class="d-flex gap-1 flex-column">
+                    <li>
+                      <img src="./png/logo/bcr.png" alt="Image 1" class="_img_Bank _bcr" />
+                    </li>
+                    <li>
+                      <img src="./png/logo/raiff.png" alt="Image 2" class="_img_Bank _raiff" />
+                    </li>
+
+                    <li>
+                      <img src="./png/logo/garanti.png" alt="Image 4" class="_img_Bank _garanti" />
+                    </li>
+                    <li>
+                      <img src="./png/logo/unicredit.png" alt="Image 5" class="_img_Bank _unicredit" />
+                    </li>
+                    <li>
+                      <img src="./png/logo/otp.png" alt="Image 6" class="_img_Bank _otp" />
+                    </li>
+                    <li>
+                      <img src="./png/logo/brd.png" alt="Image 6" class="_img_Bank _brd" />
+                    </li>
+
+                  </div>
+                  <div class="d-flex gap-1 flex-column">
+                    <li>
+                      <img src="./png/logo/tbi-bank.png" alt="Image 7" class="_img_Bank _tbiBank" />
+                    </li>
+                    <li>
+                      <img src="./png/logo/cetelem.png" alt="Image 9" class="_img_Bank _cetelem" />
+                    </li>
+                    <li>
+                      <img src="./png/logo/Libra_Bank.webp" alt="Image 10" class="_img_Bank _libra" />
+                    </li>
+                    <li>
+                      <img src="./png/logo/alpha.png" alt="Image 10" class="_img_Bank _alpha" />
+                    </li>
+                    <li>
+                      <img src="./png/logo/cec.png" alt="Image 10" class="_img_Bank" />
+                    </li>
+                    <li>
+                      <img src="./png/logo/first_Banks.png" alt="Image 6" class="_img_Bank _first_bank" />
+
+                    </li>
+                  </div>
+                  <div>
+                    <div class="w-100 d-flex justify-content-center">
+                      <li class="li_br">
+                        <img src="./png/logo/banca_romaneasca.png" alt="Image 8" class="_img_Bank _br" />
+                      </li>
+                      <li class="li_bt">
+                        <img src="./png/logo/bt.png" alt="Image 3" class="_img_Bank _bt" />
+                      </li>
+                    </div>
+                    <li>
+                      <img src="./png/logo/ing.png" alt="Image 6" class="_img_Bank _ing" />
+                    </li>
+                  </div>
                 </ul>
                 <h4>Ifn-uri</h4>
-             
+
                 <ul class="d-flex justify-content-center align-items-center flex-wrap p-0 gx-2 list_banks">
-                
                   <li>
                     <img src="./png/logo/brd.png" alt="Image 10" class="_img_Bank" />
-             
                   </li>
                   <li>
                     <img src="./png/logo/brd.png" alt="Image 10" class="_img_Bank" />
-          
                   </li>
                   <li>
-                    <img src="./png/logo/brd.png" alt="Image 10" class="_img_Bank" />              
-                  </li>
-                  <li>
-                    <img src="./png/logo/brd.png" alt="Image 4" class="_img_Bank" />            
-                  </li>
-                  <li>
-                    <img src="./png/logo/raiff.png" alt="Image 5" class="_img_Bank" />          
-                  </li>
-                  <li>
-                    <img src="./png/logo/brd.png" alt="Image 6" class="_img_Bank" />              
-                  </li>
-                  <li>
-                    <img src="./png/logo/brd.png" alt="Image 10" class="_img_Bank" />              
+                    <img src="./png/logo/brd.png" alt="Image 10" class="_img_Bank" />
                   </li>
                   <li>
                     <img src="./png/logo/brd.png" alt="Image 4" class="_img_Bank" />
-               
                   </li>
                   <li>
                     <img src="./png/logo/raiff.png" alt="Image 5" class="_img_Bank" />
-              
                   </li>
                   <li>
-                    <img src="./png/logo/brd.png" alt="Image 6" class="_img_Bank" />                
+                    <img src="./png/logo/brd.png" alt="Image 6" class="_img_Bank" />
                   </li>
                 </ul>
                 <div id="selectedItems"></div>
@@ -550,28 +635,28 @@
                 </div>
               </div>
             </div>
-          
+
           </form>
-      
+
         </div>
-       
+
       </div>
- 
+
     </div>
-    <div class="terms_div d-flex justify-content-start flex-column w-100 pt-5" >
+    <div class="terms_div d-flex justify-content-start flex-column w-100 pt-5">
       <div class="term_one _term_text">first text</div>
       <div class="term_two _term_text">termeni si conditii</div>
     </div>
     <div class="footer d-flex justify-content-center align-items-end h-25 w-100">
-      
-      <p style="font-size: 0.6em; margin-bottom: 0px">pwd by Luna</p>
+
+      <p style="font-size: 0.6em; margin-bottom: 0px"><a href="tel:+40786968300" class="myPhone">contacteaza-ma</a></p>
     </div>
   </div>
   <script>
     // Get input elements and buttons
-    const nameInput = document.getElementById("name");
-    const phoneInput = document.getElementById("phone");
-    const emailInput = document.getElementById("email");
+    const nameInput = document.getElementById("f_name");
+    const phoneInput = document.getElementById("p_phone");
+    const emailInput = document.getElementById("e_email");
 
     const continueBtn = document.getElementById("continue-btn");
 
@@ -595,7 +680,14 @@
 
     const titleQuiz = document.querySelector(".title_quiz");
     const termsDiv = document.querySelector(".terms_div");
-    console.log("termsDiv",termsDiv)
+
+
+
+
+
+
+
+    console.log("termsDiv", termsDiv);
 
     continueBtn.style.visibility = "visible";
     // Function to check if all inputs are filled
@@ -604,6 +696,8 @@
       const phoneValue = phoneInput.value.trim();
       const emailValue = emailInput.value.trim();
       const jobValue = jobStart.value.trim();
+
+      document.getElementById("output-name").innerHTML = nameValue;
       console.log("jobValue");
       if (nameValue !== "" && phoneValue !== "" && emailValue !== "") {
         continueBtn.style.visibility = "visible";
@@ -624,7 +718,7 @@
     jobStart.addEventListener("input", checkInputs);
 
     // Function to show/hide step containers
-    async function showHideSteps(currentStep, nextStep, titleQuiz,termsDiv) {
+    async function showHideSteps(currentStep, nextStep, titleQuiz, termsDiv) {
       currentStep.style.display = "none";
       nextStep.style.display = "block";
       titleQuiz.style.display = "none";
@@ -633,6 +727,7 @@
 
     // Add event listener to continue button
     continueBtn.addEventListener("click", async () => {
+
       await showHideSteps(step1Container, step2Container, titleQuiz);
     });
 
@@ -643,7 +738,7 @@
 
     // Add event listener to no button in step 2
     noStep1Btn.addEventListener("click", async () => {
-      await showHideSteps(step2Container, step3Container,termsDiv);
+      await showHideSteps(step2Container, step3Container, termsDiv);
     });
 
     // Add event listener to yes button in step 3
