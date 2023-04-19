@@ -56,7 +56,7 @@
       font-family: "Poppins", sans-serif;
     }
 
-    https://www.youtube.com/watch?v=2VC4PljZrs8
+    https: //www.youtube.com/watch?v=2VC4PljZrs8
 
     @media (max-width: 1199px) {
       body {
@@ -69,6 +69,7 @@
         font-size: 85%;
       }
     }
+
     @media (max-width: 767px) {
       body {
         font-size: 75%;
@@ -135,16 +136,16 @@
     }
 
     .wrapper-container {
-      width: 25em;
-      height: 100%;
+      width: 40em;
+      height: calc(70vh + 10rem + 2px) !important;
       background: #f9f9f9;
-      padding: 15px 25px;
+      padding: 15px 20px;
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      margin: 2em auto 0.5em;
+      /* margin: 2em auto 0.5em; */
       box-shadow: 0px 2px 5px #969696;
       border: 1px solid lightgrey;
       border-radius: 14px;
@@ -177,11 +178,11 @@
 
     @media (orientation: portrait) and (max-width: 480px) {
       .wrapper-container {
-        width: 95%;
+        width: 100%;
         /* height: 87vh; */
         height: calc(70vh + 10rem + 2px) !important;
-        border-radius: 20px;
-        margin: 0.5em;
+        /* border-radius: 20px; */
+        /* margin: 0.5em; */
       }
     }
 
@@ -385,6 +386,7 @@
       text-transform: uppercase;
       font-size: 1.4rem;
     }
+
     .s-2 .title_quiz {
       margin-top: -15px;
     }
@@ -395,49 +397,61 @@
     }
 
     ._img_Bank {
-      height: 35px;
-    padding: 0.1em;
-    width: 100%;
-    object-fit: contain;
+      padding: 0.1em 0.2em;
+      width: 100%;
+      object-fit: contain;
     }
 
     .list_banks li {
+      display: flex;
+      align-items: center;
+      align-items: center;
       list-style: none;
-      width: 105px;
-      height: fit-content;
-      margin: 0 auto;
+      width: 110px;
+      height: 37px;
+      /* margin: 0 auto; */
+      /* height: fit-content;
+      margin: 0 auto; */
       padding: 0.25em 0.3em;
       border: 1px solid lightgray;
       border-radius: 5px;
     }
 
     ._raiff {
-      width: 73px;
+      width: 98px;
     }
 
     ._brd {
-      width: 135px;
+      width: 95px;
     }
 
     ._unicredit {
-      width: 75px;
+      width: 96px;
     }
 
     ._libra {
-      width: 83px;
+      width: 100px;
+    }
+    ._garanti {
+      width: 100px;
+    }
+
+    ._otp {
+      width: 100px;
     }
 
     ._alpha {
+      width: 100px;
+    }
+
+    ._ing {
       width: 85px;
     }
 
-    ._bt {
-      width: 143px !important;
-    }
 
     .li_bt,
     .li_br {
-      width: fit-content !important;
+      /* width: fit-content !important; */
       margin: 0 !important;
     }
 
@@ -446,7 +460,7 @@
     }
 
     ._bt {
-      width: 115px !important;
+      width: 128px !important;
     }
 
     .li_br {
@@ -454,30 +468,33 @@
     }
 
     ._br {
-      width: 117px !important;
+      width: 125px !important;
     }
 
 
 
-   /* section 4 date picker */
-   /* section 4 date picker */
-   /* section 4 date picker */
-   /* section 4 date picker */
-   /* section 4 date picker */
-.date-dropdowns {
-  display: flex;
-  align-items:center;
-  justify-content:center;
-}
-   .day, .month ,.year {
-    padding: 0.5em;
-    border: 1px solid lightgray;
-   }
-   .month {
-    border-right: none;
-    border-left: none;
-   }
+    /* section 4 date picker */
+    /* section 4 date picker */
+    /* section 4 date picker */
+    /* section 4 date picker */
+    /* section 4 date picker */
+    .date-dropdowns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
+    .day,
+    .month,
+    .year {
+      padding: 0.5em;
+      border: 1px solid lightgray;
+    }
+
+    .month {
+      border-right: none;
+      border-left: none;
+    }
   </style>
   <title>Document</title>
 </head>
@@ -501,17 +518,17 @@
       <div class="parrent-quiz w-100 h-100">
         <div class="w-100">
           <form class="form_class h-100">
-            <div id="step1-container" class="_steps pt-4">
-              <div class="title_quiz pb-2 mb-3">
-                <div class="text-title text-start mb-2">
+            <div id="step1-container" class="_steps pt-5">
+              <div class="title_quiz pb-2">
+                <div class="row text-title text-start mb-3 mx-auto">
                   Soluții de creditare personalizate
                 </div>
-                <div class="text-subtitle text-start">
+                <div class="row text-subtitle text-start mb-3 mx-auto">
                   Află cum poți obține cele mai bune oferte de credite prin
                   intermediul experților sssss ssss.
                 </div>
               </div>
-              <div class="text-center">pasul unu</div>
+              <div class="text-center mb-3">pasul unu</div>
               <div class="form-group my-2 py-2 _forms">
                 <label for="name" class="_label">nume</label>
                 <input type="text" class="form-control form-control-lg _input" id="f_name" />
@@ -532,26 +549,31 @@
 
             <div id="step2-container" class="_steps text-center s-2" style="display: none">
               <div class="title_quiz text-center pt-3">
-                <h2 class="mb-4">Hello! <div id="output-name"></div>
-                </h2>
-                <div class="text-standard_s2 w-100">
-                  Eu sunt <b>Gabriela,</b> consultantul tău online cu o <b> experientă de peste 6 ani in domeniu.</b> Te
-                  voi
-                  indruma să găsim cele mai bune <b>soluții</b> pentru nevoile tale de la obținerea unui <b>credit
-                    nou</b>, până la
-                  refinanțarea creditelor existente sau chiar <b> eliminarea istoricului negativ</b> din Biroul de
-                  Credit.
+                <div class="row">
+                  <h2 class="mb-4">Hello! </h2>
+                  <div id="output-name"></div>
+
                 </div>
-                <div class="text-standard_s2 w-100 text-center pt-4">
+                <div class="row text-standard_s2 w-100 mx-auto mb-3">
+                  <div class="p-0 px-md-4">
+                    Eu sunt <b>Gabriela,</b> consultantul tău online cu o <b> experientă de peste 6 ani in domeniu.</b>
+                    Te
+                    voi
+                    indruma să găsim cele mai bune <b>soluții</b> pentru nevoile tale de la obținerea unui <b>credit
+                      nou</b>, până la
+                    refinanțarea creditelor existente sau chiar <b> eliminarea istoricului negativ</b> din Biroul de
+                    Credit.
+                  </div>
+                </div>
+                <div class="row text-standard_s2 w-100 text-center my-4 pt-4 mx-auto">
                   Te rog sa răspunzi la urmatoarele intrebări?
                 </div>
               </div>
-              <div class="col">
-                <p class="my-3 py-2 question-s2">
+              <div class="row mx-auto my-3 px-0">
+                <div class="mx-auto my-3 px-0 question-s2">
                   esti raportat negativ in BIROUL DE CREDIT?
-                </p>
-
-                <div class="row flex-nowrap gap-2 justify-content-center px-2 my-3 buttons_">
+                </div>
+                <div class="row flex-nowrap gap-2 justify-content-center mx-auto buttons_">
                   <button id="yes-step1" type="button" class="btn btn-primary btn-half">
                     Da
                   </button>
@@ -588,61 +610,66 @@
               <div class="parent_step4 d-flex justify-content-between text-center flex-column">
                 <h3>Selectie Banci</h3>
                 <p>Selecteaza Bancile la care detii raport negativ</p>
-                <ul id="list_banks" class="d-flex justify-content-center align-items-center flex-wrap p-0 list_banks">
-          
+                <ul id="list_banks"
+                  class="d-flex justify-content-center align-items-center flex-column p-0 m-0 list_banks">
+                  <div class="row mb-2">
                     <li>
                       <img src="./png/logo/bcr.png" alt="Image 1" class="_img_Bank _bcr" />
                     </li>
-                    <li>
+                    <li class="mx-2">
                       <img src="./png/logo/raiff.png" alt="Image 2" class="_img_Bank _raiff" />
                     </li>
-
                     <li>
-                      <img src="./png/logo/garanti.png" alt="Image 4" class="_img_Bank _garanti" />
+                      <img src="./png/logo/ing.png" alt="Image 6" class="_img_Bank _ing" />
                     </li>
+                  </div>
+                  <div class="row mb-2">
                     <li>
                       <img src="./png/logo/unicredit.png" alt="Image 5" class="_img_Bank _unicredit" />
                     </li>
-                    <li>
+                    <li class="mx-2">
                       <img src="./png/logo/otp.png" alt="Image 6" class="_img_Bank _otp" />
                     </li>
                     <li>
                       <img src="./png/logo/brd.png" alt="Image 6" class="_img_Bank _brd" />
                     </li>
-
-             
+                  </div>
+                  <div class="row mb-2">
                     <li>
                       <img src="./png/logo/tbi-bank.png" alt="Image 7" class="_img_Bank _tbiBank" />
                     </li>
-                    <li>
+                    <li class="mx-2">
                       <img src="./png/logo/cetelem.png" alt="Image 9" class="_img_Bank _cetelem" />
                     </li>
                     <li>
                       <img src="./png/logo/Libra_Bank.webp" alt="Image 10" class="_img_Bank _libra" />
                     </li>
+                  </div>
+                  <div class="row mb-2">
                     <li>
                       <img src="./png/logo/alpha.png" alt="Image 10" class="_img_Bank _alpha" />
                     </li>
-                    <li>
+                    <li class="mx-2">
                       <img src="./png/logo/cec.png" alt="Image 10" class="_img_Bank" />
                     </li>
                     <li>
                       <img src="./png/logo/first_Banks.png" alt="Image 6" class="_img_Bank _first_bank" />
 
                     </li>
-             
-                  <div>
-                    <div class="w-100 d-flex justify-content-center">
-                      <li class="li_br">
-                        <img src="./png/logo/banca_romaneasca.png" alt="Image 8" class="_img_Bank _br" />
-                      </li>
-                      <li class="li_bt">
-                        <img src="./png/logo/bt.png" alt="Image 3" class="_img_Bank _bt" />
-                      </li>
-                    </div>
-                    <li>
-                      <img src="./png/logo/ing.png" alt="Image 6" class="_img_Bank _ing" />
+                  </div>
+
+                  <div class="row mb-2 w-100">
+                    <li class="li_br w-50">
+                      <img src="./png/logo/banca_romaneasca.png" alt="Image 8" class="_img_Bank _br" />
                     </li>
+                    <li class="li_bt w-50 mx-2">
+                      <img src="./png/logo/bt.png" alt="Image 3" class="_img_Bank _bt" />
+                  </div>
+                  <div class="li_ga row w-100 mb-2">
+                    <li class="w-100 ">
+                      <img src="./png/logo/garanti.png" alt="Image 4" class="_img_Bank _garanti mx-auto" />
+                    </li>
+                 
                   </div>
                 </ul>
                 <h4>Ifn-uri</h4>
@@ -896,17 +923,17 @@
         maxYear: 2020,
         minAge: 18,
         required: true,
-    
+
         dayLabel: "Ziua",
         monthLabel: "Luna",
         yearLabel: "An",
         maxYear: 2023
       });
     });
-    	// Add event listener to update selected date
-			$("#date_picker").on("change", function() {
-				$("#selected_date").text($(this).val());
-			});
+    // Add event listener to update selected date
+    $("#date_picker").on("change", function () {
+      $("#selected_date").text($(this).val());
+    });
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
