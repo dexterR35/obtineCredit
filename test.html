@@ -55,8 +55,9 @@
       font-weight: 400;
       font-family: "Poppins", sans-serif;
     }
-
-    https: //www.youtube.com/watch?v=2VC4PljZrs8
+ li {
+  list-style: none !important;
+ }
 
     @media (max-width: 1199px) {
       body {
@@ -139,7 +140,7 @@
       width: 40em;
       height: calc(70vh + 10rem + 2px) !important;
       background: #f9f9f9;
-      padding: 15px 20px;
+      padding: 15px 15px;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -402,19 +403,33 @@
       object-fit: contain;
     }
 
-    .list_banks li {
+    .list_banks .col-4 {
       display: flex;
       align-items: center;
-      align-items: center;
-      list-style: none;
-      width: 110px;
-      height: 37px;
-      /* margin: 0 auto; */
-      /* height: fit-content;
-      margin: 0 auto; */
+      height: 35px;
       padding: 0.25em 0.3em;
       border: 1px solid lightgray;
       border-radius: 5px;
+      justify-content: center;
+    }
+
+    .list_banks .col-6{
+      display: flex;
+      align-items: center;
+      height: 35px;
+      padding: 0.15em 0.3em;
+      border: 1px solid lightgray;
+      border-radius: 5px;
+      justify-content: center;
+    }
+    .list_banks .col-12 {
+      display: flex;
+      align-items: center;
+      padding: 0.15em 0.3em;
+      border: 1px solid lightgray;
+      border-radius: 5px;
+      height: 35px;
+      justify-content: center;
     }
 
     ._raiff {
@@ -432,6 +447,7 @@
     ._libra {
       width: 100px;
     }
+
     ._garanti {
       width: 100px;
     }
@@ -448,30 +464,17 @@
       width: 85px;
     }
 
-
-    .li_bt,
-    .li_br {
-      /* width: fit-content !important; */
-      margin: 0 !important;
-    }
-
-    .li_bt {
-      padding: 0em 1.1em !important;
+    ._bcr {
+      width: 110px;
     }
 
     ._bt {
-      width: 128px !important;
-    }
-
-    .li_br {
-      padding: 0.25em 1em !important;
+      width: 143px !important;
     }
 
     ._br {
-      width: 125px !important;
+      width: 140px !important;
     }
-
-
 
     /* section 4 date picker */
     /* section 4 date picker */
@@ -610,97 +613,107 @@
               <div class="parent_step4 d-flex justify-content-between text-center flex-column">
                 <h3>Selectie Banci</h3>
                 <p>Selecteaza Bancile la care detii raport negativ</p>
-                <ul id="list_banks"
-                  class="d-flex justify-content-center align-items-center flex-column p-0 m-0 list_banks">
-                  <div class="row mb-2">
-                    <li>
+                <div id="list_banks" class="list_banks">
+                  <div class="row mb-2 mx-auto">
+                    <div class="col-4">
                       <img src="./png/logo/bcr.png" alt="Image 1" class="_img_Bank _bcr" />
-                    </li>
-                    <li class="mx-2">
+                    </div>
+                    <div class="col-4">
                       <img src="./png/logo/raiff.png" alt="Image 2" class="_img_Bank _raiff" />
-                    </li>
-                    <li>
+                    </div>
+                    <div class="col-4">
                       <img src="./png/logo/ing.png" alt="Image 6" class="_img_Bank _ing" />
-                    </li>
+                    </div>
                   </div>
-                  <div class="row mb-2">
-                    <li>
+                  <div class="row mb-2 mx-auto">
+                    <div class="col-4">
                       <img src="./png/logo/unicredit.png" alt="Image 5" class="_img_Bank _unicredit" />
-                    </li>
-                    <li class="mx-2">
+                    </div>
+                    <div class="col-4">
                       <img src="./png/logo/otp.png" alt="Image 6" class="_img_Bank _otp" />
-                    </li>
-                    <li>
+                    </div>
+                    <div class="col-4">
                       <img src="./png/logo/brd.png" alt="Image 6" class="_img_Bank _brd" />
-                    </li>
+                    </div>
                   </div>
-                  <div class="row mb-2">
-                    <li>
+                  <div class="row mb-2 mx-auto">
+                    <div class="col-4">
                       <img src="./png/logo/tbi-bank.png" alt="Image 7" class="_img_Bank _tbiBank" />
-                    </li>
-                    <li class="mx-2">
+                    </div>
+                    <div class="col-4">
                       <img src="./png/logo/cetelem.png" alt="Image 9" class="_img_Bank _cetelem" />
-                    </li>
-                    <li>
+                    </div>
+                    <div class="col-4">
                       <img src="./png/logo/Libra_Bank.webp" alt="Image 10" class="_img_Bank _libra" />
-                    </li>
+                    </div>
                   </div>
-                  <div class="row mb-2">
-                    <li>
+                  <div class="row mb-2 mx-auto">
+                    <div class="col-4">
                       <img src="./png/logo/alpha.png" alt="Image 10" class="_img_Bank _alpha" />
-                    </li>
-                    <li class="mx-2">
+                    </div>
+                    <div class="col-4">
                       <img src="./png/logo/cec.png" alt="Image 10" class="_img_Bank" />
-                    </li>
-                    <li>
+                    </div>
+                    <div class="col-4">
                       <img src="./png/logo/first_Banks.png" alt="Image 6" class="_img_Bank _first_bank" />
-
-                    </li>
+                    </div>
                   </div>
-
-                  <div class="row mb-2 w-100">
-                    <li class="li_br w-50">
+                  <div class="row mb-2 mx-auto d-flex flex-row w-100">
+                    <div class="li_br col-6 justify-content-center">
                       <img src="./png/logo/banca_romaneasca.png" alt="Image 8" class="_img_Bank _br" />
-                    </li>
-                    <li class="li_bt w-50 mx-2">
+                    </div>
+                    <div class="li_bt col-6 justify-content-center">
                       <img src="./png/logo/bt.png" alt="Image 3" class="_img_Bank _bt" />
                   </div>
-                  <div class="li_ga row w-100 mb-2">
-                    <li class="w-100 ">
-                      <img src="./png/logo/garanti.png" alt="Image 4" class="_img_Bank _garanti mx-auto" />
-                    </li>
-                 
+                  
+                </div>
+                <div class="row mb-2 mx-auto li_ga">
+                  <div class="col-12">
+                    <img src="./png/logo/garanti.png" alt="Image 4" class="_img_Bank _garanti mx-auto" />
                   </div>
-                </ul>
-                <h4>Ifn-uri</h4>
 
-                <ul class="d-flex justify-content-center align-items-center flex-wrap p-0 gx-2 list_banks">
-                  <li>
-                    <img src="./png/logo/brd.png" alt="Image 10" class="_img_Bank" />
-                  </li>
-                  <li>
-                    <img src="./png/logo/brd.png" alt="Image 10" class="_img_Bank" />
-                  </li>
-                  <li>
-                    <img src="./png/logo/brd.png" alt="Image 10" class="_img_Bank" />
-                  </li>
-                  <li>
-                    <img src="./png/logo/brd.png" alt="Image 4" class="_img_Bank" />
-                  </li>
-                  <li>
-                    <img src="./png/logo/raiff.png" alt="Image 5" class="_img_Bank" />
-                  </li>
-                  <li>
-                    <img src="./png/logo/brd.png" alt="Image 6" class="_img_Bank" />
-                  </li>
-                </ul>
+                </div>
+                <h4 class="mb-2 mt-1">Selectie IFN-uri</h4>
+                <p>Selecteaza ifn-urile la care detii raport negativ</p>
+                <div class="list_banks">
+                  <div class="row mb-2 mx-auto">
+                    <div class="col-4">
+                      <img src="./png/logo/unicredit.png" alt="Image 5" class="_img_Bank _unicredit" />
+                    </div>
+                    <div class="col-4">
+                      <img src="./png/logo/otp.png" alt="Image 6" class="_img_Bank _otp" />
+                    </div>
+                    <div class="col-4">
+                      <img src="./png/logo/brd.png" alt="Image 6" class="_img_Bank _brd" />
+                    </div>
+                  </div>
+                  <div class="row mb-2 mx-auto">
+                    <div class="col-4">
+                      <img src="./png/logo/tbi-bank.png" alt="Image 7" class="_img_Bank _tbiBank" />
+                    </div>
+                    <div class="col-4">
+                      <img src="./png/logo/cetelem.png" alt="Image 9" class="_img_Bank _cetelem" />
+                    </div>
+                    <div class="col-4">
+                      <img src="./png/logo/Libra_Bank.webp" alt="Image 10" class="_img_Bank _libra" />
+                    </div>
+                  </div>
+                  <div class="row mb-2 mx-auto">
+                    <div class="col-4">
+                      <img src="./png/logo/alpha.png" alt="Image 10" class="_img_Bank _alpha" />
+                    </div>
+                    <div class="col-4">
+                      <img src="./png/logo/cec.png" alt="Image 10" class="_img_Bank" />
+                    </div>
+                    <div class="col-4">
+                      <img src="./png/logo/first_Banks.png" alt="Image 6" class="_img_Bank _first_bank" />
+                    </div>
+                  </div>
+                </div>
                 <div id="selectedItems"></div>
-                <div class="row flex-nowrap gap-2 justify-content-center px-2 buttons_">
-                  <button id="step4-yes" type="button" class="btn btn-primary btn-half">
-                    Da
-                  </button>
-                  <button id="step4-no" type="button" class="btn btn-primary btn-half">
-                    Nu
+                <div class="row mx-auto buttons_ w-100">
+                  <button id="step4-yes" type="button" class="btn btn-primary btn-half w-100">
+                    Continuă
                   </button>
                 </div>
               </div>
@@ -937,11 +950,11 @@
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-    crossorigin="anonymous"></script>
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
-    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
-    crossorigin="anonymous"></script>
+    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous">
+  </script>
 </body>
 
 </html>
