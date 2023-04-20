@@ -8,7 +8,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
     integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
   <script src="https://unpkg.com/jquery-dropdown-datepicker@1.3.0/dist/jquery-dropdown-datepicker.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha512-ANkGm5vSmtDaoFA/NB1nVJzOKOiI4a/9GipFtkpMG8Rg2Bz8R1GFf5kfL0+z0lcv2X/KZRugwrAlVTAgmxgvIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -164,12 +167,71 @@
       font-size: 1.2em;
     }
 
+    /* modal */
+    /* modal */
+    /* modal */
+    /* modal */
+
+    .d_gap {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+
+    .modal_quiz {
+      padding: 0 !important;
+    }
+
+    .modal-header {
+      padding: 0.4rem 1rem !important;
+      position: relative !important;
+      width: 100% !important;
+      background: #FFF;
+      z-index: 10;
+      top: 0;
+    }
+
+
+    .modal-footer {
+      justify-content: flex-start !important;
+      position: relative !important;
+    background: #fff;
+    /* height: 56px; */
+    border: 0;
+    width: 100%;
+    bottom: 0;
+    border-top: 1px solid #dee2e6;
+    z-index: 10;
+    }
+
+    .modal-content {
+      /* overflow-y: scroll !important; */
+      height: 100vh !important;
+      border:none !important;
+      border-radius: 0 !important;
+      outline: none !important;
+    }
+
+    .modal-body {
+      padding: 1.5rem 1rem !important;
+    }
+
+    .modal-open .modal {
+      overflow-y: none !important;
+    }
+
+    .modal-dialog {
+      width: 100% !important;
+      margin: 0 !important;
+    }
+
     @media (orientation: portrait) and (max-width: 480px) {
       .wrapper-container {
         width: 100%;
         /* height: 100vh; */
         height: calc(70vh + 10rem + 2px) !important;
-        box-shadow:none !important;
+        box-shadow: none !important;
         border: none !important;
         padding: 10px 20px !important;
         /* border-radius: 20px; */
@@ -232,94 +294,87 @@
     }
 
 
-    /* steps progress */
-    /* steps progress */
+    /* progress bar  */
+    /* progress bar  */
+    .progressbar {
+      margin: 7px 0 0px 0;
+      counter-reset: step;
+      display: flex;
+      flex-direction: row;
+      padding: 0 !important;
+    }
 
-
-    #steps_progress {
+    .progressbar li {
+      list-style-type: none;
       width: 100%;
-      margin: 0px auto;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .step_p {
-      width: 30px;
-      height: 30px;
-      background: lightgray;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-color: transparent;
-      border-radius: 50%;
-      color: var(--color_text);
-      font-weight: 600;
-      text-align: center;
-      /* line-height: 66px; */
-      position: relative;
-      z-index: 10;
-    }
-
-    .step_p:nth-child(n + 2) {
-      margin: 0 0 0 60px;
-    }
-
-    .step_p:nth-child(n + 2):before {
-      content: "";
-      width: 65px;
-      position: absolute;
-      left: 0;
-      height: 3px;
-      left: 0%;
-      top: 50%;
-      display: block;
-      background-color: white;
-      transform: translate(-100%, 0%);
-    }
-
-    .step_p:after {
-      width: fit-content;
-      display: block;
-      position: absolute;
-      left: -8px;
-      top: 30px;
-      /* transform: translate(0px, 24px); */
-      color: grey;
-      content: attr(data-desc);
-      font-weight: 400;
+      /* float: left; */
+      line-height: 22px;
       font-size: 12px;
+      position: relative;
       display: flex;
       align-items: center;
+      flex-direction: column;
       justify-content: center;
+      text-align: center;
+      text-transform: uppercase;
+      color: #7d7d7d;
     }
 
-    .step_p.active {
-      border-color: blue;
-
-      color: blue;
-      z-index: 12;
+    .progressbar li:before {
+      width: 15px;
+      height: 15px;
+      content: '';
+      line-height: 30px;
+      border: 2px solid #7d7d7d;
+      background-color: #7d7d7d;
+      display: block;
+      text-align: center;
+      margin: 0 auto 10px auto;
+      border-radius: 50%;
+      transition: all .8s;
     }
 
-    .step_p.active:before {
-      background: linear-gradient(to right, green 0%, blue 100%);
+    .progressbar li:after {
+      width: 100%;
+      height: 2px;
+      content: '';
+      position: absolute;
+      background-color: #7d7d7d;
+      top: 7px;
+      left: -50%;
+      z-index: -1;
+      transition: all .8s;
     }
 
-    .step_p.active:after {
-      color: blue;
+    .progressbar li:first-child:after {
+      content: none;
     }
 
-    .step_p.done {
-      background: var(--soft-green);
-      color: white;
-      z-index: 13;
+    .progressbar li.active:before {
+      border-color: #55b776;
+      background-color: #55b776;
+      transition: ease .8s;
     }
 
-    .step_p.done:before {
-      background-color: var(--soft-green);
-      z-index: 15;
+    .progressbar li.active:after {
+      background-color: #55b776;
+      transition: ease .8s;
     }
 
+    .progressbar ul {
+      padding: 0 !important;
+    }
+
+
+
+
+
+    /* end steps progress */
+    /* end steps progress */
+
+    /* step 4 ,list banks */
+
+    /* style for the selected list items */
     .text-title {
       font-weight: 700;
       font-size: 1.85rem;
@@ -340,12 +395,6 @@
       font-weight: 400;
     }
 
-    /* end steps progress */
-    /* end steps progress */
-
-    /* step 4 ,list banks */
-
-    /* style for the selected list items */
     .selected_banks {
       background-color: yellow;
     }
@@ -360,25 +409,25 @@
       font-size: 1.3rem;
       font-weight: 600;
     }
+
     .subtitle_s2 div {
       font-size: 0.85rem;
       font-weight: 500;
     }
+
     .input-group-text {
       border-radius: none !important;
       border-top-left-radius: 7px;
       border-bottom-left-radius: 7px;
       /* background-color: #171819 !important; */
       color: #171819 !important;
-      padding:13px 25px !important;
-      border:none !important;
+      padding: 13px 25px !important;
+      border: none !important;
     }
 
     .text-standard_s2 {
       font-size: 1.05rem;
-      text-align: start;
-      line-height: 1.3;
-      text-indent: 15px;
+    line-height: 1.3;
 
     }
 
@@ -412,21 +461,24 @@
 
     ._img_Bank {
       padding: 0.1em 0.2em;
-      width: 100%;
+      width: 88px !important;
       object-fit: contain;
     }
 
-    .list_banks .col-4, .list_inf .col-4{
+    .list_banks .col-4,
+    .list_inf .col-4 {
       display: flex;
       align-items: center;
-      height: 35px;
-      padding: 0.25em 0.3em;
+      height: 45px;
+      width: 28vw;
+
       border: 1px solid lightgray;
       border-radius: 5px;
       justify-content: center;
     }
 
-    .list_banks .col-6, .list_banks .col-12 {
+    .list_banks .col-6,
+    .list_banks .col-12 {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -460,21 +512,27 @@
     ._otp {
       width: 100px;
     }
-   ._tbiBank {
+
+    ._tbiBank {
       width: 107px;
     }
+
     ._alpha {
       width: 109px;
     }
-     ._cec {
+
+    ._cec {
       width: 106px;
-     }
+    }
+
     ._ing {
       width: 85px;
     }
+
     ._first_bank {
       width: 106px;
     }
+
     ._bcr {
       width: 110px;
     }
@@ -520,274 +578,297 @@
         </div> -->
 
 <body>
-    <div class="container mt-5">
-        <!-- Button trigger modal -->
-<button type="button" class="btn btn-outline-success btn-lg float-right" data-toggle="modal" data-target="#exampleModal">
-    Open Modal
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="exampleModalLabel">Login</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
+  <div class="container mt-5">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-outline-success btn-lg float-right" data-toggle="modal"
+      data-target="#modal_quiz">
+      Obtine Credit
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade modal_quiz" id="modal_quiz" tabindex="-1" aria-labelledby="modal_quiz" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <!-- <h4 class="modal-title text-center w-100" id="exampleModalLabel">steps</h4> -->
+            <!-- Step Navigation -->
+            <div class="row">
+              <div class="col">
+                <ul id="progress-bar" class="progressbar">
+                  <li class="active">Detalii</li>
+                  <li>Buna</li>
+                  <li>Banks</li>
+                  <li>Trimite</li>
+
+                </ul>
+              </div>
+            </div>
+            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button> -->
+          </div>
+          <div class="modal-body">
             <form class="form_class">
-                <section id="step1-container" class="_steps pt-4">
-                  <div class="title_quiz">
-                    <div class="col-12 text-title text-start mb-3 mx-auto">
-                      Soluții de creditare personalizate
+              <section id="step1-container" class="_steps pt-2">
+                <div class="title_quiz">
+                  <div class="col-12 text-title text-start mb-3 mx-auto">
+                    Soluții de creditare personalizate
+                  </div>
+                  <div class="col-12 text-subtitle text-start mb-3 m-0">
+                    Află cum poți obține cele mai bune oferte de credite prin
+                    intermediul experților.
+
+                  </div>
+                  <div class="col-12 text-subtitle text-start mb-3 m-0">
+                    Acesta este un chestionar interactiv care te va ajuta să obții informații despre opțiunile tale de
+                    creditare. Vom începe prin a afla câteva informații de bază despre tine.
+                  </div>
+
+
+                </div>
+                <div class="form-group py-2 my-2 _forms">
+                  <label for="name" class="_label">nume</label>
+                  <input type="text" class="form-control form-control-lg _input" id="f_name" />
+                </div>
+                <div class="form-group py-2 my-2 _forms">
+                  <label for="phone" class="_label">Telefon</label>
+                  <input type="number" class="form-control form-control-lg _input" id="p_phone" />
+                </div>
+                <div class="form-group py-2 my-2 _forms">
+                  <label for="email" class="_label">Email</label>
+                  <input type="email" class="form-control form-control-lg _input" id="e_email" />
+                </div>
+                <div class="col-12 pb-5">
+                  <button id="continue-btn" type="button" class="btn btn-primary mt-3  w-100 justify-content-center"
+                    style="display: flex">
+                    Continua
+                  </button>
+                </div>
+
+              </section>
+              <section id="step2-container" class="_steps text-center s-2 pt-2" style="display: none">
+                <div class="title_quiz text-center">
+                  <div class="col-12 ">
+                    <h2 class="my-2">Hello! <br /> <span id="output-name"></span></h2>
+
+                  </div>
+                  <div class="col-12">
+                    <div class="p-0 px-1 mt-4 text-standard_s2">
+                      Eu sunt <b>Gabriela,</b> consultantul tău online cu o <b>experientă de peste 6 ani in domeniu.</b>
+                      Te voi indruma să găsim cele mai bune <b>soluții</b> pentru nevoile tale de la obținerea unui
+                      <b>credit
+                        nou</b>, până la
+                      refinanțarea creditelor existente sau chiar <b>eliminarea istoricului negativ</b> din Biroul de
+                      <b>Credit.</b>
                     </div>
-                    <div class="col-12 text-subtitle text-start mb-3 m-0">
-                      Află cum poți obține cele mai bune oferte de credite prin
-                      intermediul experților.
-                      
-                    </div>
-                    <div class="col-12 text-subtitle text-start mb-3 m-0">
-                      Acesta este un chestionar interactiv care te va ajuta să obții informații despre opțiunile tale de creditare. Vom începe prin a afla câteva informații de bază despre tine.
-                    </div>
-              
-                 
                   </div>
-                  <div class="form-group py-2 _forms">
-                    <label for="name" class="_label">nume</label>
-                    <input type="text" class="form-control form-control-lg _input" id="f_name" />
+                  <div class="col-12 text-standard_s2 text-start my-4 questions\">
+                    Însă, înainte de a crea un <b>plan</b>, m-ar interesa să aflu câteva <b>detalii</b> esențiale de la
+                    tine.
                   </div>
-                  <div class="form-group py-2 _forms">
-                    <label for="phone" class="_label">Telefon</label>
-                    <input type="number" class="form-control form-control-lg _input" id="p_phone" />
+                </div>
+                <div class="row">
+                  <div class="col-12 question-s2 my-4">
+                    esti raportat negativ in BIROUL DE CREDIT?
                   </div>
-                  <div class="form-group py-2 _forms">
-                    <label for="email" class="_label">Email</label>
-                    <input type="email" class="form-control form-control-lg _input" id="e_email" />
+                  <div class="col-12 buttons_">
+                    <button id="yes-step1" type="button" class="btn btn-primary btn-half">
+                      Da
+                    </button>
+                    <button id="no-step1" type="button" class="btn btn-primary btn-half">
+                      Nu
+                    </button>
                   </div>
-                  <div class="col-12 pb-5">
-                    <button id="continue-btn" type="button" class="btn btn-primary mt-3  w-100 justify-content-center"
-                      style="display: flex">
+                </div>
+              </section>
+
+              <section id="step3-container" class="step-container _steps _step3" style="display: none">
+                <h2 class="text-center">some info</h2>
+                <h3 class="my-3 py-2 text-center">Step 3</h3>
+                <div class="form-group _forms my-2 py-2">
+                  <label for="date_picker" class="_label">data angajarii</label>
+                  <!-- <input type="text" class="form-control form-control-lg _input" id="jobStart" /> -->
+                  <!-- <label for="date_picker">Select a date:</label> -->
+                  <input type="hidden" id="date_picker" name="date_picker">
+                  <p>You selected: <span id="selected_date"></span></p>
+                </div>
+                <div class="question justify-content-center d-flex" style="visibility: hidden">
+                  <div class="row flex-nowrap gap-2 justify-content-center buttons_ w-100">
+                    <button id="step3-yes" type="button" class="btn btn-primary w-100">
                       Continua
                     </button>
-                </div>
-                  <div class="terms_div my-2">
-                    <div class="term_one _term_text">first text</div>
-                    <div class="term_two _term_text">termeni si conditii</div>
-                  </div>
-                </section>
-                <section id="step2-container" class="_steps text-center s-2" style="display: none">
-                  <div class="title_quiz text-center pt-3">
-                    <div class="col-12 ">
-                      <h2 class="my-3">Hello! <br/> <span id="output-name"></span></h2>
-              
-                    </div>
-                    <div class="col-12">
-                      <div class="p-0 px-md-4 text-standard_s2">
-                        Eu sunt <b>Gabriela,</b> consultantul tău online cu o <b>experientă de peste 6 ani in domeniu.</b>
-                        Te voi indruma să găsim cele mai bune <b>soluții</b> pentru nevoile tale de la obținerea unui <b>credit
-                        nou</b>, până la
-                        refinanțarea creditelor existente sau chiar <b>eliminarea istoricului negativ</b> din Biroul de
-                        <b>Credit.</b>
-                      </div>
-                    </div>
-                    <div class="col-12 text-standard_s2 text-start my-4 questions\">
-                    Însă, înainte de a crea un <b>plan</b>, m-ar interesa să aflu câteva <b>detalii</b> esențiale de la tine.
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-12 question-s2 my-4">
-                      esti raportat negativ in BIROUL DE CREDIT?
-                    </div>
-                    <div class="col-12 buttons_">
-                      <button id="yes-step1" type="button" class="btn btn-primary btn-half">
-                        Da
-                      </button>
-                      <button id="no-step1" type="button" class="btn btn-primary btn-half">
-                        Nu
-                      </button>
-                    </div>
-                  </div>
-                </section>
-    
-                <section id="step3-container" class="step-container _steps _step3" style="display: none">
-                  <h2 class="text-center">some info</h2>
-                  <h3 class="my-3 py-2 text-center">Step 3</h3>
-                  <div class="form-group _forms my-2 py-2">
-                    <label for="date_picker" class="_label">data angajarii</label>
-                    <!-- <input type="text" class="form-control form-control-lg _input" id="jobStart" /> -->
-                    <!-- <label for="date_picker">Select a date:</label> -->
-                    <input type="hidden" id="date_picker" name="date_picker">
-                    <p>You selected: <span id="selected_date"></span></p>
-                  </div>
-                  <div class="question justify-content-center d-flex" style="visibility: hidden">
-                    <div class="row flex-nowrap gap-2 justify-content-center buttons_ w-100">
-                      <button id="step3-yes" type="button" class="btn btn-primary w-100">
-                        Continua
-                      </button>
-                      <!-- <button id="step3-no" type="button" class="btn btn-primary w-50">
+                    <!-- <button id="step3-no" type="button" class="btn btn-primary w-50">
                       Nu
                     </button> -->
+                  </div>
+                </div>
+              </section>
+
+              <section id="step4-container" class="_steps" style="display: none">
+                <div class="parent_step4 d-flex justify-content-between text-center flex-column">
+                  <div id="list_banks" class="list_banks _lists _bank_list mt-2">
+                    <div class="col w-100 title_banks title_s2 my-2">
+                      <h3>Selectie Banci</h3>
+                    </div>
+                    <div class="col w-100 subtitle_banks subtitle_s2">
+                      <div class="my-2">Selecteaza Bancile la care detii raport negativ</div>
+                    </div>
+                    <div class="row mb-2 mx-auto d_gap">
+                      <div class="col-4">
+                        <img src="./png/logo/bcr.png" alt="Image 1" class="_img_Bank _bcr" />
+                      </div>
+                      <div class="col-4">
+                        <img src="./png/logo/raiff.png" alt="Image 2" class="_img_Bank _raiff" />
+                      </div>
+                      <div class="col-4">
+                        <img src="./png/logo/ing.png" alt="Image 6" class="_img_Bank _ing" />
+                      </div>
+                    </div>
+                    <div class="row mb-2 mx-auto d_gap">
+                      <div class="col-4">
+                        <!-- <img src="./png/logo/unicredit.png" alt="Image 5" class="_img_Bank _unicredit" /> -->
+                        <div class="bg-img _unicredits"></div>
+                        <style>
+                          .bg-img {
+                            background-repeat: no-repeat;
+                            background-size: 100px;
+                            background-position: center;
+                            width: 100%;
+                            height: 100%;
+                          }
+
+                          ._unicredits {
+                            background-image: url(./png/logo/unicredit.png);
+                          }
+                        </style>
+                      </div>
+                      <div class="col-4">
+                        <!-- <img src="./png/logo/otp.png" alt="Image 6" class="_img_Bank _otp" /> -->
+                        <div class="bg-img _otps"></div>
+                        <style>
+                          ._otps {
+                            background-image: url(./png/logo/otp.png);
+                          }
+                        </style>
+                      </div>
+                      <div class="col-4">
+                        <img src="./png/logo/brd.png" alt="Image 6" class="_img_Bank _brd" />
+                      </div>
+                    </div>
+                    <div class="row mb-2 mx-auto d_gap">
+                      <div class="col-4">
+                        <img src="./png/logo/tbi-bank.png" alt="Image 7" class="_img_Bank _tbiBank" />
+                      </div>
+                      <div class="col-4">
+                        <!-- <img src="./png/logo/cetelem.png" alt="Image 9" class="_img_Bank _cetelem" /> -->
+                        <div class="bg-img _cetelems"></div>
+                        <style>
+                          ._cetelems {
+                            background-image: url(./png/logo/cetelem.png);
+                          }
+                        </style>
+                      </div>
+                      <div class="col-4">
+                        <img src="./png/logo/Libra_Bank.webp" alt="Image 10" class="_img_Bank _libra" />
+                      </div>
+                    </div>
+                    <div class="row mb-2 mx-auto d_gap">
+                      <div class="col-4">
+                        <img src="./png/logo/alpha.png" alt="Image 10" class="_img_Bank _alpha" />
+                      </div>
+                      <div class="col-4">
+                        <img src="./png/logo/cec.png" alt="Image 10" class="_img_Bank _cec" />
+                      </div>
+                      <div class="col-4">
+                        <img src="./png/logo/first_Banks.png" alt="Image 6" class="_img_Bank _first_bank" />
+                      </div>
+                    </div>
+                    <div class="row mb-2 mx-auto d-flex flex-row w-100">
+                      <div class="li_br col-6 justify-content-center">
+                        <img src="./png/logo/banca_romaneasca.png" alt="Image 8" class="_img_Bank _br" />
+                      </div>
+                      <div class="li_bt col-6 justify-content-center">
+                        <img src="./png/logo/bt.png" alt="Image 3" class="_img_Bank _bt" />
+                      </div>
+                    </div>
+                    <div class="row mb-2 mx-auto li_ga">
+                      <div class="col-12">
+                        <img src="./png/logo/garanti.png" alt="Image 4" class="_img_Bank _garanti mx-auto" />
+                      </div>
                     </div>
                   </div>
-                </section>
-    
-                <section id="step4-container" class="_steps" style="display: none">
-                  <div class="parent_step4 d-flex justify-content-between text-center flex-column">
-                    <div id="list_banks" class="list_banks _lists _bank_list">
-                      <div class="col w-100 title_banks title_s2 my-2">
-                        <h3>Selectie Banci</h3>
+                  <div class="list_inf _lists mt-4">
+                    <div class="col-12 title_ifn title_s2">
+                      <h3 class="my-2">Selectie IFN-uri</h3>
+                    </div>
+                    <div class="col-12 subtitle_ifn subtitle_s2">
+                      <div class="py-2">Selecteaza ifn-urile la care detii raport negativ</div>
+                    </div>
+                    <div class="row mb-2 mx-auto d_gap">
+                      <div class="col-4">
+                        <img src="./png/logo/unicredit.png" alt="Image 5" class="_img_Bank _unicredit" />
                       </div>
-                     <div class="col w-100 subtitle_banks subtitle_s2">
-                      <div class="my-2">Selecteaza Bancile la care detii raport negativ</div>
-                     </div>
-                      <div class="row mb-2 mx-auto">
-                        <div class="col-4">
-                          <img src="./png/logo/bcr.png" alt="Image 1" class="_img_Bank _bcr" />
-                        </div>
-                        <div class="col-4">
-                          <img src="./png/logo/raiff.png" alt="Image 2" class="_img_Bank _raiff" />
-                        </div>
-                        <div class="col-4">
-                          <img src="./png/logo/ing.png" alt="Image 6" class="_img_Bank _ing" />
-                        </div>
+                      <div class="col-4">
+                        <img src="./png/logo/otp.png" alt="Image 6" class="_img_Bank _otp" />
                       </div>
-                      <div class="row mb-2 mx-auto">
-                        <div class="col-4">
-                          <!-- <img src="./png/logo/unicredit.png" alt="Image 5" class="_img_Bank _unicredit" /> -->
-                          <div class="bg-img _unicredits"></div>
-                          <style>
-                              .bg-img{
-                                background-repeat: no-repeat;
-                                background-size: 100px;
-                                background-position: center;
-                                width: 100%;
-                                height: 100%;
-                              }
-                              ._unicredits{
-                                background-image: url(./png/logo/unicredit.png);
-                              }
-    
-                          </style>
-                        </div>
-                        <div class="col-4">
-                          <!-- <img src="./png/logo/otp.png" alt="Image 6" class="_img_Bank _otp" /> -->
-                          <div class="bg-img _otps"></div>
-                          <style>
-                             ._otps{
-                                background-image: url(./png/logo/otp.png);
-                              }
-                          </style>
-                        </div>
-                        <div class="col-4">
-                          <img src="./png/logo/brd.png" alt="Image 6" class="_img_Bank _brd" />
-                        </div>
-                      </div>
-                      <div class="row mb-2 mx-auto">
-                        <div class="col-4">
-                          <img src="./png/logo/tbi-bank.png" alt="Image 7" class="_img_Bank _tbiBank" />
-                        </div>
-                        <div class="col-4">
-                          <!-- <img src="./png/logo/cetelem.png" alt="Image 9" class="_img_Bank _cetelem" /> -->
-                          <div class="bg-img _cetelems"></div>
-                          <style>
-                             ._cetelems{
-                                background-image: url(./png/logo/cetelem.png);
-                              }
-                          </style>
-                        </div>
-                        <div class="col-4">
-                          <img src="./png/logo/Libra_Bank.webp" alt="Image 10" class="_img_Bank _libra" />
-                        </div>
-                      </div>
-                      <div class="row mb-2 mx-auto">
-                        <div class="col-4">
-                          <img src="./png/logo/alpha.png" alt="Image 10" class="_img_Bank _alpha" />
-                        </div>
-                        <div class="col-4">
-                          <img src="./png/logo/cec.png" alt="Image 10" class="_img_Bank _cec" />
-                        </div>
-                        <div class="col-4">
-                          <img src="./png/logo/first_Banks.png" alt="Image 6" class="_img_Bank _first_bank" />
-                        </div>
-                      </div>
-                      <div class="row mb-2 mx-auto d-flex flex-row w-100">
-                        <div class="li_br col-6 justify-content-center">
-                          <img src="./png/logo/banca_romaneasca.png" alt="Image 8" class="_img_Bank _br" />
-                        </div>
-                        <div class="li_bt col-6 justify-content-center">
-                          <img src="./png/logo/bt.png" alt="Image 3" class="_img_Bank _bt" />
-                        </div>
-                      </div>
-                      <div class="row mb-2 mx-auto li_ga">
-                        <div class="col-12">
-                          <img src="./png/logo/garanti.png" alt="Image 4" class="_img_Bank _garanti mx-auto" />
-                        </div>
+                      <div class="col-4">
+                        <img src="./png/logo/brd.png" alt="Image 6" class="_img_Bank _brd" />
                       </div>
                     </div>
-                    <div class="list_inf _lists">
-                      <div class="col-12 title_ifn title_s2">
-                        <h3 class="my-2">Selectie IFN-uri</h3>
+
+                    <div class="row mb-2 mx-auto d_gap">
+                      <div class="col-4">
+                        <img src="./png/logo/alpha.png" alt="Image 10" class="_img_Bank _alpha" />
                       </div>
-                      <div class="col-12 subtitle_ifn subtitle_s2">
-                        <div class="py-2">Selecteaza ifn-urile la care detii raport negativ</div>
+                      <div class="col-4">
+                        <img src="./png/logo/cec.png" alt="Image 10" class="_img_Bank" />
                       </div>
-                      <div class="row mb-2 mx-auto">
-                        <div class="col-4">
-                          <img src="./png/logo/unicredit.png" alt="Image 5" class="_img_Bank _unicredit" />
-                        </div>
-                        <div class="col-4">
-                          <img src="./png/logo/otp.png" alt="Image 6" class="_img_Bank _otp" />
-                        </div>
-                        <div class="col-4">
-                          <img src="./png/logo/brd.png" alt="Image 6" class="_img_Bank _brd" />
-                        </div>
+                      <div class="col-4">
+                        <img src="./png/logo/first_Banks.png" alt="Image 6" class="_img_Bank _first_bank" />
                       </div>
-    
-                      <div class="row mb-2 mx-auto">
-                        <div class="col-4">
-                          <img src="./png/logo/alpha.png" alt="Image 10" class="_img_Bank _alpha" />
-                        </div>
-                        <div class="col-4">
-                          <img src="./png/logo/cec.png" alt="Image 10" class="_img_Bank" />
-                        </div>
-                        <div class="col-4">
-                          <img src="./png/logo/first_Banks.png" alt="Image 6" class="_img_Bank _first_bank" />
-                        </div>
-                      </div>
-                      <div class="col-12 my-3">
-                          <!-- <input type="text" class="_input" id="ifn_others" placeholder="adauga alte IFN-uri" /> -->
-                          <div class="input-group">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">
-                              <input type="radio" aria-label="Radio button for following text input">
-                              </div>
-                            </div>
-                            <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="Adauga alte IFN-uri">
+                    </div>
+                    <div class="col-12 my-3">
+                      <!-- <input type="text" class="_input" id="ifn_others" placeholder="adauga alte IFN-uri" /> -->
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <div class="input-group-text">
+                            <input type="radio" aria-label="Radio button for following text input">
                           </div>
                         </div>
-                    </div>         
-                    <div class="row mx-auto buttons_ w-100">
-                      <button id="step4-yes" type="button" class="btn btn-primary btn-half w-100">
-                        Continuă
-                      </button>
-                      <!-- <div id="selectedItems"></div> -->
+                        <input type="text" class="form-control" aria-label="Text input with radio button"
+                          placeholder="Adauga alte IFN-uri">
+                      </div>
                     </div>
                   </div>
-    
-              </form>
-    
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-success">Login</button>
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  <div class="row mx-auto buttons_ w-100">
+                    <button id="step4-yes" type="button" class="btn btn-primary btn-half w-100">
+                      Continuă
+                    </button>
+                    <!-- <div id="selectedItems"></div> -->
+                  </div>
+                </div>
+
+            </form>
+
+          </div>
+          <div class="modal-footer">
+            <!-- <div class="btn-container">
+              <button class="btn" id="Next">Next</button>
+              <button class="btn" id="Back">Back</button>
+              <button class="btn" id="Reset">Reset</button>
+            </div> -->
+            <div class="terms_div my-2">
+              <div class="term_one _term_text">first text</div>
+              <div class="term_two _term_text">termeni si conditii</div>
+            </div>
+            <!-- <button type="button" class="btn btn-success">Login</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button> -->
+          </div>
         </div>
       </div>
     </div>
+
   </div>
-    
-</div>
   <script>
     // Get input elements and buttons
     const nameInput = document.getElementById("f_name");
@@ -832,7 +913,6 @@
       const phoneValue = phoneInput.value.trim();
       const emailValue = emailInput.value.trim();
       // const jobValue = jobStart.value.trim();
-
       document.getElementById("output-name").innerHTML = nameValue;
       // console.log("jobValue");
       if (nameValue !== "" && phoneValue !== "" && emailValue !== "") {
@@ -854,32 +934,34 @@
     // jobStart.addEventListener("input", checkInputs);
 
     // Function to show/hide step containers
-    async function showHideSteps(currentStep, nextStep, titleQuiz, termsDiv) {
+    async function showHideSteps(currentStep, nextStep, titleQuiz) {
       currentStep.style.display = "none";
       nextStep.style.display = "block";
       titleQuiz.style.display = "none";
-      termsDiv.style.display = "none";
+      // termsDiv.style.display = "block";
     }
 
     // Add event listener to continue button
     continueBtn.addEventListener("click", async () => {
-
+      progressBar.Next();
       await showHideSteps(step1Container, step2Container, titleQuiz);
+   
     });
 
     // Add event listener to yes button in step 2
     yesStep1Btn.addEventListener("click", async () => {
-      await showHideSteps(step2Container, step4Container, termsDiv);
+      progressBar.Next();
+      await showHideSteps(step2Container, step4Container);
     });
 
     // Add event listener to no button in step 2
     noStep1Btn.addEventListener("click", async () => {
-      await showHideSteps(step2Container, step3Container, termsDiv);
+      await showHideSteps(step2Container, step3Container);
     });
 
     // Add event listener to yes button in step 3
     step3YesBtn.addEventListener("click", async () => {
-      await showHideSteps(step3Container, step4Container, titleQuiz, termsDiv);
+      await showHideSteps(step3Container, step4Container, titleQuiz);
     });
 
     // // Add event listener to no button in step 3
@@ -890,6 +972,7 @@
 
     // Add event listener to yes button in step 4
     step4YesBtn.addEventListener("click", async () => {
+      progressBar.Next();
       // Do something else
       alert("btn4Yes");
     });
@@ -900,17 +983,17 @@
     //   alert("btn4no");
     // });
 
-    const backBtns = document.querySelectorAll(".back-btn");
-    backBtns.forEach((backBtn) => {
-      backBtn.addEventListener("click", async () => {
-        const currentStep = backBtn.closest(".step-container");
-        const previousStep =
-          currentStep && currentStep.previousElementSibling;
-        if (previousStep) {
-          await showHideSteps(currentStep, previousStep);
-        }
-      });
-    });
+    // const backBtns = document.querySelectorAll(".back-btn");
+    // backBtns.forEach((backBtn) => {
+    //   backBtn.addEventListener("click", async () => {
+    //     const currentStep = backBtn.closest(".step-container");
+    //     const previousStep =
+    //       currentStep && currentStep.previousElementSibling;
+    //     if (previousStep) {
+    //       await showHideSteps(currentStep, previousStep);
+    //     }
+    //   });
+    // });
 
     function setFocus(on) {
       let elementFocus = document.activeElement;
@@ -995,14 +1078,45 @@
         yearLabel: "An",
         maxYear: 2023
       });
-    });
+ 
     // Add event listener to update selected date
     $("#date_picker").on("change", function () {
       $("#selected_date").text($(this).val());
     });
+  });
+
+
+    var progressBar = {
+      Bar: $('#progress-bar'),
+      Reset: function () {
+        if (this.Bar) {
+          this.Bar.find('li').removeClass('active');
+        }
+      },
+      Next: function () {
+        $('#progress-bar li:not(.active):first').addClass('active');
+      },
+      Back: function () {
+        $('#progress-bar li.active:last').removeClass('active');
+      }
+    }
+
+    progressBar.Reset();
+
+    ////
+    // $("#Next").on('click', function () {
+    //   progressBar.Next();
+    // })
+    // $("#Back").on('click', function () {
+    //   progressBar.Back();
+    // })
+    // $("#Reset").on('click', function () {
+    //   progressBar.Reset();
+    // })
   </script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
 </body>
 
 </html>
