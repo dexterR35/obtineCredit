@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+    integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://unpkg.com/jquery-dropdown-datepicker@1.3.0/dist/jquery-dropdown-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    :root {
+      /* --orange: #f89e4f; */
+      --button_color: #ff4c16;
+      --modal-input: #333743;
+      --modal-inputBg: #dbdbdb;
+
+      --bg-white: #fff;
+      --color-white: #fff;
+
+      --border-input: #dadce0;
+      --border-inputFocus: orange;
+      --border-error: #ff4c16;
+      --border-active: red;
+
+      --h1-title: #ff4c16;
+
+      --color-focusText: #393e46;
+      --color_text: #393e46;
+      --transition-mask: 0.5s ease-out;
+      --transition-input: ease 250ms;
+      --de_salvat: #ff7e7e;
+      --soft-green: #39bdabf5;
+      --soft-green: #39bdabf5;
+    }
+
+    body {
+      font-family: "Libre Franklin", sans-serif;
+      background: #f2f2f2;
+      font-weight: 400;
+      font-family: "Poppins", sans-serif;
+      margin-top: 0.4em;
+    }
+
+    li {
+      list-style: none !important;
+    }
+
+
+    h2 {
+      font-weight: 700;
+      color: var(--color_text);
+    }
+
+    div,
+    label {
+      color: var(--color_text);
+    }
+
+    h3 {
+      font-weight: 600;
+    }
+
+    h6 {
+      font-weight: 300;
+    }
+
+    /* #container {
+        margin: 0 auto;
+      }
+
+      #input-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      #continue-btn {
+        cursor: pointer;
+        display: none;
+      }
+
+      #step1-container {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      #step1-container p {
+        font-size: 18px;
+        font-weight: bold;
+      } */
+
+    ._input {
+      border: none;
+      outline: none !important;
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #dfdfdf;
+    }
+
+    .myPhone {
+      text-decoration: none;
+
+    }
+
+    .wrapper-container {
+      position: relative;
+      width: 40em;
+      /* height: calc(70vh + 10rem + 2px) !important; */
+      background: #f2f2f2;
+      padding: 15px 15px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      box-shadow: 0px 2px 5px #969696;
+      border: 1px solid lightgrey;
+      border-radius: 14px;
+    }
+
+    .parrent-quiz {
+      display: flex;
+      border-radius: 10px;
+      height: calc(67vh + 1rem + 2px) !important;
+    }
+
+    .back-btn {
+      background: none !important;
+      border: none;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: var(--color_text);
+    }
+
+    .btn-half {
+      width: 40%;
+    }
+
+    .btn-primary {
+      padding: 0.4em 0.7em;
+      background: var(--soft-green) !important;
+      border: none !important;
+      font-weight: 600;
+      font-size: 1.2em;
+    }
+
+    @media (orientation: portrait) and (max-width: 480px) {
+      .wrapper-container {
+        width: 100%;
+        /* height: 100vh; */
+        height: calc(70vh + 10rem + 2px) !important;
+        box-shadow:none !important;
+        border: none !important;
+        padding: 10px 20px !important;
+        /* border-radius: 20px; */
+        /* margin: 0.5em; */
+      }
+    }
+
+    .form-control {
+      outline: none !important;
+      border: 1px solid #f1efef !important;
+      position: relative;
+    }
+
+    ._forms {
+      position: relative;
+    }
+
+    ._forms:active {
+      border: none !important;
+      outline: none !important;
+    }
+
+    ._label {
+      font-size: 0.85em;
+      position: absolute;
+      color: var(--color_text);
+      font-weight: 400;
+      z-index: 1;
+      text-transform: capitalize;
+      /* left: 8px; */
+      top: 25px;
+      padding: 0 16px;
+      user-select: none;
+      pointer-events: none;
+      font-weight: 400;
+    }
+
+    ._input .input-border-color {
+      border-color: var(--soft-green) !important;
+    }
+
+    ._forms.focus ._label,
+    ._forms.active ._label {
+      color: var(--color-focusText);
+      top: -12px;
+      /* background: var(--bg-white); */
+      font-size: 13px;
+      z-index: 1;
+      font-weight: 400;
+      transition: var(--transition-input);
+
+    }
+
+    ._input:focus {
+      border: 1px solid !important;
+      border-color: var(--soft-green) !important;
+      outline: none;
+      box-shadow: 0px 1px 5px rgb(211, 211, 211);
+
+    }
+
+
+    /* steps progress */
+    /* steps progress */
+
+
+    #steps_progress {
+      width: 100%;
+      margin: 0px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step_p {
+      width: 30px;
+      height: 30px;
+      background: lightgray;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-color: transparent;
+      border-radius: 50%;
+      color: var(--color_text);
+      font-weight: 600;
+      text-align: center;
+      /* line-height: 66px; */
+      position: relative;
+      z-index: 10;
+    }
+
+    .step_p:nth-child(n + 2) {
+      margin: 0 0 0 60px;
+    }
+
+    .step_p:nth-child(n + 2):before {
+      content: "";
+      width: 65px;
+      position: absolute;
+      left: 0;
+      height: 3px;
+      left: 0%;
+      top: 50%;
+      display: block;
+      background-color: white;
+      transform: translate(-100%, 0%);
+    }
+
+    .step_p:after {
+      width: fit-content;
+      display: block;
+      position: absolute;
+      left: -8px;
+      top: 30px;
+      /* transform: translate(0px, 24px); */
+      color: grey;
+      content: attr(data-desc);
+      font-weight: 400;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .step_p.active {
+      border-color: blue;
+
+      color: blue;
+      z-index: 12;
+    }
+
+    .step_p.active:before {
+      background: linear-gradient(to right, green 0%, blue 100%);
+    }
+
+    .step_p.active:after {
+      color: blue;
+    }
+
+    .step_p.done {
+      background: var(--soft-green);
+      color: white;
+      z-index: 13;
+    }
+
+    .step_p.done:before {
+      background-color: var(--soft-green);
+      z-index: 15;
+    }
+
+    .text-title {
+      font-weight: 700;
+      font-size: 1.85rem;
+      line-height: 1.1;
+      /* background-color: red; */
+    }
+
+    .text-subtitle {
+      font-weight: 300;
+      font-size: 0.8em;
+      line-height: 1.2;
+      font-size: 0.85rem;
+      width: 95%;
+    }
+
+    ._term_text {
+      font-size: 0.75em;
+      font-weight: 400;
+    }
+
+    /* end steps progress */
+    /* end steps progress */
+
+    /* step 4 ,list banks */
+
+    /* style for the selected list items */
+    .selected_banks {
+      background-color: yellow;
+    }
+
+
+    /* section 2 */
+    /* section 2 */
+    /* section 2 */
+    /* section 2 */
+
+    .title_s2 h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+    .subtitle_s2 div {
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+    .input-group-text {
+      border-radius: none !important;
+      border-top-left-radius: 7px;
+      border-bottom-left-radius: 7px;
+      /* background-color: #171819 !important; */
+      color: #171819 !important;
+      padding:13px 25px !important;
+      border:none !important;
+    }
+
+    .text-standard_s2 {
+      font-size: 1.05rem;
+      text-align: start;
+      line-height: 1.3;
+      text-indent: 15px;
+
+    }
+
+    .questions {
+      font-size: 1.1em;
+      text-indent: 25px;
+    }
+
+    .question-s2 {
+      line-height: 1.3;
+
+      font-size: 1.2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+
+    }
+
+    .s-2 .title_quiz h2 {
+      text-transform: uppercase;
+      font-size: 1.5rem;
+    }
+
+    .s-2 .title_quiz {
+      margin-top: -15px;
+    }
+
+    /* style for the selected items div */
+    #selectedItems {
+      margin-top: 20px;
+    }
+
+    ._img_Bank {
+      padding: 0.1em 0.2em;
+      width: 100%;
+      object-fit: contain;
+    }
+
+    .list_banks .col-4, .list_inf .col-4{
+      display: flex;
+      align-items: center;
+      height: 35px;
+      padding: 0.25em 0.3em;
+      border: 1px solid lightgray;
+      border-radius: 5px;
+      justify-content: center;
+    }
+
+    .list_banks .col-6, .list_banks .col-12 {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 35px;
+      justify-content: center;
+      padding: 0.25em 0.3em;
+      border: 1px solid lightgray;
+      border-radius: 5px;
+    }
+
+    ._raiff {
+      width: 98px;
+    }
+
+    ._brd {
+      width: 100px;
+    }
+
+    ._unicredit {
+      width: 96px;
+    }
+
+    ._libra {
+      width: 100px;
+    }
+
+    ._garanti {
+      width: 110px;
+    }
+
+    ._otp {
+      width: 100px;
+    }
+   ._tbiBank {
+      width: 107px;
+    }
+    ._alpha {
+      width: 109px;
+    }
+     ._cec {
+      width: 106px;
+     }
+    ._ing {
+      width: 85px;
+    }
+    ._first_bank {
+      width: 106px;
+    }
+    ._bcr {
+      width: 110px;
+    }
+
+    ._bt {
+      width: 147px !important;
+    }
+
+    ._br {
+      width: 150px !important;
+    }
+
+    /* section 4 date picker */
+    /* section 4 date picker */
+    /* section 4 date picker */
+    /* section 4 date picker */
+    /* section 4 date picker */
+    .date-dropdowns {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .day,
+    .month,
+    .year {
+      padding: 0.5em;
+      border: 1px solid lightgray;
+    }
+
+    .month {
+      border-right: none;
+      border-left: none;
+    }
+  </style>
+  <title>Document</title>
+</head>
+<!-- <div id="steps_progress">
+          <div class="step_p" data-desc="contact">1</div>
+          <div class="step_p" data-desc="credit">2</div>
+          <div class="step_p active" data-desc="info2">3</div>
+          <div class="step_p" data-desc="trimite">4</div>
+        </div> -->
+
+<body>
+    <div class="container mt-5">
+        <!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-success btn-lg float-right" data-toggle="modal" data-target="#exampleModal">
+    Open Modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="exampleModalLabel">Login</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form class="form_class">
+                <section id="step1-container" class="_steps pt-4">
+                  <div class="title_quiz">
+                    <div class="col-12 text-title text-start mb-3 mx-auto">
+                      Soluții de creditare personalizate
+                    </div>
+                    <div class="col-12 text-subtitle text-start mb-3 m-0">
+                      Află cum poți obține cele mai bune oferte de credite prin
+                      intermediul experților.
+                      
+                    </div>
+                    <div class="col-12 text-subtitle text-start mb-3 m-0">
+                      Acesta este un chestionar interactiv care te va ajuta să obții informații despre opțiunile tale de creditare. Vom începe prin a afla câteva informații de bază despre tine.
+                    </div>
+              
+                 
+                  </div>
+                  <div class="form-group py-2 _forms">
+                    <label for="name" class="_label">nume</label>
+                    <input type="text" class="form-control form-control-lg _input" id="f_name" />
+                  </div>
+                  <div class="form-group py-2 _forms">
+                    <label for="phone" class="_label">Telefon</label>
+                    <input type="number" class="form-control form-control-lg _input" id="p_phone" />
+                  </div>
+                  <div class="form-group py-2 _forms">
+                    <label for="email" class="_label">Email</label>
+                    <input type="email" class="form-control form-control-lg _input" id="e_email" />
+                  </div>
+                  <div class="col-12 pb-5">
+                    <button id="continue-btn" type="button" class="btn btn-primary mt-3  w-100 justify-content-center"
+                      style="display: flex">
+                      Continua
+                    </button>
+                </div>
+                  <div class="terms_div my-2">
+                    <div class="term_one _term_text">first text</div>
+                    <div class="term_two _term_text">termeni si conditii</div>
+                  </div>
+                </section>
+                <section id="step2-container" class="_steps text-center s-2" style="display: none">
+                  <div class="title_quiz text-center pt-3">
+                    <div class="col-12 ">
+                      <h2 class="my-3">Hello! <br/> <span id="output-name"></span></h2>
+              
+                    </div>
+                    <div class="col-12">
+                      <div class="p-0 px-md-4 text-standard_s2">
+                        Eu sunt <b>Gabriela,</b> consultantul tău online cu o <b>experientă de peste 6 ani in domeniu.</b>
+                        Te voi indruma să găsim cele mai bune <b>soluții</b> pentru nevoile tale de la obținerea unui <b>credit
+                        nou</b>, până la
+                        refinanțarea creditelor existente sau chiar <b>eliminarea istoricului negativ</b> din Biroul de
+                        <b>Credit.</b>
+                      </div>
+                    </div>
+                    <div class="col-12 text-standard_s2 text-start my-4 questions\">
+                    Însă, înainte de a crea un <b>plan</b>, m-ar interesa să aflu câteva <b>detalii</b> esențiale de la tine.
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 question-s2 my-4">
+                      esti raportat negativ in BIROUL DE CREDIT?
+                    </div>
+                    <div class="col-12 buttons_">
+                      <button id="yes-step1" type="button" class="btn btn-primary btn-half">
+                        Da
+                      </button>
+                      <button id="no-step1" type="button" class="btn btn-primary btn-half">
+                        Nu
+                      </button>
+                    </div>
+                  </div>
+                </section>
+    
+                <section id="step3-container" class="step-container _steps _step3" style="display: none">
+                  <h2 class="text-center">some info</h2>
+                  <h3 class="my-3 py-2 text-center">Step 3</h3>
+                  <div class="form-group _forms my-2 py-2">
+                    <label for="date_picker" class="_label">data angajarii</label>
+                    <!-- <input type="text" class="form-control form-control-lg _input" id="jobStart" /> -->
+                    <!-- <label for="date_picker">Select a date:</label> -->
+                    <input type="hidden" id="date_picker" name="date_picker">
+                    <p>You selected: <span id="selected_date"></span></p>
+                  </div>
+                  <div class="question justify-content-center d-flex" style="visibility: hidden">
+                    <div class="row flex-nowrap gap-2 justify-content-center buttons_ w-100">
+                      <button id="step3-yes" type="button" class="btn btn-primary w-100">
+                        Continua
+                      </button>
+                      <!-- <button id="step3-no" type="button" class="btn btn-primary w-50">
+                      Nu
+                    </button> -->
+                    </div>
+                  </div>
+                </section>
+    
+                <section id="step4-container" class="_steps" style="display: none">
+                  <div class="parent_step4 d-flex justify-content-between text-center flex-column">
+                    <div id="list_banks" class="list_banks _lists _bank_list">
+                      <div class="col w-100 title_banks title_s2 my-2">
+                        <h3>Selectie Banci</h3>
+                      </div>
+                     <div class="col w-100 subtitle_banks subtitle_s2">
+                      <div class="my-2">Selecteaza Bancile la care detii raport negativ</div>
+                     </div>
+                      <div class="row mb-2 mx-auto">
+                        <div class="col-4">
+                          <img src="./png/logo/bcr.png" alt="Image 1" class="_img_Bank _bcr" />
+                        </div>
+                        <div class="col-4">
+                          <img src="./png/logo/raiff.png" alt="Image 2" class="_img_Bank _raiff" />
+                        </div>
+                        <div class="col-4">
+                          <img src="./png/logo/ing.png" alt="Image 6" class="_img_Bank _ing" />
+                        </div>
+                      </div>
+                      <div class="row mb-2 mx-auto">
+                        <div class="col-4">
+                          <!-- <img src="./png/logo/unicredit.png" alt="Image 5" class="_img_Bank _unicredit" /> -->
+                          <div class="bg-img _unicredits"></div>
+                          <style>
+                              .bg-img{
+                                background-repeat: no-repeat;
+                                background-size: 100px;
+                                background-position: center;
+                                width: 100%;
+                                height: 100%;
+                              }
+                              ._unicredits{
+                                background-image: url(./png/logo/unicredit.png);
+                              }
+    
+                          </style>
+                        </div>
+                        <div class="col-4">
+                          <!-- <img src="./png/logo/otp.png" alt="Image 6" class="_img_Bank _otp" /> -->
+                          <div class="bg-img _otps"></div>
+                          <style>
+                             ._otps{
+                                background-image: url(./png/logo/otp.png);
+                              }
+                          </style>
+                        </div>
+                        <div class="col-4">
+                          <img src="./png/logo/brd.png" alt="Image 6" class="_img_Bank _brd" />
+                        </div>
+                      </div>
+                      <div class="row mb-2 mx-auto">
+                        <div class="col-4">
+                          <img src="./png/logo/tbi-bank.png" alt="Image 7" class="_img_Bank _tbiBank" />
+                        </div>
+                        <div class="col-4">
+                          <!-- <img src="./png/logo/cetelem.png" alt="Image 9" class="_img_Bank _cetelem" /> -->
+                          <div class="bg-img _cetelems"></div>
+                          <style>
+                             ._cetelems{
+                                background-image: url(./png/logo/cetelem.png);
+                              }
+                          </style>
+                        </div>
+                        <div class="col-4">
+                          <img src="./png/logo/Libra_Bank.webp" alt="Image 10" class="_img_Bank _libra" />
+                        </div>
+                      </div>
+                      <div class="row mb-2 mx-auto">
+                        <div class="col-4">
+                          <img src="./png/logo/alpha.png" alt="Image 10" class="_img_Bank _alpha" />
+                        </div>
+                        <div class="col-4">
+                          <img src="./png/logo/cec.png" alt="Image 10" class="_img_Bank _cec" />
+                        </div>
+                        <div class="col-4">
+                          <img src="./png/logo/first_Banks.png" alt="Image 6" class="_img_Bank _first_bank" />
+                        </div>
+                      </div>
+                      <div class="row mb-2 mx-auto d-flex flex-row w-100">
+                        <div class="li_br col-6 justify-content-center">
+                          <img src="./png/logo/banca_romaneasca.png" alt="Image 8" class="_img_Bank _br" />
+                        </div>
+                        <div class="li_bt col-6 justify-content-center">
+                          <img src="./png/logo/bt.png" alt="Image 3" class="_img_Bank _bt" />
+                        </div>
+                      </div>
+                      <div class="row mb-2 mx-auto li_ga">
+                        <div class="col-12">
+                          <img src="./png/logo/garanti.png" alt="Image 4" class="_img_Bank _garanti mx-auto" />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="list_inf _lists">
+                      <div class="col-12 title_ifn title_s2">
+                        <h3 class="my-2">Selectie IFN-uri</h3>
+                      </div>
+                      <div class="col-12 subtitle_ifn subtitle_s2">
+                        <div class="py-2">Selecteaza ifn-urile la care detii raport negativ</div>
+                      </div>
+                      <div class="row mb-2 mx-auto">
+                        <div class="col-4">
+                          <img src="./png/logo/unicredit.png" alt="Image 5" class="_img_Bank _unicredit" />
+                        </div>
+                        <div class="col-4">
+                          <img src="./png/logo/otp.png" alt="Image 6" class="_img_Bank _otp" />
+                        </div>
+                        <div class="col-4">
+                          <img src="./png/logo/brd.png" alt="Image 6" class="_img_Bank _brd" />
+                        </div>
+                      </div>
+    
+                      <div class="row mb-2 mx-auto">
+                        <div class="col-4">
+                          <img src="./png/logo/alpha.png" alt="Image 10" class="_img_Bank _alpha" />
+                        </div>
+                        <div class="col-4">
+                          <img src="./png/logo/cec.png" alt="Image 10" class="_img_Bank" />
+                        </div>
+                        <div class="col-4">
+                          <img src="./png/logo/first_Banks.png" alt="Image 6" class="_img_Bank _first_bank" />
+                        </div>
+                      </div>
+                      <div class="col-12 my-3">
+                          <!-- <input type="text" class="_input" id="ifn_others" placeholder="adauga alte IFN-uri" /> -->
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <div class="input-group-text">
+                              <input type="radio" aria-label="Radio button for following text input">
+                              </div>
+                            </div>
+                            <input type="text" class="form-control" aria-label="Text input with radio button" placeholder="Adauga alte IFN-uri">
+                          </div>
+                        </div>
+                    </div>         
+                    <div class="row mx-auto buttons_ w-100">
+                      <button id="step4-yes" type="button" class="btn btn-primary btn-half w-100">
+                        Continuă
+                      </button>
+                      <!-- <div id="selectedItems"></div> -->
+                    </div>
+                  </div>
+    
+              </form>
+    
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-success">Login</button>
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+</div>
+  <script>
+    // Get input elements and buttons
+    const nameInput = document.getElementById("f_name");
+    const phoneInput = document.getElementById("p_phone");
+    const emailInput = document.getElementById("e_email");
+
+    const continueBtn = document.getElementById("continue-btn");
+
+    const yesStep1Btn = document.getElementById("yes-step1");
+    const noStep1Btn = document.getElementById("no-step1");
+    const answerInput = document.getElementById("answer");
+
+    const step3YesBtn = document.getElementById("step3-yes");
+    // const step3NoBtn = document.getElementById("step3-no");
+
+    const step4YesBtn = document.getElementById("step4-yes");
+    // const step4NoBtn = document.getElementById("step4-no");
+
+    // const jobStart = document.getElementById("jobStart");
+    const question = document.querySelector(".question");
+    // Get step containers
+    const step1Container = document.getElementById("step1-container");
+    const step2Container = document.getElementById("step2-container");
+    const step3Container = document.getElementById("step3-container");
+    const step4Container = document.getElementById("step4-container");
+
+    const titleQuiz = document.querySelector(".title_quiz");
+    const termsDiv = document.querySelector(".terms_div");
+
+
+
+
+
+
+
+    console.log("termsDiv", termsDiv);
+
+    continueBtn.style.visibility = "visible";
+    // Function to check if all inputs are filled
+    function checkInputs() {
+      const nameValue = nameInput.value.trim();
+      const phoneValue = phoneInput.value.trim();
+      const emailValue = emailInput.value.trim();
+      // const jobValue = jobStart.value.trim();
+
+      document.getElementById("output-name").innerHTML = nameValue;
+      // console.log("jobValue");
+      if (nameValue !== "" && phoneValue !== "" && emailValue !== "") {
+        continueBtn.style.visibility = "visible";
+      } else {
+        continueBtn.style.visibility = "visible";
+      }
+      // if (jobValue !== "") {
+      //   question.style.visibility = "visible";
+      // } else {
+      //   question.style.visibility = "visible";
+      // }
+    }
+
+    // Add event listeners to input fields
+    nameInput.addEventListener("input", checkInputs);
+    phoneInput.addEventListener("input", checkInputs);
+    emailInput.addEventListener("input", checkInputs);
+    // jobStart.addEventListener("input", checkInputs);
+
+    // Function to show/hide step containers
+    async function showHideSteps(currentStep, nextStep, titleQuiz, termsDiv) {
+      currentStep.style.display = "none";
+      nextStep.style.display = "block";
+      titleQuiz.style.display = "none";
+      termsDiv.style.display = "none";
+    }
+
+    // Add event listener to continue button
+    continueBtn.addEventListener("click", async () => {
+
+      await showHideSteps(step1Container, step2Container, titleQuiz);
+    });
+
+    // Add event listener to yes button in step 2
+    yesStep1Btn.addEventListener("click", async () => {
+      await showHideSteps(step2Container, step4Container, termsDiv);
+    });
+
+    // Add event listener to no button in step 2
+    noStep1Btn.addEventListener("click", async () => {
+      await showHideSteps(step2Container, step3Container, termsDiv);
+    });
+
+    // Add event listener to yes button in step 3
+    step3YesBtn.addEventListener("click", async () => {
+      await showHideSteps(step3Container, step4Container, titleQuiz, termsDiv);
+    });
+
+    // // Add event listener to no button in step 3
+    // step3NoBtn.addEventListener("click", async () => {
+    //   // Do something else
+    //   alert("btn3no");
+    // });
+
+    // Add event listener to yes button in step 4
+    step4YesBtn.addEventListener("click", async () => {
+      // Do something else
+      alert("btn4Yes");
+    });
+
+    // // Add event listener to no button in step 4
+    // step4NoBtn.addEventListener("click", async () => {
+    //   // Do something else
+    //   alert("btn4no");
+    // });
+
+    const backBtns = document.querySelectorAll(".back-btn");
+    backBtns.forEach((backBtn) => {
+      backBtn.addEventListener("click", async () => {
+        const currentStep = backBtn.closest(".step-container");
+        const previousStep =
+          currentStep && currentStep.previousElementSibling;
+        if (previousStep) {
+          await showHideSteps(currentStep, previousStep);
+        }
+      });
+    });
+
+    function setFocus(on) {
+      let elementFocus = document.activeElement;
+      if (on) {
+        setTimeout(function () {
+          elementFocus.parentNode.classList.add("focus");
+        });
+      } else {
+        let boxR = document.querySelector("._forms");
+        console.log(boxR, "boxes");
+        boxR.classList.remove("focus");
+        $("._input").each(function () {
+          let $input = $(this);
+          let $parent = $input.closest("._forms");
+          if ($input.val()) {
+            $parent.addClass("focus");
+          } else {
+            $parent.removeClass("focus");
+          }
+        });
+      }
+    }
+
+    $("._input").attr({
+      onfocus: "setFocus(true)",
+      onblur: "setFocus(false)",
+      required: "required",
+      maxlength: "40",
+    });
+
+    $(".step_p").each(function (index, element) {
+      // element == this
+      $(element).not(".active").addClass("done");
+      $(".done").html('<i class="icon-ok"></i>');
+      if ($(this).is(".active")) {
+        return false;
+      }
+    });
+
+    function listBanks() {
+      // get the unordered list element
+      const list = document.querySelector(".list_banks");
+
+      // get the div where the selected items will be displayed
+      const selectedItems = document.getElementById("selectedItems");
+
+      // add event listener for when a list item is clicked
+      list.addEventListener("click", function (e) {
+        // get the clicked list item
+        const listItem = e.target.closest("li");
+
+        // toggle the "selected" class on the clicked list item
+        listItem.classList.toggle("selected_banks");
+
+        // get all the selected list items
+        const selectedListItems =
+          document.querySelectorAll(".selected_banks");
+
+        // clear the selected items div
+        selectedItems.innerHTML = "";
+
+        // loop through the selected list items and add their content to the selected items div
+        selectedListItems.forEach(function (selectedItem) {
+          const img = selectedItem.querySelector("img").cloneNode(true);
+          const p = selectedItem.querySelector("p").cloneNode(true);
+          selectedItems.appendChild(img);
+          selectedItems.appendChild(p);
+        });
+      });
+    }
+    listBanks();
+    $(document).ready(function () {
+      $("#date_picker").dropdownDatepicker({
+        defaultDate: '',
+        displayFormat: 'ydm',
+        maxYear: 2020,
+        minAge: 18,
+        required: true,
+
+        dayLabel: "Ziua",
+        monthLabel: "Luna",
+        yearLabel: "An",
+        maxYear: 2023
+      });
+    });
+    // Add event listener to update selected date
+    $("#date_picker").on("change", function () {
+      $("#selected_date").text($(this).val());
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+</body>
+
+</html>
