@@ -745,11 +745,16 @@
                 <h2 class="text-center">some info</h2>
                 <h3 class="my-3 py-2 text-center">Step 3</h3>
                 <div class="form-group _forms my-2 py-2">
-                  <label for="date_picker" class="_label">data angajarii</label>
+              
+                  <div class="row">
+                    <div class="">
+                      daca nu retii exact, poti sa aproximezi data la care te ai angajat?
+                    </div>
+                  </div>
                   <!-- <input type="text" class="form-control form-control-lg _input" id="jobStart" /> -->
                   <!-- <label for="date_picker">Select a date:</label> -->
-                  <input type="hidden" id="date_picker" name="date_picker" />
-                  <p>You selected: <span id="selected_date"></span></p>
+                  <!-- <input type="hidden" id="date_picker" name="date_picker" />
+                  <p>You selected: <span id="selected_date"></span></p> -->
                 </div>
                 <div class="question justify-content-center d-flex" style="visibility: hidden">
                   <div class="row flex-nowrap gap-2 justify-content-center buttons_ w-100">
@@ -775,18 +780,18 @@
                       </div>
                     </div>
                     <div class="row mb-2 mx-auto d_gap">
-                      <div class="col-6">
+                      <div class="col-6 sel" data-name="bcr" onclick="displayAttribute(this)">
                         <img src="./png/logo/bcr.png" alt="Image 1" class="_img_Bank _bcr" />
                       </div>
-                      <div class="col-6">
+                      <div class="col-6 sel">
                         <img src="./png/logo/raiff.png" alt="Image 2" class="_img_Bank _raiff" />
                       </div>
                     </div>
                     <div class="row mb-2 mx-auto d_gap">
-                      <div class="col-6">
+                      <div class="col-6 sel">
                         <img src="./png/logo/unicredit.png" alt="Image 5" class="_img_Bank _unicredit" />
                       </div>
-                      <div class="col-6">
+                      <div class="col-6 sel">
                         <img src="./png/logo/otp.png" alt="Image 6" class="_img_Bank _otp" />
                       </div>
                     </div>
@@ -895,6 +900,8 @@
             </form>
           </div>
           <div class="modal-footer">
+            <div id="result"></div>
+            <div id="selectedDivs"></div>
             <!-- <div class="btn-container">
               <button class="btn" id="Next">Next</button>
               <button class="btn" id="Back">Back</button>
@@ -916,7 +923,6 @@
     const nameInput = document.getElementById("f_name");
     const phoneInput = document.getElementById("p_phone");
     const emailInput = document.getElementById("e_email");
-
     const continueBtn = document.getElementById("continue-btn");
 
     const yesStep1Btn = document.getElementById("yes-step1");
@@ -928,7 +934,6 @@
 
     const step4YesBtn = document.getElementById("step4-yes");
     // const step4NoBtn = document.getElementById("step4-no");
-
     // const jobStart = document.getElementById("jobStart");
     const question = document.querySelector(".question");
     // Get step containers
@@ -936,7 +941,6 @@
     const step2Container = document.getElementById("step2-container");
     const step3Container = document.getElementById("step3-container");
     const step4Container = document.getElementById("step4-container");
-
     const titleQuiz = document.querySelector(".title_quiz");
     const termsDiv = document.querySelector(".terms_div");
 
@@ -948,7 +952,7 @@
         spinner.style.display = "block";
         setTimeout(() => {
           spinner.style.display = "none";
-        }, 1000);
+        }, 700);
       } else {
         spinner.style.display = "none";
       }
@@ -1055,6 +1059,30 @@
     //   });
     // });
 
+
+    let selectedDivs = [];
+
+    function displayAttribute(div) {
+      let name = div.getAttribute("data-name");
+      console.log(name, "data-atribute")
+      let resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = "Selected div: " + name;
+
+      if (!selectedDivs.includes(name)) {
+        selectedDivs.push(name);
+      }
+
+      let selectedDivsDiv = document.getElementById("selectedDivs");
+      selectedDivsDiv.innerHTML = "Selected divs: ";
+
+      for (let i = 0; i < selectedDivs.length; i++) {
+        let span = document.createElement("span");
+        span.innerHTML = selectedDivs[i] + ", ";
+        selectedDivsDiv.appendChild(span);
+      }
+    }
+
+
     function setFocus(on) {
       let elementFocus = document.activeElement;
       if (on) {
@@ -1093,59 +1121,7 @@
       }
     });
 
-    function listBanks() {
-      // get the unordered list element
-      const list = document.querySelector(".list_banks");
-
-      // get the div where the selected items will be displayed
-      const selectedItems = document.getElementById("selectedItems");
-
-      // add event listener for when a list item is clicked
-      list.addEventListener("click", function (e) {
-        // get the clicked list item
-        const listItem = e.target.closest("li");
-
-        // toggle the "selected" class on the clicked list item
-        listItem.classList.toggle("selected_banks");
-
-        // get all the selected list items
-        const selectedListItems =
-          document.querySelectorAll(".selected_banks");
-
-        // clear the selected items div
-        selectedItems.innerHTML = "";
-
-        // loop through the selected list items and add their content to the selected items div
-        selectedListItems.forEach(function (selectedItem) {
-          const img = selectedItem.querySelector("img").cloneNode(true);
-          const p = selectedItem.querySelector("p").cloneNode(true);
-          selectedItems.appendChild(img);
-          selectedItems.appendChild(p);
-        });
-      });
-    }
-
-    listBanks();
-    
-    $(document).ready(function () {
-      $("#date_picker").dropdownDatepicker({
-        defaultDate: "",
-        displayFormat: "ydm",
-        maxYear: 2020,
-        minAge: 18,
-        required: true,
-
-        dayLabel: "Ziua",
-        monthLabel: "Luna",
-        yearLabel: "An",
-        maxYear: 2023,
-      });
-
-      // Add event listener to update selected date
-      $("#date_picker").on("change", function () {
-        $("#selected_date").text($(this).val());
-      });
-    });
+   
 
     var progressBar = {
       Bar: $("#progress-bar"),
