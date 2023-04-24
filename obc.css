@@ -90,6 +90,7 @@ h6 {
 /* SPINNNER  */
 /* SPINNNER  */
 /* SPINNNER  */
+
 .container-spinner {
   position: absolute;
   width: 100%;
@@ -488,6 +489,10 @@ input[type="text"]::placeholder {
 #selectedItems {
   margin-top: 20px;
 }
+#errorMsg {
+  text-align: center;
+    font-size: 0.8em;
+}
 
 ._img_Bank {
   /* padding: 0.1em 0.2em; */
@@ -630,4 +635,15 @@ input[type="text"]::placeholder {
 .month {
   border-right: none;
   border-left: none;
+}
+
+
+/* SECTION 4 DATE */
+/* SECTION 4 DATE */
+/* SECTION 4 DATE */
+.date_box {
+   padding: 0.6em;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    font-size: 0.9em;
 }

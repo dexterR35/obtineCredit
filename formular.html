@@ -21,25 +21,16 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet" />
- <link rel="stylesheet" href="./obc.css">
+  <link rel="stylesheet" href="./obc.css" />
   <title>Formular</title>
 </head>
-<!-- <div id="steps_progress">
-          <div class="step_p" data-desc="contact">1</div>
-          <div class="step_p" data-desc="credit">2</div>
-          <div class="step_p active" data-desc="info2">3</div>
-          <div class="step_p" data-desc="trimite">4</div>
-        </div> -->
 
 <body>
-  <script>
-    
-
-  </script>
+  <script></script>
   <div class="container mt-5">
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-outline-success btn-lg float-right" data-toggle="modal"
-      data-target="#modal_quiz">
+      data-target="#modal_quiz" onclick="progressBar.Next()">
       Obtine Credit
     </button>
     <!-- Modal -->
@@ -67,7 +58,7 @@
             <div id="loading-spinner"></div>
           </div>
           <div class="modal-body">
-            <form class="form_class">
+            <form class="form_class" onsubmit="return validateForm()">
               <section id="step1-container" class="_steps pt-2">
                 <div class="row title_quiz">
                   <div class="col-12 text-title text-start mb-3 mx-auto">
@@ -80,23 +71,24 @@
                 </div>
                 <div class="form-group py-2 my-2 _forms">
                   <label for="name" class="_label">nume</label>
-                  <input type="text" class="form-control form-control-lg _input" id="f_name" />
+                  <input type="text" class="form-control form-control-lg _input" id="f_name" name="f_name" />
                 </div>
                 <div class="form-group py-2 my-2 _forms">
                   <label for="phone" class="_label">Telefon</label>
-                  <input type="number" class="form-control form-control-lg _input" id="p_phone" />
+                  <input type="number" class="form-control form-control-lg _input" id="p_phone" name="p_phone" />
                 </div>
                 <div class="form-group py-2 my-2 _forms">
                   <label for="email" class="_label">Email</label>
-                  <input type="email" class="form-control form-control-lg _input" id="e_email" />
+                  <input type="email" class="form-control form-control-lg _input" id="e_email" name="e_email" />
                 </div>
+                <div class="row mx-auto"> <span id="errorMsg" style="display:none; color:red">Te rog sa completeazio
+                    toate campurile</span></div>
                 <div class="col-12 pb-4">
-                  <button id="continue-btn" type="button" class="btn btn-primary mt-3 w-100 justify-content-center"
-                    style="display: flex">
+                  <button id="continue-btn" type="submit" value="Submit"
+                    class="btn btn-primary mt-3 w-100 justify-content-center submitBtn" disabled>
                     Continua
                   </button>
                 </div>
-
                 <div class="col-12 text-subtitle text-below my-2">
                   Acesta este un chestionar interactiv care te va ajuta să
                   obții informații despre opțiunile tale de creditare. Vom
@@ -108,7 +100,7 @@
                   <div class="col-12">
                     <h2 class="my-2">
                       Hello! <br />
-                      <span id="output-name"></span>
+                      <span id="output-s3" class="output-name"></span>
                     </h2>
                   </div>
                   <div class="col-12">
@@ -142,19 +134,33 @@
                 </div>
               </section>
               <section id="step3-container" class="step-container _steps _step3" style="display: none">
-                <h2 class="text-center">some info</h2>
-                <h3 class="my-3 py-2 text-center">Step 3</h3>
-                <div class="form-group _forms my-2 py-2">
-                  <div class="row">
-                    <div class="col-12">
-                      daca nu retii exact, poti sa aproximezi data la care te
-                      ai angajat?
-                    </div>
-                    <div class="col-12">
-                      <label for="date_jobs" class="_label">Telefon</label>
-                      <input type="date" class="form-control form-control-lg _input" id="date_jobs" />
-                    </div>
+                <h2 class="text-center">angajare</h2>
+                <div class="row mb-2 mx-auto">
+                  <div class="col-12">
+                    daca nu retii exact, poti sa aproximezi data la care te
+                    ai angajat?
                   </div>
+                </div>
+                <div class="row my-4 mx-auto w-75">
+                  <div class="col-12 d-flex justify-content-around g-1 mb-2">
+                    <select id="birthDay" class="date_box">
+                      <option value="0">Day</option>
+                    </select>
+                    <select id="birthMonth" class="date_box">
+                      <option value="0">Month</option>
+                    </select>
+                    <select id="birthYear" class="date_box">
+                      <option value="0">Year</option>
+                    </select>
+                  </div>
+                  <div id="selectedDate" class="text-center"></div>
+                </div>
+                <div class="row my-2 mx-auto">
+                  <div class="col-12">
+                    aveti cumva istoric bancar aveti sau credite in prezent?
+                  </div>
+                </div>
+                <div class="row my-4 mx-auto">
                   <div class="col-12 buttons_ d-flex justify-content-center gap-3">
                     <button id="yes-step3" type="button" class="btn btn-primary btn-half">
                       Da
@@ -163,20 +169,8 @@
                       nu
                     </button>
                   </div>
-                  <!-- <input type="text" class="form-control form-control-lg _input" id="jobStart" /> -->
-                  <!-- <label for="date_picker">Select a date:</label> -->
-                  <!-- <input type="hidden" id="date_picker" name="date_picker" />
-                  <p>You selected: <span id="selected_date"></span></p> -->
-                </div>
-                <div class="question justify-content-center d-flex" style="visibility: hidden">
-                  <div class="row flex-nowrap gap-2 justify-content-center buttons_ w-100">
-                    <!-- <button id="step3-no" type="button" class="btn btn-primary w-50">
-                      Nu
-                    </button> -->
-                  </div>
                 </div>
               </section>
-
               <section id="step4-container" class="_steps" style="display: none">
                 <div class="parent_step4 d-flex justify-content-between text-center flex-column">
                   <div id="list_banks" class="list_banks _lists _bank_list mt-2">
@@ -237,10 +231,12 @@
                       </div>
                     </div>
                     <div class="row mb-2 mx-auto d_gap">
-                      <div class="col-6 justify-content-center" data-name="Garanti Bank" onclick="displayAttribute(this)">
+                      <div class="col-6 justify-content-center" data-name="Garanti Bank"
+                        onclick="displayAttribute(this)">
                         <img src="./png/logo/garanti.png" alt="Image 4" class="_img_Bank _garanti mx-auto" />
                       </div>
-                      <div class="col-6 justify-content-center li_bt" data-name="Banca Transilvania" onclick="displayAttribute(this)">
+                      <div class="col-6 justify-content-center li_bt" data-name="Banca Transilvania"
+                        onclick="displayAttribute(this)">
                         <img src="./png/logo/bt.png" alt="Image 3" class="_img_Bank _bt" />
                       </div>
                     </div>
@@ -289,10 +285,10 @@
                         <div class="input-group">
                           <div class="input-group-prepend">
                             <div class="input-group-text">
-                              <input type="radio" aria-label="Radio button for following text input" />
+                              <input type="radio" aria-label="Radio button for following text input" class="radio_" />
                             </div>
                           </div>
-                          <input type="text" class="form-control" aria-label="Text input with radio button"
+                          <input type="text" class="form-control another_ifn" aria-label="Text input with radio button"
                             placeholder="Adauga alte IFN-uri" />
                         </div>
                       </div>
@@ -314,7 +310,8 @@
               <section id="step-final" class="_steps" style="display: none">
                 <div class="row">
                   <div class="col-12">
-            cu succes, in cateva momente un consultant te va suna, o {zi/seara} buna domnule "variable name"
+                    cu succes, in cateva momente un consultant te va suna, o
+                    {zi/seara} buna domnule <b><span id="output-sF"></span></b>
                   </div>
                 </div>
               </section>
@@ -332,7 +329,9 @@
       </div>
     </div>
   </div>
+  <script>
 
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
   <script src="./formular.js"></script>
