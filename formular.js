@@ -7,17 +7,22 @@ const continueBtn = document.getElementById("continue-btn");
 const yesStep2Btn = document.getElementById("yes-step2");
 const noStep2Btn = document.getElementById("no-step2");
 
-const yesStep3Btn = document.getElementById("yes-step3");
-const noStep3Btn = document.getElementById("no-step3");
-
+const continueStep3 = document.getElementById("continue-btn3");
 
 const SendInfoStep4Btn = document.getElementById("continueStep4");
+
+const yesStep5Btn = document.getElementById("yes-step5");
+const noStep5Btn = document.getElementById("no-step5");
+
+
+
 
 // Get step containers
 const step1Container = document.getElementById("step1-container");
 const step2Container = document.getElementById("step2-container");
 const step3Container = document.getElementById("step3-container");
 const step4Container = document.getElementById("step4-container");
+const step5Container = document.getElementById("step5-container");
 
 const stepFinal = document.getElementById("step-final");
 
@@ -35,23 +40,20 @@ let outputName = [
 ];
 // Function to check if all inputs are filled
 function checkInputs() {
-
   const nameValue = nameInput.value.trim();
   const phoneValue = phoneInput.value.trim();
   const emailValue = emailInput.value.trim();
-
-
   outputName.forEach((span) => {
     span.innerHTML = nameValue.toUpperCase();
   });
   // outputName.innerHTML = nameValue;
 
   // console.log("jobValue");
-  // if (nameValue !== "" && phoneValue !== "" && emailValue !== "") {
-  //   continueBtn.style.visibility = "visible";
-  // } else {
-  //   continueBtn.style.visibility = "visible";
-  // }
+  if (nameValue !== "" && phoneValue !== "" && emailValue !== "") {
+    continueBtn.disabled = false;
+  } else {
+    continueBtn.disabled = true;
+  }
   // if (jobValue !== "") {
   //   question.style.visibility = "visible";
   // } else {
@@ -71,6 +73,43 @@ checkRadio();
 nameInput.addEventListener("input", checkInputs);
 phoneInput.addEventListener("input", checkInputs);
 emailInput.addEventListener("input", checkInputs);
+
+// Add event listeners for date 
+
+
+const birthDay = document.getElementById("birthDay");
+const birthMonth = document.getElementById("birthMonth");
+const birthYear = document.getElementById("birthYear");
+
+birthDay.addEventListener("change", async () => {
+  await enableContinueButton();
+});
+
+birthMonth.addEventListener("change", async () => {
+  await enableContinueButton();
+});
+
+birthYear.addEventListener("change", async () => {
+  await enableContinueButton();
+});
+
+async function enableContinueButton() {
+  const selectedDay = birthDay.value;
+  const selectedMonth = birthMonth.value;
+  const selectedYear = birthYear.value;
+  // const selectedDate = `${selectedDay}/${selectedMonth}/${selectedYear}`;
+
+  if (selectedDay !== "0" && selectedMonth !== "0" && selectedYear !== "0") {
+    // await new Promise((resolve) => setTimeout(resolve, 0));
+    document.getElementById("continue-btn3").disabled = false; 
+    const selectedDate = `${selectedDay}/${selectedMonth}/${selectedYear}`;
+    document.getElementById("selectedDate").innerHTML = `Selected date: ${selectedDate}`;
+  } else {
+    document.getElementById("continue-btn3").disabled = true;
+    document.getElementById("selectedDate").innerHTML = "Please select a date.";
+  }
+}
+// enableContinueButton();
 
 // Function to show/hide step containers
 async function showHideSteps(currentStep, nextStep) {
@@ -99,37 +138,54 @@ yesStep2Btn.addEventListener("click", async () => {
 
 noStep2Btn.addEventListener("click", async () => {
   toggleLoadingSpinner(true);
+  progressBar.Next();
+  progressBar.Next();
   await showHideSteps(step2Container, step3Container);
   toggleLoadingSpinner(false);
 });
 
-// Add event listener to yes button in step 3 to 4
-
-yesStep3Btn.addEventListener("click", async () => {
-  toggleLoadingSpinner(true);
-  await showHideSteps(step3Container, step4Container);
-  toggleLoadingSpinner(false);
-});
-
-// Add event listener to yes button in step 3 to 5
-
-noStep3Btn.addEventListener("click", async () => {
-  toggleLoadingSpinner(true);
-  progressBar.Next();
-  // Do something else
-  await showHideSteps(step3Container, stepFinal);
-  toggleLoadingSpinner(false);
-});
-
-// Add event listener to yes button in step 3 to final
+// Add event listener to yes button in step 4 to final
 
 SendInfoStep4Btn.addEventListener("click", async () => {
   toggleLoadingSpinner(true);
   progressBar.Next();
+  progressBar.Next();
+  progressBar.Next();
   // Do something else
   await showHideSteps(step4Container, stepFinal);
   toggleLoadingSpinner(false);
+  
 });
+
+// Add event listener to yes button in step 3 to 5
+continueStep3.addEventListener("click",async ()=> {
+  toggleLoadingSpinner(true);
+  progressBar.Next();
+  // Do something else
+  await showHideSteps(step3Container, step5Container);
+  toggleLoadingSpinner(false);
+})
+
+// Add event listener to yes button in step 5 to final
+
+yesStep5Btn.addEventListener("click", async () => {
+  toggleLoadingSpinner(true);
+  progressBar.Next();
+  await showHideSteps(step5Container, stepFinal);
+  toggleLoadingSpinner(false);
+});
+
+// Add event listener to yes button in step 5 to final
+
+noStep5Btn.addEventListener("click", async () => {
+  toggleLoadingSpinner(true);
+  progressBar.Next();
+  // Do something else
+  await showHideSteps(step5Container, stepFinal);
+  toggleLoadingSpinner(false);
+});
+
+
 
 
 function toggleLoadingSpinner(showSpinner) {
@@ -206,7 +262,7 @@ $("._input").attr({
 });
 
 
-var progressBar = {
+let progressBar = {
   Bar: $("#progress-bar"),
   Reset: function () {
     if (this.Bar) {
@@ -225,26 +281,26 @@ progressBar.Reset();
 
 
 function displayDate() {
-  for (var i = 1; i <= 31; i++) {
+  for (let i = 1; i <= 31; i++) {
     $('#birthDay').append('<option value="' + i + '">' + i + '</option>');
   }
 
-  for (var i = 1; i <= 12; i++) {
+  for (let i = 1; i <= 12; i++) {
     $('#birthMonth').append('<option value="' + i + '">' + i + '</option>');
   }
 
-  var currentTime = new Date();
-  var year = currentTime.getFullYear();
-  for (var i = year; i >= 1900; i--) {
+  let currentTime = new Date();
+  let year = currentTime.getFullYear();
+  for (let i = year; i >= 1900; i--) {
     $('#birthYear').append('<option value="' + i + '">' + i + '</option>');
   }
   
   // add event listener to select elements
   $('#birthDay, #birthMonth, #birthYear').on('change', function() {
-    var day = $('#birthDay').val();
-    var month = $('#birthMonth').val();
-    var year = $('#birthYear').val();
-    $('#selectedDate').text(month + '.' + day + '.' + year); // update text of div
+    let day = $('#birthDay').val();
+    let month = $('#birthMonth').val();
+    let year = $('#birthYear').val();
+    $('#selectedDate').text(day + '.' + month + '.' + year); // update text of div
   });
 }
 
@@ -267,20 +323,21 @@ const formFields_ = document.querySelectorAll('#f_name, #e_email, #p_phone');
 const submitBtn_ = document.querySelector('.submitBtn');
 const errorMsg_ = document.querySelector('#errorMsg');
 
-function validateForm() {
-  for (let i = 0; i < formFields_.length; i++) {
-    if (formFields_[i].value === '') {
-      errorMsg_.style.display = 'block'; // show error message
-      return false; // form is not valid
-    }
-  }
-  errorMsg_.style.display = 'none'; // hide error message
-  return true; // form is valid
-}
+// function validateForm() {
+//   for (let i = 0; i < formFields_.length; i++) {
+//     if (formFields_[i].value.trim() === '') {
+//       errorMsg_.style.display = 'block'; // show error message
+//       return false; // form is not valid
+//     }
+//   }
+//   errorMsg_.style.display = 'none'; // hide error message
+//   return true; // form is valid
+// }
 
-// enable/disable submit button based on whether form is valid or not
-for (let i = 0; i < formFields_.length; i++) {
-  formFields_[i].addEventListener('input', () => {
-    submitBtn_.disabled = !validateForm();
-  });
-}
+// // enable/disable submit button based on whether form is valid or not
+// for (let i = 0; i < formFields_.length; i++) {
+//   formFields_[i].addEventListener('input', () => {
+//     submitBtn_.disabled = !validateForm();
+//   });
+// }
+

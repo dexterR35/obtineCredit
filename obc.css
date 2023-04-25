@@ -4,6 +4,7 @@
   margin: 0;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 :root {
@@ -13,7 +14,7 @@
   --modal-inputBg: #dbdbdb;
   --bg-white: #fff;
   --color-white: #fff;
-  --border-input: #dadce0;
+  --border-input: #cdcdcd ;
   --border-inputFocus: orange;
   --border-error: #ff4c16;
   --border-active: red;
@@ -23,17 +24,15 @@
   --transition-mask: 0.5s ease-out;
   --transition-input: ease 250ms;
   --de_salvat: #ff7e7e;
-  --soft-green: #ff0076d4;
-  --soft-progress: #ff0076d4;
-  --selected_banks: #e9fbff;
-  /* --soft-green: #39bdabf5; */
+  --soft-green: #39bdabf5;
+  --soft-progress: #39bdabf5;
+  --dark-progress: #acacac;
+  --selected_banks: #c0ffee;
 }
 
 body {
-  font-family: "Libre Franklin", sans-serif;
   background: #f2f2f2;
   font-weight: 400;
-  font-family: "Poppins", sans-serif;
   margin-top: 0.4em;
 }
 
@@ -95,7 +94,7 @@ h6 {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #fff;
+  background: var(--bg-white) !important;
   top: 0;
   left: 0;
   z-index: 100;
@@ -103,9 +102,6 @@ h6 {
   display: none;
 }
 
-.selected_b {
-  background: var(--selected_banks);
-}
 
 .text-start {
   text-align: start;
@@ -141,7 +137,6 @@ h6 {
   width: 100%;
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #dfdfdf;
 }
 
 .myPhone {
@@ -160,7 +155,7 @@ h6 {
   justify-content: flex-start;
   align-items: center;
   box-shadow: 0px 2px 5px #969696;
-  border: 1px solid lightgrey;
+  border: 1px solid var(--border-input) !important;
   border-radius: 14px;
 }
 
@@ -206,7 +201,6 @@ h6 {
 .text-below {
   font-size: 0.8em !important;
   font-size: 0.75em !important;
-  /* text-align: center !important; */
   width: 100% !important;
 }
 
@@ -215,23 +209,34 @@ h6 {
 }
 
 .modal-header {
-  padding: 0.7rem 5rem !important;
+  padding: 0.7rem 3rem !important;
   position: relative !important;
   width: 100% !important;
-  background: #fff;
+  background: var(--bg-white) !important;
+  border: none;
+  border-bottom: 1px solid var(--border-input) !important;
   z-index: 10;
   top: 0;
+  position: sticky !important;
 }
+/* .modal-header::after{
+
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position:fixed !important
+} */
 
 .modal-footer {
   justify-content: flex-start !important;
   position: relative !important;
-  background: #fff;
-  /* height: 56px; */
+  background: var(--bg-white) !important;
   border: 0;
   width: 100%;
   bottom: 0;
-  border-top: 1px solid #dee2e6;
+  border-top: 1px solid var(--border-input) !important;
   z-index: 10;
 }
 
@@ -245,7 +250,7 @@ h6 {
 
 .modal-body {
   padding: 1.5rem 1rem !important;
-  background: #fff;
+  background: var(--bg-white) !important;
 }
 
 .modal-open .modal {
@@ -273,7 +278,7 @@ h6 {
 .form-control,
 .form-control-lg {
   outline: none !important;
-  border: 1px solid #f1efef !important;
+  border: 1px solid var(--border-input) !important;
   position: relative;
 }
 
@@ -287,7 +292,7 @@ h6 {
 }
 
 ._label {
-  font-size: 0.85em;
+  font-size: 0.9rem;
   position: absolute;
   color: var(--color_text);
   font-weight: 400;
@@ -299,6 +304,16 @@ h6 {
   user-select: none;
   pointer-events: none;
   font-weight: 400;
+}
+.form-select,form-select option {
+  font-size: 0.95rem;
+}
+.form-select {
+  height: 55px;
+  border-color: var(--border-input) !important;
+}
+.form-select:focus, .form-select:active {
+  border-color: var(--soft-green) !important;
 }
 
 ._input .input-border-color {
@@ -322,6 +337,12 @@ h6 {
   outline: none;
   box-shadow: 0px 1px 5px rgb(211, 211, 211);
 }
+.form-select:focus {
+  border: 1px solid !important;
+    border-color: var(--soft-green) !important;
+    outline: none;
+    box-shadow: 0px 1px 5px rgb(211, 211, 211);
+}
 
 /* progress bar  */
 /* progress bar  */
@@ -336,8 +357,7 @@ h6 {
 .progressbar li {
   list-style-type: none;
   width: 100%;
-  /* float: left; */
-  line-height: 10px;
+  line-height: 8px;
   font-size: 12px;
   position: relative;
   display: flex;
@@ -345,8 +365,8 @@ h6 {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  text-transform: uppercase;
-  color: #7d7d7d;
+  text-transform: capitalize;
+  color: var(--dark-progress);
 }
 
 .progressbar li:before {
@@ -354,13 +374,12 @@ h6 {
   height: 12px;
   content: "";
   line-height: 30px;
-  border: 1px solid #7d7d7d;
-  background-color: #7d7d7d;
+  background: var(--dark-progress);
   display: block;
   text-align: center;
   margin: 0 auto 10px auto;
   border-radius: 50%;
-  /* transition: all 0.8s; */
+
 }
 
 .progressbar li:after {
@@ -368,11 +387,11 @@ h6 {
   height: 2px;
   content: "";
   position: absolute;
-  background-color: #7d7d7d;
+  background: var(--dark-progress);
   top: 5px;
   left: -50%;
   z-index: -1;
-  /* transition: all 0.8s; */
+
 }
 
 .progressbar li:first-child:after {
@@ -381,7 +400,7 @@ h6 {
 
 .progressbar li.active:before {
   border-color: var(--soft-progress);
-  background-color: var(--soft-progress);
+  background: var(--soft-progress);
   transition: ease 0.8s;
 }
 
@@ -421,7 +440,13 @@ h6 {
 }
 
 .selected_banks {
-  background-color: yellow;
+  background-color: var(--selected_banks);
+  border: 1px solid var(--soft-green) !important;
+}
+
+.selected_b {
+  background: var(--selected_banks);
+  border: 1px solid var(--soft-green) !important;
 }
 
 /* section 2 */
@@ -447,9 +472,17 @@ h6 {
   border-bottom-right-radius: 0px;
   /* background-color: #171819 !important; */
   color: #171819 !important;
-  padding: 18px 20px !important;
-  border: none !important;
-  background: #b2b2b2 !important;
+  padding: 14px 18px !important;
+  /* border: none !important;
+  background: #dddddd !important; */
+}
+input[type="radio"] {
+  width: 1.2em !important;
+  height: 1.2em !important;
+}
+
+.form-control + .form-control {
+  margin-top: 1em;
 }
 
 input[type="email"]::placeholder,
@@ -461,29 +494,28 @@ input[type="text"]::placeholder {
 .text-standard_s2 {
   font-size: 1rem;
   line-height: 1.4;
+  text-align: center !important;
+  width: 94%;
+  margin: 0 auto;
 }
 
-.questions {
-  font-size: 1.1em;
-  text-indent: 25px;
-}
+
 
 .question-s2 {
   line-height: 1.3;
-
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   font-weight: 700;
   text-transform: uppercase;
 }
 
 .s-2 .title_quiz h2 {
   text-transform: uppercase;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
-.s-2 .title_quiz {
+/* .s-2 .title_quiz {
   margin-top: -15px;
-}
+} */
 
 /* style for the selected items div */
 #selectedItems {
@@ -494,11 +526,7 @@ input[type="text"]::placeholder {
     font-size: 0.8em;
 }
 
-._img_Bank {
-  /* padding: 0.1em 0.2em; */
-  width: 88px !important;
-  object-fit: contain;
-}
+
 
 .list_banks .col-4,
 .list_inf .col-4 {
@@ -506,7 +534,7 @@ input[type="text"]::placeholder {
   align-items: center;
   height: 45px;
   width: 28vw;
-  border: 1px solid #b2b2b2;
+  border: 1px solid var(--border-input);
   border-radius: 5px;
   justify-content: center;
   cursor: pointer;
@@ -521,7 +549,7 @@ input[type="text"]::placeholder {
   height: 40px;
   justify-content: center;
   /* padding: 0.25em 0.3em; */
-  border: 1px solid #b2b2b2;
+  border: 1px solid var(--border-input);;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -529,6 +557,11 @@ input[type="text"]::placeholder {
 .list_banks .col-6,
 .list_inf .col-6 {
   width: 48% !important;
+}
+._img_Bank {
+  /* padding: 0.1em 0.2em; */
+  width: 88px;
+  object-fit: contain;
 }
 
 ._raiff {
@@ -544,11 +577,11 @@ input[type="text"]::placeholder {
 }
 
 ._libra {
-  width: 100px;
+  width: 120px;
 }
 
 ._garanti {
-  width: 110px;
+  width: 106px;
 }
 
 ._otp {
@@ -556,13 +589,15 @@ input[type="text"]::placeholder {
 }
 
 ._tbiBank {
-  width: 107px;
+  width: 104px;
 }
 
 ._alpha {
-  width: 109px;
+  width: 120px;
 }
-
+._cetelem {
+  width: 100px;
+}
 ._cec {
   width: 106px;
 }
@@ -580,11 +615,11 @@ input[type="text"]::placeholder {
 }
 
 ._bt {
-  width: 147px !important;
+  width: 152px !important;
 }
 
 ._br {
-  width: 150px !important;
+  width: 155px !important;
 }
 
 .col-12.buttons_ {
@@ -605,7 +640,7 @@ input[type="text"]::placeholder {
 }
 
 #selectedDivs li {
-  border: 1px solid lightgray;
+border: 1px solid var(--soft-green);
   width: fit-content;
   padding: 0.4em 0.5em;
   border-radius: 5px;
@@ -629,14 +664,17 @@ input[type="text"]::placeholder {
 .month,
 .year {
   padding: 0.5em;
-  border: 1px solid lightgray;
+  border: 1px solid var(--border-input);
 }
 
 .month {
   border-right: none;
   border-left: none;
 }
-
+#selectedDate { 
+  border: 1px solid var(--border-input);
+  padding: 0.4em 0;
+}
 
 /* SECTION 4 DATE */
 /* SECTION 4 DATE */
@@ -644,6 +682,6 @@ input[type="text"]::placeholder {
 .date_box {
    padding: 0.6em;
     border-radius: 5px;
-    border: 1px solid lightgrey;
+    border: 1px solid var(--border-input);
     font-size: 0.9em;
 }
