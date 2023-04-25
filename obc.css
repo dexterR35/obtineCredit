@@ -672,8 +672,8 @@ border: 1px solid var(--soft-green);
   border-left: none;
 }
 #selectedDate { 
-  border: 1px solid var(--border-input);
-  padding: 0.4em 0;
+  /* border: 1px solid var(--border-input); */
+  /* padding: 0.4em 0; */
 }
 
 /* SECTION 4 DATE */
