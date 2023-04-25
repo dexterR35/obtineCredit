@@ -218,38 +218,79 @@ function setFocus(on) {
 
 
 
-const birthDay = document.getElementById("birthDay");
-const birthMonth = document.getElementById("birthMonth");
-const birthYear = document.getElementById("birthYear");
+const jobDay = document.getElementById("jobDay");
+const jobMonth = document.getElementById("jobMonth");
+const jobYear = document.getElementById("jobYear");
 
 
 
 function displayDate() {
-
-  for (let i = 1; i <= 31; i++) {
-    $('#birthDay').append('<option value="' + i + '">' + i + '</option>');
-  }
-
-  for (let i = 1; i <= 12; i++) {
-    $('#birthMonth').append('<option value="' + i + '">' + i + '</option>');
-  }
-
   let currentTime = new Date();
+
+
+
+  const months = [
+    'Ianuarie',
+    'Februarie',
+    'Martie',
+    'Aprilie',
+    'Mai',
+    'Iunie',
+    'Iulie',
+    'August',
+    'Septembrie',
+    'Octombrie',
+    'Noiembrie',
+    'Decembrie'
+  ];
+
+  for (let i = 0; i <= 11; i++) {
+    const monthName = months[i];
+    $('#jobMonth').append('<option value="' + monthName + '">' + monthName + '</option>');
+  }
+  for (let i = 1; i <= 31; i++) {
+    $('#jobDay').append('<option value="' + i + '">' + i + '</option>');
+  }
+
   let year = currentTime.getFullYear();
-  for (let i = year; i >= 1900; i--) {
-    $('#birthYear').append('<option value="' + i + '">' + i + '</option>');
+  for (let i = year; i >= 1980; i--) {
+    $('#jobYear').append('<option value="' + i + '">' + i + '</option>');
   }
 
   // add event listener to select elements
-  $('#birthDay, #birthMonth, #birthYear').on('change', function () {
+  $('#jobDay, #jobMonth, #jobYear').on('change', function () {
 
-    const selectedDay = birthDay.value;
-    const selectedMonth = birthMonth.value;
-    const selectedYear = birthYear.value;
+    const selectedDay = jobDay.value;
+    const selectedMonth = jobMonth.value;
+    const selectedYear = jobYear.value;
     let selectedDateText = '';
 
     if (selectedDay !== "0" && selectedMonth !== "0" && selectedYear !== "0") {
-      selectedDateText = 'Ai ales: ' + ' ' + selectedDay + ' ' + '/' + ' ' + selectedMonth + ' ' + '/' + ' ' + selectedYear;
+      const selectedDate = new Date(selectedYear, months.indexOf(selectedMonth), selectedDay);
+      const now_d = new Date();
+      const diffTime = Math.abs(now_d - selectedDate);
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      const currentMonth = months[new Date().getMonth()];
+      console.log(selectedMonth,"selectedMonth")
+      console.log(selectedDate,"selectedDate")
+      console.log(months.indexOf(selectedMonth),"selectedDate");
+      console.log(now_d / selectedDate ,"now_d selectedDate" );
+      console.log(selectedDate / now_d ,"now_d selectedDate" );
+      console.log(diffDays-1,"diffDays");
+
+
+      if (diffDays-1 < 90) {
+        selectedDateText = `iti trebuie minim 3 luni. Ai selectat data de ${selectedDay} ${selectedMonth} ${selectedYear}.`;
+      } 
+       else if (diffDays-1 < 180) {
+        selectedDateText = `Felicitari.ai 6 luni de experienta, Ai selectat data de ${selectedDay} ${selectedMonth} ${selectedYear}.`;
+      } 
+      else if (diffDays-1 < 370) {
+        selectedDateText = `Felicitari.ai un an de experienta, Ai selectat data de ${selectedDay} ${selectedMonth} ${selectedYear}.`;
+      } 
+    
+      // selectedDateText = 'Ai ales: ' + ' ' + selectedDay + ' ' + '/' + ' ' + selectedMonth + ' ' + '/' + ' ' + selectedYear;
+      // selectedDateText = `felicitari, ai mai mult de ${selectedDay}`
       $('#selectedDate').css('display', 'block'); // update text of div
       $('#selectedDate').text(selectedDateText); // update text of div
       $('#selectedDate').css('border', '1px solid var(--border-input)'); // add border
