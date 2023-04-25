@@ -38,6 +38,7 @@ let outputName = [
   document.querySelector("#output-s3"),
   document.querySelector("#output-sF")
 ];
+
 // Function to check if all inputs are filled
 function checkInputs() {
   const nameValue = nameInput.value.trim();
@@ -46,27 +47,19 @@ function checkInputs() {
   outputName.forEach((span) => {
     span.innerHTML = nameValue.toUpperCase();
   });
-  // outputName.innerHTML = nameValue;
-
-  // console.log("jobValue");
   if (nameValue !== "" && phoneValue !== "" && emailValue !== "") {
     continueBtn.disabled = false;
   } else {
     continueBtn.disabled = true;
   }
-  // if (jobValue !== "") {
-  //   question.style.visibility = "visible";
-  // } else {
-  //   question.style.visibility = "visible";
-  // }
 }
 
 function checkRadio() {
   const input_r = document.querySelector('.another_ifn');
   const radio_r = document.querySelector('.radio_');
-input_r.addEventListener('focus', () => {
-  radio_r.checked = true;
-});
+  input_r.addEventListener('focus', () => {
+    radio_r.checked = true;
+  });
 }
 checkRadio();
 // Add event listeners to input fields
@@ -121,11 +114,11 @@ SendInfoStep4Btn.addEventListener("click", async () => {
   // Do something else
   await showHideSteps(step4Container, stepFinal);
   toggleLoadingSpinner(false);
-  
+
 });
 
 // Add event listener to yes button in step 3 to 5
-continueStep3.addEventListener("click",async ()=> {
+continueStep3.addEventListener("click", async () => {
   toggleLoadingSpinner(true);
   progressBar.Next();
   // Do something else
@@ -191,13 +184,13 @@ function displayAttribute(div_) {
     _li.innerHTML = selectedDivs[i];
     selectedDivs_Div.appendChild(_li);
   }
-   // Get the value of input_r and append it to selectedDivs_Div
-   let input_r_value = document.querySelector(".another_ifn").value;
-   if (input_r_value) {
-     let _li = document.createElement("LI");
-     _li.innerHTML = input_r_value;
-     selectedDivs_Div.appendChild(_li);
-   }
+  // Get the value of input_r and append it to selectedDivs_Div
+  let input_r_value = document.querySelector(".another_ifn").value;
+  if (input_r_value) {
+    let _li = document.createElement("LI");
+    _li.innerHTML = input_r_value;
+    selectedDivs_Div.appendChild(_li);
+  }
 }
 
 function setFocus(on) {
@@ -248,7 +241,7 @@ function displayDate() {
   }
 
   // add event listener to select elements
-  $('#birthDay, #birthMonth, #birthYear').on('change', function() {
+  $('#birthDay, #birthMonth, #birthYear').on('change', function () {
 
     const selectedDay = birthDay.value;
     const selectedMonth = birthMonth.value;
@@ -257,7 +250,7 @@ function displayDate() {
 
     if (selectedDay !== "0" && selectedMonth !== "0" && selectedYear !== "0") {
       selectedDateText = 'Ai ales: ' + ' ' + selectedDay + ' ' + '/' + ' ' + selectedMonth + ' ' + '/' + ' ' + selectedYear;
-      $('#selectedDate').css('display','block'); // update text of div
+      $('#selectedDate').css('display', 'block'); // update text of div
       $('#selectedDate').text(selectedDateText); // update text of div
       $('#selectedDate').css('border', '1px solid var(--border-input)'); // add border
       $('#selectedDate').css('padding', '0.4em 0'); // add border
@@ -325,8 +318,8 @@ progressBar.Reset();
 
 
 
-  displayDate();
-  
+displayDate();
+
 
 
 
