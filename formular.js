@@ -222,6 +222,81 @@ function setFocus(on) {
   }
 }
 
+
+
+
+const birthDay = document.getElementById("birthDay");
+const birthMonth = document.getElementById("birthMonth");
+const birthYear = document.getElementById("birthYear");
+
+
+
+function displayDate() {
+
+  for (let i = 1; i <= 31; i++) {
+    $('#birthDay').append('<option value="' + i + '">' + i + '</option>');
+  }
+
+  for (let i = 1; i <= 12; i++) {
+    $('#birthMonth').append('<option value="' + i + '">' + i + '</option>');
+  }
+
+  let currentTime = new Date();
+  let year = currentTime.getFullYear();
+  for (let i = year; i >= 1900; i--) {
+    $('#birthYear').append('<option value="' + i + '">' + i + '</option>');
+  }
+
+  // add event listener to select elements
+  $('#birthDay, #birthMonth, #birthYear').on('change', function() {
+
+    const selectedDay = birthDay.value;
+    const selectedMonth = birthMonth.value;
+    const selectedYear = birthYear.value;
+    let selectedDateText = '';
+
+    if (selectedDay !== "0" && selectedMonth !== "0" && selectedYear !== "0") {
+      selectedDateText = 'Ai ales: ' + ' ' + selectedDay + ' ' + '/' + ' ' + selectedMonth + ' ' + '/' + ' ' + selectedYear;
+      $('#selectedDate').css('display','block'); // update text of div
+      $('#selectedDate').text(selectedDateText); // update text of div
+      $('#selectedDate').css('border', '1px solid var(--border-input)'); // add border
+      $('#selectedDate').css('padding', '0.4em 0'); // add border
+      $('#continue-btn3').prop('disabled', false);
+    } else {
+      // $('#selectedDate').text('Please select a date.');
+      $('#continue-btn3').prop('disabled', true);
+    }
+
+  });
+}
+
+
+
+
+
+const formFields_ = document.querySelectorAll('#f_name, #e_email, #p_phone');
+const submitBtn_ = document.querySelector('.submitBtn');
+const errorMsg_ = document.querySelector('#errorMsg');
+
+// function validateForm() {
+//   for (let i = 0; i < formFields_.length; i++) {
+//     if (formFields_[i].value.trim() === '') {
+//       errorMsg_.style.display = 'block'; // show error message
+//       return false; // form is not valid
+//     }
+//   }
+//   errorMsg_.style.display = 'none'; // hide error message
+//   return true; // form is valid
+// }
+
+// // enable/disable submit button based on whether form is valid or not
+// for (let i = 0; i < formFields_.length; i++) {
+//   formFields_[i].addEventListener('input', () => {
+//     submitBtn_.disabled = !validateForm();
+//   });
+// }
+
+
 $("._input").attr({
   onfocus: "setFocus(true)",
   onblur: "setFocus(false)",
@@ -249,117 +324,13 @@ progressBar.Reset();
 
 
 
-const birthDay = document.getElementById("birthDay");
-const birthMonth = document.getElementById("birthMonth");
-const birthYear = document.getElementById("birthYear");
+
+  displayDate();
+  
 
 
 
-function displayDate() {
+// $( window ).on( "load", function() {
+//   console.log( "window loaded" );
 
-
-  for (let i = 1; i <= 31; i++) {
-    $('#birthDay').append('<option value="' + i + '">' + i + '</option>');
-  }
-
-  for (let i = 1; i <= 12; i++) {
-    $('#birthMonth').append('<option value="' + i + '">' + i + '</option>');
-  }
-
-  let currentTime = new Date();
-  let year = currentTime.getFullYear();
-  for (let i = year; i >= 1900; i--) {
-    $('#birthYear').append('<option value="' + i + '">' + i + '</option>');
-  }
-
- 
-  // add event listener to select elements
-  $('#birthDay, #birthMonth, #birthYear').on('change', function() {
-
-    const selectedDay = birthDay.value;
-    const selectedMonth = birthMonth.value;
-    const selectedYear = birthYear.value;
-    let selectedDateText = '';
-
-    if (selectedDay !== "0" && selectedMonth !== "0" && selectedYear !== "0") {
-      selectedDateText = 'Ai ales: ' + ' ' + selectedDay + ' ' + '/' + ' ' + selectedMonth + ' ' + '/' + ' ' + selectedYear;
-      $('#selectedDate').css('display','block'); // update text of div
-      $('#selectedDate').text(selectedDateText); // update text of div
-      $('#selectedDate').css('border', '1px solid var(--border-input)'); // add border
-      $('#selectedDate').css('padding', '0.4em 0'); // add border
-      $('#continue-btn3').prop('disabled', false);
-    } else {
-      // $('#selectedDate').text('Please select a date.');
-      $('#continue-btn3').prop('disabled', true);
-    }
-
-
-  });
-}
-// birthDay.addEventListener("change", async () => {
-//   await enableContinueButton();
 // });
-
-// birthMonth.addEventListener("change", async () => {
-//   await enableContinueButton();
-// });
-
-// birthYear.addEventListener("change", async () => {
-//   await enableContinueButton();
-// });
-
-// async function enableContinueButton() {
-//   const selectedDay = birthDay.value;
-//   const selectedMonth = birthMonth.value;
-//   const selectedYear = birthYear.value;
-//   // const selectedDate = `${selectedDay}/${selectedMonth}/${selectedYear}`;
-
-//   if (selectedDay !== "0" && selectedMonth !== "0" && selectedYear !== "0") {
-//     // await new Promise((resolve) => setTimeout(resolve, 0));
-//     document.getElementById("continue-btn3").disabled = false; 
-//     const selectedDate = `${selectedDay}/${selectedMonth}/${selectedYear}`;
-//     document.getElementById("selectedDate").innerHTML = `Selected date: ${selectedDate}`;
-//   } else {
-//     document.getElementById("continue-btn3").disabled = true;
-//     document.getElementById("selectedDate").innerHTML = "Please select a date.";
-//   }
-// }
-
-
-displayDate();
-////
-// $("#Next").on('click', function () {
-//   progressBar.Next();
-// })
-// $("#Back").on('click', function () {
-//   progressBar.Back();
-// })
-// $("#Reset").on('click', function () {
-//   progressBar.Reset();
-// })
-
-// validate form 
-
-
-const formFields_ = document.querySelectorAll('#f_name, #e_email, #p_phone');
-const submitBtn_ = document.querySelector('.submitBtn');
-const errorMsg_ = document.querySelector('#errorMsg');
-
-// function validateForm() {
-//   for (let i = 0; i < formFields_.length; i++) {
-//     if (formFields_[i].value.trim() === '') {
-//       errorMsg_.style.display = 'block'; // show error message
-//       return false; // form is not valid
-//     }
-//   }
-//   errorMsg_.style.display = 'none'; // hide error message
-//   return true; // form is valid
-// }
-
-// // enable/disable submit button based on whether form is valid or not
-// for (let i = 0; i < formFields_.length; i++) {
-//   formFields_[i].addEventListener('input', () => {
-//     submitBtn_.disabled = !validateForm();
-//   });
-// }
-
