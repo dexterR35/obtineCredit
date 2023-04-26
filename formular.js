@@ -14,6 +14,9 @@ const SendInfoStep4Btn = document.getElementById("continueStep4");
 const yesStep5Btn = document.getElementById("yes-step5");
 const noStep5Btn = document.getElementById("no-step5");
 
+const contentYes = document.getElementById("content-yes");
+const contentNo = document.getElementById("content-no");
+const contentContinue = document.getElementById("content-continue");
 
 
 
@@ -112,6 +115,9 @@ SendInfoStep4Btn.addEventListener("click", async () => {
   progressBar.Next();
   progressBar.Next();
   // Do something else
+  contentContinue.classList.remove("hidden_c");
+  contentYes.classList.add("hidden_c");
+  contentNo.classList.add("hidden_c");
   await showHideSteps(step4Container, stepFinal);
   toggleLoadingSpinner(false);
 
@@ -131,6 +137,9 @@ continueStep3.addEventListener("click", async () => {
 yesStep5Btn.addEventListener("click", async () => {
   toggleLoadingSpinner(true);
   progressBar.Next();
+  contentNo.classList.add("hidden_c");
+  contentYes.classList.remove("hidden_c");
+  contentContinue.classList.add("hidden_c");
   await showHideSteps(step5Container, stepFinal);
   toggleLoadingSpinner(false);
 });
@@ -141,6 +150,9 @@ noStep5Btn.addEventListener("click", async () => {
   toggleLoadingSpinner(true);
   progressBar.Next();
   // Do something else
+  contentNo.classList.remove("hidden_c");
+  contentYes.classList.add("hidden_c");
+  contentContinue.classList.add("hidden_c");
   await showHideSteps(step5Container, stepFinal);
   toggleLoadingSpinner(false);
 });
@@ -266,30 +278,10 @@ function displayDate() {
     let selectedDateText = '';
 
     if (selectedDay !== "0" && selectedMonth !== "0" && selectedYear !== "0") {
-      const selectedDate = new Date(selectedYear, months.indexOf(selectedMonth), selectedDay);
-      const now_d = new Date();
-      const diffTime = Math.abs(now_d - selectedDate);
-      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-      const currentMonth = months[new Date().getMonth()];
-      console.log(selectedMonth,"selectedMonth")
-      console.log(selectedDate,"selectedDate")
-      console.log(months.indexOf(selectedMonth),"selectedDate");
-      console.log(now_d / selectedDate ,"now_d selectedDate" );
-      console.log(selectedDate / now_d ,"now_d selectedDate" );
-      console.log(diffDays-1,"diffDays");
 
-
-      if (diffDays-1 < 90) {
-        selectedDateText = `iti trebuie minim 3 luni. Ai selectat data de ${selectedDay} ${selectedMonth} ${selectedYear}.`;
-      } 
-       else if (diffDays-1 < 180) {
-        selectedDateText = `Felicitari.ai 6 luni de experienta, Ai selectat data de ${selectedDay} ${selectedMonth} ${selectedYear}.`;
-      } 
-      else if (diffDays-1 < 370) {
-        selectedDateText = `Felicitari.ai un an de experienta, Ai selectat data de ${selectedDay} ${selectedMonth} ${selectedYear}.`;
-      } 
     
-      // selectedDateText = 'Ai ales: ' + ' ' + selectedDay + ' ' + '/' + ' ' + selectedMonth + ' ' + '/' + ' ' + selectedYear;
+    
+      selectedDateText = 'Ai ales: ' + ' ' + selectedDay + ' ' + '/' + ' ' + selectedMonth + ' ' + '/' + ' ' + selectedYear;
       // selectedDateText = `felicitari, ai mai mult de ${selectedDay}`
       $('#selectedDate').css('display', 'block'); // update text of div
       $('#selectedDate').text(selectedDateText); // update text of div
@@ -356,10 +348,10 @@ let progressBar = {
 progressBar.Reset();
 
 
-
-
-
 displayDate();
+
+
+
 
 
 
