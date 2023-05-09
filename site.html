@@ -3,122 +3,246 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+  integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
   <title>Bootstrap Landing Page</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- Custom CSS -->
+  <link rel="stylesheet" href="./site.css">
   <style>
+
+ 
     /* add your custom styles here */
   </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">My Landing Page</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Section 1</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Section 2</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Section 3</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-  
-  <!-- Section 1 -->
-  <section class="bg-light py-5">
-    <div class="container h-100">
-      <div class="row h-100 justify-content-center align-items-center">
-        <div class="col-lg-6">
-          <h1>Section 1</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id augue aliquam, lobortis quam vel, euismod nulla. Aenean consectetur lectus quis risus euismod, ac feugiat lorem hendrerit.</p>
+
+  <header id="header" class="d-flex justify-content-center">
+    <div class="container-fluid px-3 header navbar navbar-expand-lg navbar-fixed-top w-75">
+      <a href="index.html" class="navbar-brand pe-3">
+        <img src="# width=" 47" alt="logo">
+      </a>
+      <div id="navbarNav" class="offcanvas offcanvas-end">
+        <div class="offcanvas-header border-bottom">
+          <h5 class="offcanvas-title">Menu</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="col-lg-6">
-          <img src="https://via.placeholder.com/600x400" alt="Section 1 Image" class="img-fluid">
+        <div class="offcanvas-body">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-center">
+            <li class="nav-item">
+              <a href="#" class="nav-link">Acasa</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Despre Noi</a>
+            </li>
+          </ul>
+        </div>
+        <div class="offcanvas-header border-top">
+          <a href="" class="btn btn-primary w-100" target="_blank" rel="noopener">
+            <i class="bx bx-cart fs-4 lh-1 me-1"></i>
+            &nbsp;obtine credit
+          </a>
         </div>
       </div>
-      <div class="col-lg-6">
-        <div class="row">
-          <div class="col-md-4 mb-4 mb-md-0">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Box 1</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </div>
+      <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <a href="#" class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex" target="_blank" rel="noopener">
+        <i class="bx bx-cart fs-5 lh-1 me-1"></i>
+        &nbsp;obtine credit
+      </a>
+    </div>
+  </header>
+  <!-- Presentation section -->
+  <section id="presentation" class="py-5 bg-light section">
+    <div class="container ">
+      <div class="row align-items-center">
+        <div class="col-md-6 pb-4">
+          <h1>Soluții de creditare personalizate</h1>
+          <p class="lead">servicii complete de maximizare a șanselor de a obține un
+            credit favorabil, servicii complete de maximizare a șanselor de a obține un
+                credit </p>
+          <a href="#">
+            <div class="btn btn-primary py-2">Obtine Credit</div>
+          </a>
+        </div>
+        <div class="col-md-6">
+          <img src="https://via.placeholder.com/400" alt="Image" class="img-fluid">
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 d-flex justify-content-center w-100 col-md-4">
+      <div class="row">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Box 1</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
           </div>
-          <div class="col-md-4 mb-4 mb-md-0">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Box 2</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </div>
+        </div>
+        <div class="col-md-4 mb-4 mb-md-0">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Box 2</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Box 3</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Box 3</h5>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="services" class="py-5 section">
+    <div class="container h-100 d-flex justify-content-sm-between">
+      <div class="row h-sm-100">
+        <div class="col-lg-3 col-md-6">
+          <div class="service-box">
+            <i class="fa fa-camera"></i>
+            <h3>Photography</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis nisi orci.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="service-box">
+            <i class="fa fa-edit"></i>
+            <h3>Content Writing</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis nisi orci.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="service-box">
+            <i class="fa fa-paint-brush"></i>
+            <h3>Graphic Design</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis nisi orci.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="service-box">
+            <i class="fa fa-code"></i>
+            <h3>Web Development</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis nisi orci.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
   
-  <!-- Section 2 -->
-  <section class="bg-dark text-light py-5">
+  <!-- About Us section -->
+  <section id="about" class="py-5 section">
     <div class="container">
       <div class="row">
         <div class="col-lg-6">
-          <img src="https://via.placeholder.com/600x400" alt="Section 2 Image" class="img-fluid">
+          <img src="path/to/image.jpg" class="img-fluid" alt="About Us">
         </div>
-        <div class="col-lg-6">
-          <h1>Section 2</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id augue aliquam, lobortis quam vel, euismod nulla. Aenean consectetur lectus quis risus euismod, ac feugiat lorem hendrerit.</p>
+        <div class="col-lg-6 align-self-center">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="about-box">
+                <i class="fa fa-check"></i>
+                <h3>Our Mission</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis nisi orci.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="about-box">
+                <i class="fa fa-users"></i>
+                <h3>Our Team</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer quis nisi orci.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
-<section class="bg-light py-5">
+  
+  <section id="contact" class="py-5 section">
     <div class="container">
       <div class="row">
-        <div class="col-lg-6">
-          <h1>Section 3</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id augue aliquam, lobortis quam vel, euismod nulla. Aenean consectetur lectus quis risus euismod, ac feugiat lorem hendrerit.</p>
+        <div class="col-lg-8 mx-auto text-center">
+          <h2 class="section-heading">Get In Touch</h2>
+          <hr class="my-4">
+          <p class="mb-5">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
         </div>
-        <div class="col-lg-6">
-          <img src="https://via.placeholder.com/600x400" alt="Section 3 Image" class="img-fluid">
+      </div>
+      <div class="row">
+        <div class="col-lg-6 mx-auto">
+          <form action="#" method="post" class="contact-form">
+            <div class="form-group">
+              <input type="text" name="name" class="form-control" placeholder="Your Name *" required="required">
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" class="form-control" placeholder="Your Email *" required="required">
+            </div>
+            <div class="form-group">
+              <textarea name="message" class="form-control" placeholder="Your Message *" required="required"></textarea>
+            </div>
+            <div class="form-group text-center">
+              <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </section>
-  <!-- Footer -->
-  <footer class="bg-dark text-light py-3">
-    <div class="container">
+  
+  <footer class="bg-dark text-white">
+    <div class="container py-5">
       <div class="row">
-        <div class="col-lg-6">
-          <p>Copyright © 2023</p>
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <h4>About Us</h4>
+          <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, turpis id lobortis aliquet, mauris nibh venenatis velit, in convallis augue odio ut tellus.</p>
         </div>
-        <div class="col-lg-6 text-right">
-          <p>Designed by Me</p>
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <h4>Navigation</h4>
+          <ul class="list-unstyled">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
         </div>
+        <div class="col-lg-4">
+          <h4>Follow Us</h4>
+          <p class="text-muted">Stay connected with us through social media.</p>
+          <div class="social-icons">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-dark text-muted py-3">
+      <div class="container text-center">
+        <p>&copy; 2023 Your Company. All rights reserved.</p>
       </div>
     </div>
   </footer>
-  <!-- Bootstrap JS (optional) -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNSLZw1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous">
+  </script>
 </body>
 </html>
