@@ -28,6 +28,9 @@
   --soft-progress: #39bdabf5;
   --dark-progress: #acacac;
   --selected_banks: #c0ffee;
+
+
+  --text-bg:#41c0ae14;
 }
 
 body {
@@ -498,9 +501,11 @@ input[type="text"]::placeholder {
   font-size: 0.95rem;
   line-height: 1.4;
   text-align: start !important;
-  /* width: 94%; */
   margin: 0 auto;
   text-align: justify !important;
+  border-radius: 14px;
+  background: var(--text-bg);
+  padding: 1.3em ;
 }
 
 .step3-container .question-s2 {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 
 <head>
   <meta charset="UTF-8" />
@@ -60,7 +60,8 @@
             <div id="loading-spinner"></div>
           </div>
           <div class="modal-body">
-            <form class="form_class" onsubmit="return validateForm()">
+            <!-- <form class="form_class" onsubmit="return validateForm()"> -->
+            <form class="form_class">
               <section id="step1-container" class="_steps pt-2">
                 <div class="row title_quiz">
                   <div class="col-12 text-title text-start mb-3 mx-auto">
@@ -85,8 +86,8 @@
                   <input type="email" class="form-control form-control-lg _input" id="e_email" name="e_email" />
                 </div>
                 <div class="form-group py-2 my-2 _forms">
-                  <select class="form-select form-select-lg" aria-label=".default input example">
-                    <option selected>Cum ati auzit de noi!?</option>
+                  <select class="form-select form-select-lg" aria-label=".default input example" id="o_option">
+                    <option disabled selected>Cum ati auzit de noi!?</optiondisabled>
                     <option value="1">Tik-Tok</option>
                     <option value="2">Facebook</option>
                     <option value="3">Consultant</option>
@@ -98,7 +99,7 @@
                     toate campurile</span></div>
                 <div class="col-12 pb-4">
                   <button id="continue-btn" type="submit" value="Submit"
-                    class="btn btn-primary mt-3 w-100 justify-content-center submitBtn" disabled>
+                    class="btn btn-primary mt-3 w-100 justify-content-center submitBtn">
                     Continua
                   </button>
                 </div>
@@ -110,49 +111,38 @@
               </section>
               <section id="step2-container" class="_steps text-center s-2 pt-2" style="display: none">
                 <div class="title_quiz text-center">
-                  <div class="row my-2">
-                    <div class="col-12">
-                      <h2>
-                        Buna {seara} <br />
-                        <span id="output-s3" class="output-name"></span>
-                      </h2>
+                  <div class="col-12 pb-4">
+                    <h2>
+                      Buna {seara} <br />
+                      <span id="output-s3" class="output-name"></span>
+                    </h2>
+                  </div>
+                  <div class="col-12 pb-4">
+                    <div class="text-standard_s2">
+                      Eu sunt <b>Gabriela,</b> consultantul tău online cu o
+                      <b>experientă de peste 6 ani in domeniu.</b> Te voi
+                      indruma să găsim cele mai bune <b>soluții</b> pentru
+                      nevoile tale de la obținerea unui <b>credit nou</b>,
+                      până la <b>refinanțarea</b> creditelor existente sau chiar
+                      <b>eliminarea istoricului negativ</b> din Biroul de
+                      <b>Credit.</b>
                     </div>
                   </div>
-                  <div class="row mt-2">
-                    <div class="col-12">
-                      <div class="text-standard_s2">
-                        Eu sunt <b>Gabriela,</b> consultantul tău online cu o
-                        <b>experientă de peste 6 ani in domeniu.</b> Te voi
-                        indruma să găsim cele mai bune <b>soluții</b> pentru
-                        nevoile tale de la obținerea unui <b>credit nou</b>,
-                        până la <b>refinanțarea</b> creditelor existente sau chiar
-                        <b>eliminarea istoricului negativ</b> din Biroul de
-                        <b>Credit.</b>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row my-4">
-                    <div class="col-12 text-standard_s2 text-startquestions">
-                      Însă, înainte de a crea un <b>plan</b>, m-ar interesa să
-                      aflu câteva <b>detalii</b> esențiale de la tine.
-                    </div>
-                  </div>
-
-                </div>
-                <div class="row my-4">
-                  <div class="col-12 question-s2">
-                    Ești raportat negativ in Biroul de Credit?
+                  <div class="col-12 text-standard_s2 text-startquestions">
+                    Însă, înainte de a crea un <b>plan</b>, m-ar interesa să
+                    aflu câteva <b>detalii</b> esențiale de la tine.
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-12 buttons_ d-flex justify-content-center gap-3">
-                    <button id="yes-step2" type="button" class="btn btn-primary btn-half">
-                      Da
-                    </button>
-                    <button id="no-step2" type="button" class="btn btn-primary btn-half">
-                      Nu
-                    </button>
-                  </div>
+                <div class="col-12 py-4 question-s2">
+                  Ești raportat negativ in Biroul de Credit?
+                </div>
+                <div class="col-12 buttons_ d-flex justify-content-center gap-3">
+                  <button id="yes-step2" type="button" class="btn btn-primary btn-half">
+                    Da
+                  </button>
+                  <button id="no-step2" type="button" class="btn btn-primary btn-half">
+                    Nu
+                  </button>
                 </div>
               </section>
               <section id="step3-container" class="step-container _steps _step3" style="display: none">
@@ -208,7 +198,7 @@
                       </div>
                     </div>
                     <div class="row mb-2 mx-auto d_gap">
-                      <div class="col-6 sel" data-name="Bcr" onclick="displayAttribute(this)">
+                      <div class="col-6 sel" data-name="Bcr" onclick="await displayAttribute(this)">
                         <img src="./png/logo/bcr.png" alt="Image 1" class="_img_Bank _bcr" />
                       </div>
                       <div class="col-6 sel" data-name="Raiffeisen" onclick="displayAttribute(this)">
@@ -281,26 +271,26 @@
                       </div>
                     </div>
                     <div class="row mb-2 mx-auto d_gap">
-                      <div class="col-6">
+                      <div class="col-6" data-name="alpha Bank" onclick="displayAttribute(this)">
                         <img src="./png/logo/alpha.png" alt="Image 10" class="_img_Bank _alpha" />
                       </div>
-                      <div class="col-6">
+                      <div class="col-6" data-name="tes6a" onclick="displayAttribute(this)">
                         <img src="./png/logo/cec.png" alt="Image 10" class="_img_Bank _cec" />
                       </div>
                     </div>
                     <div class="row mb-2 mx-auto d_gap">
-                      <div class="col-6">
+                      <div class="col-6" data-name="test" onclick="displayAttribute(this)">
                         <img src="./png/logo/ing.png" alt="Image 6" class="_img_Bank _ing" />
                       </div>
-                      <div class="col-6">
+                      <div class="col-6" data-name="test43" onclick="displayAttribute(this)">
                         <img src="./png/logo/brd.png" alt="Image 6" class="_img_Bank _brd" />
                       </div>
                     </div>
                     <div class="row mb-2 mx-auto d_gap">
-                      <div class="col-6">
+                      <div class="col-6" data-name="test56" onclick="displayAttribute(this)">
                         <img src="./png/logo/tbi-bank.png" alt="Image 7" class="_img_Bank _tbiBank" />
                       </div>
-                      <div class="col-6">
+                      <div class="col-6" data-name="test76" onclick="displayAttribute(this)">
                         <img src="./png/logo/cetelem.png" alt="Image 9" class="_img_Bank _cetelem" />
                       </div>
                     </div>
@@ -325,7 +315,7 @@
                     </div>
                   </div>
                   <div class="row mx-auto buttons_ w-100">
-                    <button id="continueStep4" type="button" class="btn btn-primary btn-half w-100">
+                    <button id="continueStep4" type="button" class="btn btn-primary btn-half w-100 btn-Sec4">
                       Continuă
                     </button>
                     <!-- <div id="selectedItems"></div> -->
@@ -427,7 +417,9 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+
   <script src="./formular.js"></script>
+  <script type="module" src="connect_db.js" async></script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
 </body>
 
