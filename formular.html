@@ -8,14 +8,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
     integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
   <script src="https://unpkg.com/jquery-dropdown-datepicker@1.3.0/dist/jquery-dropdown-datepicker.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha512-ANkGm5vSmtDaoFA/NB1nVJzOKOiI4a/9GipFtkpMG8Rg2Bz8R1GFf5kfL0+z0lcv2X/KZRugwrAlVTAgmxgvIg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -58,6 +56,7 @@
           </div>
           <div class="container-spinner" id="container-spinner">
             <div id="loading-spinner"></div>
+            <div class="logo_spinner">ObtineCredit.ro</div>
           </div>
           <div class="modal-body">
             <!-- <form class="form_class" onsubmit="return validateForm()"> -->
@@ -80,7 +79,6 @@
                   <label for="phone" class="_label">Telefon</label>
                   <input type="number" class="form-control form-control-lg _input" id="p_phone" name="p_phone" />
                 </div>
-
                 <div class="form-group py-2 my-2 _forms">
                   <label for="email" class="_label">Email</label>
                   <input type="email" class="form-control form-control-lg _input" id="e_email" name="e_email" />
@@ -88,11 +86,11 @@
                 <div class="form-group py-2 my-2 _forms">
                   <select class="form-select form-select-lg" aria-label=".default input example" id="o_option">
                     <option disabled selected>Cum ati auzit de noi!?</optiondisabled>
-                    <option value="1">Tik-Tok</option>
-                    <option value="2">Facebook</option>
-                    <option value="3">Consultant</option>
-                    <option value="4">Pliant</option>
-                    <option value="5">test</option>
+                    <option value="Tik-Tok">Tik-Tok</option>
+                    <option value="Facebook">Facebook</option>
+                    <option value="Consultant">Consultant</option>
+                    <option value="Pliant">Pliant</option>
+                    <option value="test">test</option>
                   </select>
                 </div>
                 <div class="row mx-auto"> <span id="errorMsg" style="display:none; color:red">Te rog sa completeazio
@@ -128,36 +126,45 @@
                       <b>Credit.</b>
                     </div>
                   </div>
-                  <div class="col-12 text-standard_s2 text-startquestions">
-                    Însă, înainte de a crea un <b>plan</b>, m-ar interesa să
-                    aflu câteva <b>detalii</b> esențiale de la tine.
+                  <div class="col-12  text-startquestions">
+                    <div class="text-standard_s2">
+                      Însă, înainte de a crea un <b>plan</b>, m-ar interesa să
+                      aflu câteva <b>detalii</b> esențiale de la tine.
+                    </div>
                   </div>
                 </div>
-                <div class="col-12 py-4 question-s2">
-                  Ești raportat negativ in Biroul de Credit?
+                <div class="col-12 py-4">
+                  <div class="question-s2">Ești raportat negativ in Biroul de Credit?</div>
                 </div>
-                <div class="col-12 buttons_ d-flex justify-content-center gap-3">
-                  <button id="yes-step2" type="button" class="btn btn-primary btn-half">
-                    Da
-                  </button>
-                  <button id="no-step2" type="button" class="btn btn-primary btn-half">
-                    Nu
-                  </button>
+                <div class="row buttons_ d-flex justify-content-center gap-3">
+                  <div class="col-12">
+                    <button id="yes-step2" type="button" class="btn btn-primary btn-half">
+                      Da
+                    </button>
+                    <button id="no-step2" type="button" class="btn btn-primary btn-half">
+                      Nu
+                    </button>
+                  </div>
                 </div>
               </section>
               <section id="step3-container" class="step-container _steps _step3" style="display: none">
                 <h2 class="text-center mb-4">Angajare</h2>
                 <div class="row mb-4">
-                  <div class="col-12 text-standard_s2">
-                    O <b>vechime</b> mai mare la locul de muncă poate spori șansele de a fi <b>aprobat</b> pentru un
-                    credit bancar, deoarece băncile consideră angajații cu o astfel de <b>experiență mai stabili</b> și
-                    mai puțin riscați, și pot oferi <b>rate mai bune</b> și condiții mai <b>favorabile.</b>
+                  <div class="col-12 ">
+                    <div class="text-standard_s2">
+                      O <b>vechime</b> mai mare la locul de muncă poate spori șansele de a fi <b>aprobat</b> pentru un
+                      credit bancar, deoarece băncile consideră angajații cu o astfel de <b>experiență mai stabili</b>
+                      și
+                      mai puțin riscați, și pot oferi <b>rate mai bune</b> și condiții mai <b>favorabile.</b>
+                    </div>
                   </div>
                 </div>
                 <div class="row mb-2">
-                  <div class="col-12 question-s2">
-                    Dacă nu reții exact, poți să aproximezi data la care te
+                  <div class="col-12 ">
+                    <div class="question-s2">
+                      Dacă nu reții exact, poți să aproximezi data la care te
                     ai angajat?
+                    </div>
                   </div>
                 </div>
                 <div class="row mt-4 mx-0">
@@ -323,26 +330,26 @@
                 </div>
               </section>
               <section id="step5-container" class="_steps" style="display: none">
-                <div class="row mb-4 text-title">
-                  <div class="col-12 text-s4">
+                <div class="col-12 mb-4 text-title">
+                  <div class="text-s4">
                     Știați că!?
                   </div>
                 </div>
-                <div class="row mb-4 mx-auto">
-                  <div class="col-12 text-standard_s2">
+                <div class="col-12 mb-4 mx-auto">
+                  <div class="text-standard_s2">
                     <b>"Creditele bancare</b> au apărut încă din antichitate, când bancherii furnizau <b>finanțare</b>
                     pentru comerț și afaceri. În Evul Mediu, băncile <b>au oferit</b> împrumuturi pentru a finanța
                     construcția de clădiri și <b>alte proiecte."</b>
                   </div>
                 </div>
-
-                <div class="row my-2 mx-auto">
-                  <div class="col-12 question-s2">
+                <div class="col-12 my-2 mx-auto">
+                  <div class="question-s2">
                     Aveti cumva istoric bancar aveti sau credite in prezent?
                   </div>
                 </div>
                 <div class="row my-4 mx-auto">
-                  <div class="col-12 buttons_ d-flex justify-content-center gap-3">
+                  <div class="col-12">
+                  <div class="buttons_ d-flex justify-content-center gap-3">
                     <button id="yes-step5" type="button" class="btn btn-primary btn-half">
                       Da
                     </button>
@@ -350,50 +357,47 @@
                       nu
                     </button>
                   </div>
+                  </div>
                 </div>
               </section>
               <section id="step-final" class="_steps" style="display: none">
-                <div class="row mb-4">
-                  <div class="col-12 text-s4">
+                <div class="col-12 mb-4">
+                  <div class="text-s4">
                     <br />Mr/Ms<b> <br /><span id="output-sF"></span></b>
                   </div>
-
                 </div>
-                <div class="row mb-4 hidden_c" id="content-continue">
-                  <div class="col-12 text-standard_s2">
+                <div class="col-12 mb-4 hidden_c" id="content-continue">
+                  <div class="text-standard_s2">
                     In <b>80%</b> din cazuri, <b>am reușit</b> sa soluționam problemele in mod <b>pozitiv</b>. Ne
                     străduim sa te ajutam și pe tine cât mai bine cu putința. <b>Mulțumim</b> că ai completat
                     chestionarul bancar și că ne-ai furnizat informațiile necesare pentru a-ți oferi <b>servicii
                       personalizate</b>. Ne vom folosi de aceste informații pentru a-ți oferi cele mai bune soluții
                     financiare. Dacă ai întrebări sau ai nevoie de ajutor, <b>nu ezita să ne contactezi.</b>
-
                   </div>
                 </div>
-                <div class="row mb-4 hidden_c" id="content-no">
-                  <div class="col-12 text-standard_s2">
+                <div class="col-12 mb-4 hidden_c" id="content-no">
+                  <div class="text-standard_s2">
                     Suntem conștienți ca fără un istoric bancar, accesul la unele servici financiare poate fi o
                     provocare. Însă , echipa ObtineCredit.ro te va ajuta sa depășești aceasta situație și sa îți ofere
                     soluțiile potrivite pentru nevoile tale financiare. Multuemsc ca ai ales sa faci parte din
                     comunitatea nostra si te asiguram va suntem aici pentru a te sprijini.
                   </div>
                 </div>
-
-
-                <div class="row mb-4 hidden_c" id="content-yes">
-                  <div class="col-12 text-standard_s2">
+                <div class="col-12 mb-4 hidden_c" id="content-yes">
+                  <div class="text-standard_s2">
                     Un <b>consultant</b> îți va explica întregul proces într-un mod <b>rapid</b> și <b>simplu</b>,
                     astfel încât să poți obține <b>refinanțarea</b> potrivită pentru nevoile tale. De asemenea, trebuie
                     <b>să ții cont</b> că procesul poate dura <b>între 1 și 4 zile</b>.
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-12 text-standard_s2">
+                <div class="col-12">
+                  <div class="text-standard_s2">
                     Situația dvs va fi examinată cu atenție și un reprezentant va reveni în cel mai scurt timp posibil
                     cu o soluție rapidă si eficientă.
                   </div>
                 </div>
-                <div class="row mb-4">
-                  <div class="col-12 text-s-bottom">
+                <div class="col-12 mb-4">
+                  <div class="text-s-bottom">
                     Cu Drag Gabriela.
                   </div>
                 </div>
@@ -412,12 +416,8 @@
       </div>
     </div>
   </div>
-  <script>
-
-  </script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
-
   <script src="./formular.js"></script>
   <script type="module" src="connect_db.js" async></script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->

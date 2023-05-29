@@ -40,30 +40,49 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
+const continueBtn = document.getElementById("continue-btn");
 
-const addUserBtn = document.querySelector(".btn-Sec4");
+const yesStep2Btn = document.getElementById("yes-step2");
+const noStep2Btn = document.getElementById("no-step2");
+const continueStep3 = document.getElementById("continue-btn3");
+const SendInfoStep4Btn = document.getElementById("continueStep4");
+const yesStep5Btn = document.getElementById("yes-step5");
+const noStep5Btn = document.getElementById("no-step5");
+const contentYes = document.getElementById("content-yes");
+const contentNo = document.getElementById("content-no");
+const contentContinue = document.getElementById("content-continue");
+
+const step1Container = document.getElementById("step1-container");
+const step2Container = document.getElementById("step2-container");
+const step3Container = document.getElementById("step3-container");
+const step4Container = document.getElementById("step4-container");
+const step5Container = document.getElementById("step5-container");
+const stepFinal = document.getElementById("step-final");
+const termsDiv = document.querySelector(".terms_div");
+
+
+let name_user = document.getElementById("f_name");
+let phone_user = document.getElementById("p_phone");
+let email_user = document.getElementById("e_email");
+let option_user = document.getElementById("o_option");
+let attrSelect = window.selectedDivs;
+// const addUserBtn = document.querySelector(".btn-Sec4");
+const addUserBtn = document.querySelector("#continue-btn3");
+
+let f_stepBtn = 0;
+let yes_nbc = 0;
+let no_nbc = 0;
+
+let yes_ibc = 0;
+let no_ibc = 0;
+
+
 
 async function checkEmailInNetworkCollection(email) {
   const q = query(collection(db, "f_users"), where("email", "==", email));
   const querySnapshot = await getDocs(q);
   return !querySnapshot.empty;
 }
-
-
-
-addUserBtn.addEventListener("click", userID_add);
-
-async function userID_add() {
-  let name_user = document.getElementById("f_name").value;
-  console.log(name_user, "name");
-  let phone_user = document.getElementById("p_phone").value;
-  console.log(phone_user, "phone_user");
-  let email_user = document.getElementById("e_email").value;
-  console.log(email_user, "email_user");
-  let option_user = document.getElementById("o_option").value;
-  console.log(option_user, "option_user");
-  let attrSelect = window.selectedDivs;
-  console.log(attrSelect, "attrselect");
   // let selectedDivsssss = Array.from(document.querySelectorAll(".selected_b")).map(div => div.getAttribute("data-name"));
   // let selectedDivs = Array.from(document.querySelectorAll(".selected_b")).map(div => div.getAttribute("data-name"));
   // console.log(selectedDivs,"selectedDivs");
@@ -74,35 +93,50 @@ async function userID_add() {
   //   return;
   // }
 
+
+addUserBtn.addEventListener("click", userID_add);
+
+async function userID_add() {
+
+ // Get the selected date
+ const selectedDay = document.getElementById("jobDay").value;
+ const selectedMonth = document.getElementById("jobMonth").value;
+ const selectedYear = document.getElementById("jobYear").value;
+
   let ref_ = collection(db, "f_users");
   const newDocRef = doc(ref_);
 
   const user_data = {
-    name: name_user,
-    phone: phone_user,
-    email: email_user,
-    aboutUs: option_user,
+    name: name_user.value,
+    phone: phone_user.value,
+    email: email_user.value,
+    aboutUs: option_user.value,
     select_banks:attrSelect,
+    selectedDate: selectedDay + " " + selectedMonth + " " + selectedYear, // Add the selected date
     //   ss: selectedDivsssss,
     //   portofolio: checkbox_web.checked ? "N/A" : portofolioBox.value,
     idkeys: newDocRef.id,
     //   selectedAvatarRef,
     timestamp: serverTimestamp(),
+    f_stepBtn,
+    yes_nbc,
+    no_nbc,
+    yes_ibc,
+    no_ibc,
   };
 
   /* Validate Data before adding to firestore */
-
-  if (
-    !user_data.name ||
-    !user_data.phone ||
-    !user_data.email ||
-    !user_data.aboutUs ||
-    !user_data.select_banks
-  ) {
-    console.error("Invalid data:", user_data);
-    alert("Fill All the inputs");
-    return;
-  }
+  // if (
+  //   !user_data.name ||
+  //   !user_data.phone ||
+  //   !user_data.email ||
+  //   !user_data.aboutUs ||
+  //   !user_data.select_banks
+  // ) {
+  //   console.error("Invalid data:", user_data);
+  //   alert("Fill All the inputs");
+  //   return;
+  // }
 
   // showLoadingModal("data added succesfully", "_addSucces");
 
@@ -123,30 +157,7 @@ async function userID_add() {
     });
   console.log("document id is" + newDocRef.id);
 }
-const nameInput = document.getElementById("f_name");
-const phoneInput = document.getElementById("p_phone");
-const emailInput = document.getElementById("e_email");
-const continueBtn = document.getElementById("continue-btn");
 
-const yesStep2Btn = document.getElementById("yes-step2");
-const noStep2Btn = document.getElementById("no-step2");
-const continueStep3 = document.getElementById("continue-btn3");
-const SendInfoStep4Btn = document.getElementById("continueStep4");
-const yesStep5Btn = document.getElementById("yes-step5");
-const noStep5Btn = document.getElementById("no-step5");
-const contentYes = document.getElementById("content-yes");
-const contentNo = document.getElementById("content-no");
-const contentContinue = document.getElementById("content-continue");
-
-
-
-const step1Container = document.getElementById("step1-container");
-const step2Container = document.getElementById("step2-container");
-const step3Container = document.getElementById("step3-container");
-const step4Container = document.getElementById("step4-container");
-const step5Container = document.getElementById("step5-container");
-const stepFinal = document.getElementById("step-final");
-const termsDiv = document.querySelector(".terms_div");
 
 
 continueBtn.addEventListener("click", handleContinueBtn);
@@ -164,7 +175,7 @@ async function showHideSteps(currentStep, nextStep) {
 }
 
 // Add event listener to continue button
-continueBtn.addEventListener("click", handleContinueBtn);
+// continueBtn.addEventListener("click", handleContinueBtn);
 
 async function handleContinueBtn() {
   const emailInput = document.getElementById("e_email");
@@ -177,10 +188,17 @@ async function handleContinueBtn() {
   }
   try {
     const emailExists = await checkEmailInNetworkCollection(email);
-
     if (emailExists) {
       alert("Email already exists in the network!");
     } else {
+      const name = name_user.value;
+      const phone = phone_user.value;
+      const aboutUs = email_user.value;
+      if (!name || !phone || !aboutUs) {
+        alert("Fill all the inputs.");
+        return;
+      }
+      f_stepBtn = "continue-1";
       progressBar.Next();
       await showHideSteps(step1Container, step2Container);
     }
@@ -196,6 +214,7 @@ async function handleYesStep2Btn() {
   toggleLoadingSpinner(true);
   progressBar.Next();
   await showHideSteps(step2Container, step4Container);
+  yes_nbc = "yes-2";
   toggleLoadingSpinner(false); 
 }
 
@@ -204,6 +223,7 @@ async function handleNoStep2Btn() {
   progressBar.Next();
   progressBar.Next();
   await showHideSteps(step2Container, step3Container);
+  no_nbc = "no-3";
   toggleLoadingSpinner(false);
 }
 
@@ -249,10 +269,10 @@ async function handleNoStep5Btn() {
 function toggleLoadingSpinner(showSpinner) {
   let spinner = document.getElementById("container-spinner");
   if (!showSpinner) {
-    spinner.style.display = "block";
+    spinner.style.display = "flex";
     setTimeout(() => {
       spinner.style.display = "none";
-    }, 700);
+    }, 800);
   } else {
     spinner.style.display = "none";
   }
