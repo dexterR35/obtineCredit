@@ -60,12 +60,21 @@ const step5Container = document.getElementById("step5-container");
 const stepFinal = document.getElementById("step-final");
 const termsDiv = document.querySelector(".terms_div");
 
+const selectedDay = document.getElementById("jobDay").value;
+const selectedMonth = document.getElementById("jobMonth").value;
+const selectedYear = document.getElementById("jobYear").value;
 
 let name_user = document.getElementById("f_name");
 let phone_user = document.getElementById("p_phone");
 let email_user = document.getElementById("e_email");
 let option_user = document.getElementById("o_option");
+
+// const emailInput = document.getElementById("e_email");
 let attrSelect = window.selectedDivs;
+
+
+
+
 // const addUserBtn = document.querySelector(".btn-Sec4");
 const addUserBtn = document.querySelector("#continue-btn3");
 
@@ -97,11 +106,6 @@ async function checkEmailInNetworkCollection(email) {
 addUserBtn.addEventListener("click", userID_add);
 
 async function userID_add() {
-
- // Get the selected date
- const selectedDay = document.getElementById("jobDay").value;
- const selectedMonth = document.getElementById("jobMonth").value;
- const selectedYear = document.getElementById("jobYear").value;
 
   let ref_ = collection(db, "f_users");
   const newDocRef = doc(ref_);
@@ -141,20 +145,20 @@ async function userID_add() {
   // showLoadingModal("data added succesfully", "_addSucces");
 
   setDoc(newDocRef, user_data)
-    /* Reset Form */
-    .then(() => {
-      console.log("data added succesfully");
-      // reset form inputs
-      name_user.value = "";
-      phone_user.value = "";
-      email_user.value = "";
-      option_user.value = "";
-      attrSelect.value = "";
-      // show success message modal
-    })
-    .catch((error) => {
-      alert("unsecc operation. error:" + error);
-    });
+    // /* Reset Form */
+    // .then(() => {
+    //   console.log("data added succesfully");
+    //   // reset form inputs
+    //   name_user.value = "";
+    //   phone_user.value = "";
+    //   email_user.value = "";
+    //   option_user.value = "";
+    //   attrSelect.value = "";
+    //   // show success message modal
+    // })
+    // .catch((error) => {
+    //   alert("unsecc operation. error:" + error);
+    // });
   console.log("document id is" + newDocRef.id);
 }
 
@@ -178,12 +182,14 @@ async function showHideSteps(currentStep, nextStep) {
 // continueBtn.addEventListener("click", handleContinueBtn);
 
 async function handleContinueBtn() {
-  const emailInput = document.getElementById("e_email");
-  const email = emailInput.value;
   
+  const email = email_user.value;
+  const name = name_user.value;
+  const phone = phone_user.value;
+  const aboutUs = email_user.value;
   if (!email) {
     alert("Please enter an email address.");
-    toggleLoadingSpinner(false);
+    // toggleLoadingSpinner(false);
     return;
   }
   try {
@@ -191,9 +197,7 @@ async function handleContinueBtn() {
     if (emailExists) {
       alert("Email already exists in the network!");
     } else {
-      const name = name_user.value;
-      const phone = phone_user.value;
-      const aboutUs = email_user.value;
+    
       if (!name || !phone || !aboutUs) {
         alert("Fill all the inputs.");
         return;
