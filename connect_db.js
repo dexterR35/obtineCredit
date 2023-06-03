@@ -67,7 +67,7 @@ const selectedYear = document.getElementById("jobYear").value;
 let name_user = document.getElementById("f_name");
 let phone_user = document.getElementById("p_phone");
 let email_user = document.getElementById("e_email");
-let option_user = document.getElementById("o_option");
+let option_user = document.getElementById("o_option");;
 
 // const emailInput = document.getElementById("e_email");
 let attrSelect = window.selectedDivs;
