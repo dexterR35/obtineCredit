@@ -67,23 +67,84 @@ const selectedYear = document.getElementById("jobYear").value;
 let name_user = document.getElementById("f_name");
 let phone_user = document.getElementById("p_phone");
 let email_user = document.getElementById("e_email");
-let option_user = document.getElementById("o_option");;
+let option_user = document.getElementById("o_option");
 
-// const emailInput = document.getElementById("e_email");
+// const addUserBtn = document.querySelector("#continue-btn3");
+
 let attrSelect = window.selectedDivs;
 
+continueBtn.addEventListener("click", handleContinueBtn);
+yesStep2Btn.addEventListener("click", handleYesStep2Btn);
+noStep2Btn.addEventListener("click", handleNoStep2Btn);
 
+SendInfoStep4Btn.addEventListener("click", handleSendInfoStep4Btn);
 
+continueStep3.addEventListener("click", handleContinueStep3);
+yesStep5Btn.addEventListener("click", handleYesStep5Btn);
+noStep5Btn.addEventListener("click", handleNoStep5Btn);
+// continueBtn.addEventListener("click", handleContinueBtn);
+// addUserBtn.addEventListener("click", userID_add);
 
+const buttons_add = [SendInfoStep4Btn, noStep5Btn, yesStep5Btn];
+buttons_add.forEach(button => {
+  button.addEventListener("click", function(event) {  
+    userID_add(event);
+  });
+});
 // const addUserBtn = document.querySelector(".btn-Sec4");
-const addUserBtn = document.querySelector("#continue-btn3");
 
-let f_stepBtn = 0;
+let btn_continueStepOne = 0;
 let yes_nbc = 0;
 let no_nbc = 0;
 
 let yes_ibc = 0;
 let no_ibc = 0;
+
+let ref_ = collection(db, "f_users");
+const newDocRef = doc(ref_);
+
+async function userID_add() {
+
+
+  const user_data = {
+    name: name_user.value,
+    phone: phone_user.value,
+    email: email_user.value,
+    aboutUs: option_user.value,
+    select_banks: attrSelect,
+    selectedDate: selectedDay + " " + selectedMonth + " " + selectedYear,
+    idkeys: newDocRef.id,
+    timestamp: serverTimestamp(),
+    btn_continueStepOne,
+    yes_nbc,
+    no_nbc,
+    yes_ibc,
+    no_ibc,
+  };
+
+  // showLoadingModal("data added succesfully", "_addSucces");
+
+  setDoc(newDocRef, user_data);
+  // /* Reset Form */
+  // .then(() => {
+  //   console.log("data added succesfully");
+  //   name_user.value = "";
+  //   phone_user.value = "";
+  //   email_user.value = "";
+  //   option_user.value = "";
+  //   attrSelect.value = "";
+  // })
+  // .catch((error) => {
+  //   alert("unsecc operation. error:" + error);
+  // });
+  console.log("document id is" + newDocRef.id);
+  console.log("user_data id is" + user_data.idkeys);
+}
+
+async function showHideSteps(currentStep, nextStep) {
+  currentStep.style.display = "none";
+  nextStep.style.display = "block";
+}
 
 
 
@@ -92,120 +153,31 @@ async function checkEmailInNetworkCollection(email) {
   const querySnapshot = await getDocs(q);
   return !querySnapshot.empty;
 }
-  // let selectedDivsssss = Array.from(document.querySelectorAll(".selected_b")).map(div => div.getAttribute("data-name"));
-  // let selectedDivs = Array.from(document.querySelectorAll(".selected_b")).map(div => div.getAttribute("data-name"));
-  // console.log(selectedDivs,"selectedDivs");
-  // const email_user_check = email_user;
-  // const emailExists = await checkEmailInNetworkCollection(email_user_check);
-  // if (emailExists) {
-  //   alert("Email already exists in the network!");
-  //   return;
-  // }
 
-
-addUserBtn.addEventListener("click", userID_add);
-
-async function userID_add() {
-
-  let ref_ = collection(db, "f_users");
-  const newDocRef = doc(ref_);
-
-  const user_data = {
-    name: name_user.value,
-    phone: phone_user.value,
-    email: email_user.value,
-    aboutUs: option_user.value,
-    select_banks:attrSelect,
-    selectedDate: selectedDay + " " + selectedMonth + " " + selectedYear, // Add the selected date
-    //   ss: selectedDivsssss,
-    //   portofolio: checkbox_web.checked ? "N/A" : portofolioBox.value,
-    idkeys: newDocRef.id,
-    //   selectedAvatarRef,
-    timestamp: serverTimestamp(),
-    f_stepBtn,
-    yes_nbc,
-    no_nbc,
-    yes_ibc,
-    no_ibc,
-  };
-
-  /* Validate Data before adding to firestore */
-  // if (
-  //   !user_data.name ||
-  //   !user_data.phone ||
-  //   !user_data.email ||
-  //   !user_data.aboutUs ||
-  //   !user_data.select_banks
-  // ) {
-  //   console.error("Invalid data:", user_data);
-  //   alert("Fill All the inputs");
-  //   return;
-  // }
-
-  // showLoadingModal("data added succesfully", "_addSucces");
-
-  setDoc(newDocRef, user_data)
-    // /* Reset Form */
-    // .then(() => {
-    //   console.log("data added succesfully");
-    //   // reset form inputs
-    //   name_user.value = "";
-    //   phone_user.value = "";
-    //   email_user.value = "";
-    //   option_user.value = "";
-    //   attrSelect.value = "";
-    //   // show success message modal
-    // })
-    // .catch((error) => {
-    //   alert("unsecc operation. error:" + error);
-    // });
-  console.log("document id is" + newDocRef.id);
-}
-
-
-
-continueBtn.addEventListener("click", handleContinueBtn);
-yesStep2Btn.addEventListener("click", handleYesStep2Btn);
-noStep2Btn.addEventListener("click", handleNoStep2Btn);
-SendInfoStep4Btn.addEventListener("click", handleSendInfoStep4Btn);
-continueStep3.addEventListener("click", handleContinueStep3);
-yesStep5Btn.addEventListener("click", handleYesStep5Btn);
-noStep5Btn.addEventListener("click", handleNoStep5Btn);
-
-
-async function showHideSteps(currentStep, nextStep) {
-  currentStep.style.display = "none";
-  nextStep.style.display = "block";
-}
-
-// Add event listener to continue button
-// continueBtn.addEventListener("click", handleContinueBtn);
-
-async function handleContinueBtn() {
-  
-  const email = email_user.value;
+async function handleContinueBtn(event) {
+  event.preventDefault();
+  const emails = email_user.value;
   const name = name_user.value;
   const phone = phone_user.value;
-  const aboutUs = email_user.value;
-  if (!email) {
-    alert("Please enter an email address.");
-    // toggleLoadingSpinner(false);
+  const aboutUs =
+    option_user.value === "Cum ati auzit de noi!?" ? "" : option_user.value;
+  console.log(aboutUs, "aboutuys");
+  // Check if inputs are filled
+  if (!name || !phone || !aboutUs || !emails) {
+    console.log("Fill all the inputs.");
+    // showError("Please fill in all fields.");
     return;
   }
+
   try {
-    const emailExists = await checkEmailInNetworkCollection(email);
+    const emailExists = await checkEmailInNetworkCollection(emails);
     if (emailExists) {
-      alert("Email already exists in the network!");
-    } else {
-    
-      if (!name || !phone || !aboutUs) {
-        alert("Fill all the inputs.");
-        return;
-      }
-      f_stepBtn = "continue-1";
-      progressBar.Next();
-      await showHideSteps(step1Container, step2Container);
+      console.log("Email already exists in the network.");
+      return;
     }
+    btn_continueStepOne = "continue-step-one";
+    progressBar.Next();
+    await showHideSteps(step1Container, step2Container);
   } catch (error) {
     console.error("Error checking email:", error);
     alert("An error occurred while checking the email.");
@@ -213,13 +185,12 @@ async function handleContinueBtn() {
   toggleLoadingSpinner(false); // Hide loading spinner
 }
 
-
 async function handleYesStep2Btn() {
   toggleLoadingSpinner(true);
   progressBar.Next();
   await showHideSteps(step2Container, step4Container);
-  yes_nbc = "yes-2";
-  toggleLoadingSpinner(false); 
+  yes_nbc = "yes-negativ-birou-credit";
+  toggleLoadingSpinner(false);
 }
 
 async function handleNoStep2Btn() {
@@ -227,8 +198,9 @@ async function handleNoStep2Btn() {
   progressBar.Next();
   progressBar.Next();
   await showHideSteps(step2Container, step3Container);
-  no_nbc = "no-3";
+  no_nbc = "no-negativ-birou-credit";
   toggleLoadingSpinner(false);
+  console.log("step3-angajare");
 }
 
 async function handleSendInfoStep4Btn() {
@@ -244,6 +216,7 @@ async function handleSendInfoStep4Btn() {
 }
 
 async function handleContinueStep3() {
+  console.log("step3-angajare");
   toggleLoadingSpinner(true);
   progressBar.Next();
   await showHideSteps(step3Container, step5Container);
@@ -282,6 +255,49 @@ function toggleLoadingSpinner(showSpinner) {
   }
 }
 
+function generateGreeting() {
+  const now = new Date();
+  const hour = now.getHours();
+
+  let greeting;
+
+  if (hour >= 5 && hour < 12) {
+    greeting = "Buna dimineata";
+  } else if (hour >= 12 && hour < 18) {
+    greeting = "O dupa-masa frumoasa";
+  } else {
+    greeting = "Buna seara";
+  }
+
+  return greeting;
+}
+
+// Usage example
+const timeGreeting = generateGreeting();
+const greetingSpan = document.getElementById("output-s2");
+greetingSpan.textContent = timeGreeting;
+
+
+
+
+// function showError(errorMessage) {
+//   const _forms = document.querySelectorAll("._forms");
+//   const errDiv = document.createElement("div");
+//   errDiv.classList.add("new-class");
+//   errDiv.textContent = errorMessage;
+
+//   _forms.forEach(form => {
+//     const clickHandler = function() {
+//       form.appendChild(errDiv);
+//       form.removeEventListener("click", clickHandler);
+//     };
+
+//     form.addEventListener("click", clickHandler);
+//   });
+// }
+
+// Usage example
+// showError("Please fill in this form.");
 // Event listener for input_r changes
 // document.querySelector(".another_ifn").addEventListener("input", function () {
 //   let input_r_value = document.querySelector(".another_ifn").value;
@@ -299,5 +315,3 @@ function toggleLoadingSpinner(showSpinner) {
 //     selectedDivs_Div.appendChild(_li);
 //   }
 // });
-
-

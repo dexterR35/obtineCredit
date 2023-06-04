@@ -13,6 +13,8 @@
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap.min.css" integrity="sha512-BMbq2It2D3J17/C7aRklzOODG1IQ3+MHw3ifzBHMBwGO/0yUqYmsStgBjI0z5EYlaDEFnvYV7gNYdD3vFLRKsA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -84,7 +86,7 @@
                 </div>
                 <div class="form-group py-2 my-2 _forms">
                   <select class="form-select form-select-lg" aria-label=".default input example" id="o_option">
-                    <option disabled selected>Cum ati auzit de noi!?</optiondisabled>
+                    <option disabled selected>Cum ati auzit de noi!?</option>
                     <option value="Tik-Tok">Tik-Tok</option>
                     <option value="Facebook">Facebook</option>
                     <option value="Consultant">Consultant</option>
@@ -110,7 +112,7 @@
                 <div class="title_quiz text-center">
                   <div class="col-12 pb-4">
                     <h2>
-                      Buna {seara} <br />
+                      <span id="output-s2" class="output-name"></span>
                       <span id="output-s3" class="output-name"></span>
                     </h2>
                   </div>
@@ -135,8 +137,8 @@
                 <div class="col-12 py-4">
                   <div class="question-s2">Ești raportat negativ in Biroul de Credit?</div>
                 </div>
-                <div class="row buttons_ d-flex justify-content-center gap-3">
-                  <div class="col-12">
+                <div class="row buttons_">
+                  <div class="col-12 d-flex justify-content-around">
                     <button id="yes-step2" type="button" class="btn btn-primary btn-half">
                       Da
                     </button>
@@ -415,6 +417,7 @@
       </div>
     </div>
   </div>
+  
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
   <script src="./formular.js"></script>

@@ -129,14 +129,6 @@ function checkRadio() {
 }
 checkRadio();
 // Add event listeners to input fields
-// nameInput.addEventListener("input", checkInputs);
-// phoneInput.addEventListener("input", checkInputs);
-// emailInput.addEventListener("input", checkInputs);
-
-// Add event listeners for date
-
-// Function to show/hide step containers
-
 
 const jobDay = document.getElementById("jobDay");
 const jobMonth = document.getElementById("jobMonth");
@@ -207,37 +199,8 @@ function displayDate() {
   });
 }
 displayDate();
-// const formFields_ = document.querySelectorAll('#f_name, #e_email, #p_phone');
-// const submitBtn_ = document.querySelector('.submitBtn');
-// const errorMsg_ = document.querySelector('#errorMsg');
-
-// function validateForm() {
-//   for (let i = 0; i < formFields_.length; i++) {
-//     if (formFields_[i].value.trim() === '') {
-//       errorMsg_.style.display = 'block'; // show error message
-//       return false; // form is not valid
-//     }
-//   }
-//   errorMsg_.style.display = 'none'; // hide error message
-//   return true; // form is valid
-// }
-
-// // enable/disable submit button based on whether form is valid or not
-// for (let i = 0; i < formFields_.length; i++) {
-//   formFields_[i].addEventListener('input', () => {
-//     submitBtn_.disabled = !validateForm();
-//   });
-// }
-
 
 progressBar.Reset();
-
-
-
-// export { displayAttribute };
-
-// console.log(selectAttribute,"setas")
-
 
 
 // $( window ).on( "load", function() {
