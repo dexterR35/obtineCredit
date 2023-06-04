@@ -82,6 +82,10 @@ async function fetchFirestoreData() {
         { title: "NNBC" },
         { title: "YNBC" },
         { title: "Actions", orderable: false }
+      ],
+      dom: 'Bfrtip', // Display the buttons
+      buttons: [
+        'csv', 'excel', 'pdf', 'print', 'colvis' // Add the required buttons
       ]
     });
   
