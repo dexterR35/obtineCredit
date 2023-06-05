@@ -57,6 +57,7 @@ const step2Container = document.getElementById("step2-container");
 const step3Container = document.getElementById("step3-container");
 const step4Container = document.getElementById("step4-container");
 const step5Container = document.getElementById("step5-container");
+
 const stepFinal = document.getElementById("step-final");
 const termsDiv = document.querySelector(".terms_div");
 
@@ -82,6 +83,7 @@ SendInfoStep4Btn.addEventListener("click", handleSendInfoStep4Btn);
 continueStep3.addEventListener("click", handleContinueStep3);
 yesStep5Btn.addEventListener("click", handleYesStep5Btn);
 noStep5Btn.addEventListener("click", handleNoStep5Btn);
+
 // continueBtn.addEventListener("click", handleContinueBtn);
 // addUserBtn.addEventListener("click", userID_add);
 

@@ -129,7 +129,6 @@ async function editUser(userId) {
     $('#editEmail').val(email || '');
     $('#editPhone').val(phone || '');
     $('#editStatus').val(status || '');
-
     // Set the "data-user-id" attribute on the update button
     $('#updateUserBtn').attr('data-user-id', userId);
 
