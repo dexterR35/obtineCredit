@@ -1,133 +1,254 @@
 <!DOCTYPE html>
 <html lang="ro">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
     integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://unpkg.com/jquery-dropdown-datepicker@1.3.0/dist/jquery-dropdown-datepicker.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha512-ANkGm5vSmtDaoFA/NB1nVJzOKOiI4a/9GipFtkpMG8Rg2Bz8R1GFf5kfL0+z0lcv2X/KZRugwrAlVTAgmxgvIg=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap.min.css" integrity="sha512-BMbq2It2D3J17/C7aRklzOODG1IQ3+MHw3ifzBHMBwGO/0yUqYmsStgBjI0z5EYlaDEFnvYV7gNYdD3vFLRKsA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.0.1/css/buttons.dataTables.min.css">
-
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
     rel="stylesheet" />
-  <!-- <link rel="stylesheet" href="./obc.css" /> -->
-    <title>Document</title>
-    <style>
-        /* Custom CSS for the table */
-  .container {
-    margin-top: 20px;
-  }
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet" />
+  <link
+    href="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/cr-1.6.2/date-1.4.1/fc-4.2.2/r-2.4.1/rg-1.3.1/sb-1.4.2/sp-2.1.2/sl-1.6.2/sr-1.2.2/datatables.min.css"
+    rel="stylesheet" />
 
-  #searchInput {
-    width: 300px;
-  }
 
-  /* Override Bootstrap classes */
-  .table-bordered {
-    border: 1px solid #dee2e6;
-  }
+  <link rel="stylesheet" href="https://cdn.datatables.net/searchbuilder/1.4.2/css/searchBuilder.dataTables.min.css">
 
-  .table-striped tbody tr:nth-of-type(odd) {
-    background-color: #f5f5f5;
-  }
 
-  .table-striped tbody tr:hover {
-    background-color: #e9ecef;
-  }
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-editor/2.1.0/dataTables.editor.min.js" integrity="sha512-BKsIfYRuTSaLQncTO/3CUtWr6zko7hbmxWYcBhJ7YqVB1zPIcG0S7hCNf3PLcQds22RlBaVHnKkKLxjSmn9hZA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+  <title>ObtineCredit-CRM</title>
+  <style>
+    /* Custom CSS for the table */
+    .container-fluid {
+      margin-top: 20px;
+      max-width: 1600px;
+    }
 
-  .thead-dark th {
-    background-color: #343a40;
-    color: #fff;
-  }
+    #searchInput {
+      width: 300px;
+    }
 
-  /* Custom styling for action buttons */
-  .action-buttons .btn {
-    margin-right: 5px;
-  }
+    /* CSS Styling for the table */
+    
+    .table-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .dataTables_wrapper {
+      padding: 0.5em;
+      max-width: 1600px;
+      margin: 0 auto;
+      /* background: #1d81e6; */
+    }
 
-  .action-buttons .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-  }
+    .table.dataTable  {
+      /* max-width: 1600px; */
+    }
 
-  .action-buttons .btn-danger {
-    background-color: #dc3545;
-    border-color: #dc3545;
-  }
-    </style>
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .table thead {
+      background-color: #1d81e6;
+      color: #ffffff;
+    }
+
+    .table thead th {
+      padding: 12px;
+      text-align: left;
+      /* background: crimson; */
+    }
+
+    .table tbody td {
+      padding: 12px;
+      cursor: pointer;
+    }
+    .table tbody tr td:nth-of-type(10),.table-actions {
+      display: flex;
+    }
+
+    .table tbody tr:nth-child(even) {
+      /* background-color: #f2f2f2; */
+    }
+    .table tbody tr td:nth-of-type(10) {
+      /* background-color: red; */
+      justify-content: space-evenly;
+    }
+
+    .table tbody tr:hover {
+      background-color: #e9ecef;
+    }
+
+    .table-actions {
+      justify-content: center;
+    }
+
+
+    /* Media query for smaller screens */
+    @media (max-width: 576px) {
+      .table thead {
+        display: none;
+      }
+
+      .table tbody td:before {
+        content: attr(data-label);
+        font-weight: bold;
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      .table-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .table-actions button {
+        margin-bottom: 8px;
+      }
+    }
+
+    /* Custom styling for action buttons */
+  
+    .btn {
+      border: none;
+      outline: none;
+      text-transform: capitalize;
+      font-size: 0.8em;
+    }
+    .btn.btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .btn.btn-danger {
+      background-color: crimson;
+    
+    }
+
+    .btn.btn-secondary {
+      border-radius: 5px !important;
+      background-color: #39bdabf5;
+    }
+    .dt-buttons.btn-group {
+      gap: 5px;
+    }
+
+
+    /* end Custom styling for action buttons */
+
+    /*table buttons and search*/
+    .dataTables_filter {
+      float: right;
+    }
+
+ /* Custom legend */
+
+
+
+
+  </style>
 </head>
-<body>
-    <div class="container-admin">
-        <h2>Users</h2>
-        <div class="col-12 d-flex flex-row align-items-center justify-content-evenly">
 
-       
-        <div class="mb-2 col-3">
-            <label for="searchInput">Search by:</label>
-          <input id="searchInput" type="text" class="form-control" placeholder="Search">
-        </div>
-        <div class="mb-2 col-3">
-          <label for="filterSelect">Filter By:</label>
-          <select id="filterSelect" class="form-control">
-            <option value="">All</option>
-            <option value="1">Name</option>
-            <option value="2">Email</option>
-            <option value="3">Phone</option>
-            <option value="4">banks</option>
-            <option value="5">negativ-birou-credit</option>
-            <option value="6">positiv-birou-credit</option>
-            <option value="7">istoric-negativ-birou-credit</option>
-            <option value="8">istoric-positiv-birou-credit</option>
-          </select>
-        </div>
+<body>
+  <div class="container-fluid">
+   
+    <div class="col-12 d-flex  align-items-center justify-content-center py-5">
+      <h2 class="text-center">Formular</h2>
     </div>
-        <div class="table-responsive">
-        <table id="userTable" class="table table-striped table-bordered">>
-          <thead class="thead-dark">
-            <tr>
-              <!-- <th>ID</th> -->
-              <th>Name</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Banks</th>
-              <th>Date</th>
-              <th>NIBC</th>
-              <th>YIBC</th>
-              <th>NNBC</th>
-              <th>YNBC</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Table rows will be dynamically added here -->
-          </tbody>
-        </table>
+ 
+    <div class="table-responsive">
+      
+      <table id="userTable" class="table table-bordered">
+        
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Banks</th>
+            <th scope="col">Date</th>
+            <th scope="col">NIBC</th>
+            <th scope="col">YIBC</th>
+            <th scope="col">NNBC</th>
+            <th scope="col">YNBC</th>
+            <th scope="col">status</th>
+            <th scope="col" class="table-actions">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Table rows will be dynamically added here -->
+        </tbody>
+      </table>
+    </div>
+
+
+    <div class="history container-legend d-flex flex-row mx-auto justify-content-end">
+      <h5>Legend:</h5>
+      <div class="nibc"><span>NIBC -</span><span> Nu istoric birou credit </span>:</div>
+      <div class="yibc"><span>YIBC -</span><span> Da istoric birou credit </span>:</div>
+      <div class="nnbc"><span>NNBC -</span><span> Nu negativ birou credit </span>:</div>
+      <div class="ynbc"><span>YNBC -</span><span> Da negativ birou credit </span>:</div>
+    </div>
+
+  </div>
+
+
+   <!-- Modal for editing user -->
+   <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="editUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="editUserForm">
+            <input type="text" id="editName" class="form-control my-2" placeholder="Name">
+            <input type="email" id="editEmail" class="form-control my-2" placeholder="Email">
+            <input type="number" id="editPhone" class="form-control my-2" placeholder="Phone">
+            <div class="form-group my-2">
+              <select class="form-select" aria-label=".default input example" id="o_option">
+                <option disabled selected>Status</option>
+                <option value="Approved">Approved</option>
+                <option value="Rejected">Rejected</option>
+                <option value="Pending">Pending</option>
+              </select>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="updateUserBtn">Update</button>
         </div>
       </div>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
-      <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
-<script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.0.1/js/dataTables.buttons.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.print.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.0.1/js/buttons.colVis.min.js"></script>
+    </div>
+  </div>
 
-      <!-- <script src="./formular.js"></script> -->
-      <script type="module" src="admin_db.js" async></script>
-      
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script> -->
+  <script
+    src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/cr-1.6.2/date-1.4.1/fc-4.2.2/r-2.4.1/rg-1.3.1/sb-1.4.2/sp-2.1.2/sl-1.6.2/sr-1.2.2/datatables.min.js">
+  </script>
+  <script src="https://cdn.datatables.net/searchbuilder/1.4.2/js/dataTables.searchBuilder.min.js"></script>
+  <script type="module" src="admin_db.js" async></script>
+
 </body>
+
 </html>

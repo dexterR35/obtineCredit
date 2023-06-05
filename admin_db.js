@@ -41,19 +41,18 @@ const db = getFirestore(app);
 const storage = getStorage(app);
 
 
-
-
+var table;
+var tableData = [];
+let status_user = "new"
 
 // Fetch Firestore data and populate DataTable
 async function fetchFirestoreData() {
     const usersRef = collection(db, "f_users");
     const querySnapshot = await getDocs(usersRef);
-    
-    var tableData = [];
     querySnapshot.forEach((doc) => {
       var user = doc.data();
       tableData.push([
-        // doc.id,
+        doc.id,
         user.name,
         user.email,
         user.phone,
@@ -63,15 +62,21 @@ async function fetchFirestoreData() {
         user.yes_ibc,
         user.no_nbc,
         user.yes_nbc,
-        '<button class="btn btn-primary" onclick="editUser(\'' + doc.id + '\')">Edit</button> ' +
+        user.status_user,
+        '<button class="btn btn-secondary" onclick="infoUser(\'' + doc.id + '\')">info</button>' +
+        '<button class="btn btn-secondary edit-user-btn">Edit</button>' +
         '<button class="btn btn-danger" onclick="deleteUser(\'' + doc.id + '\')">Delete</button>'
+       
       ]);
     });
     var originalData = tableData; // Store the original table data
-    var table = $('#userTable').DataTable({
+    if (table) {
+      table.clear().draw();
+    }
+     table = $('#userTable').DataTable({
       data: tableData,
       columns: [
-        // { title: "ID" },
+        { title: "ID" },
         { title: "Name" },
         { title: "Email" },
         { title: "Phone" },
@@ -81,60 +86,102 @@ async function fetchFirestoreData() {
         { title: "YIBC" },
         { title: "NNBC" },
         { title: "YNBC" },
+        { title: "status" },
         { title: "Actions", orderable: false }
       ],
       dom: 'Bfrtip', // Display the buttons
       buttons: [
-        'csv', 'excel', 'pdf', 'print', 'colvis' // Add the required buttons
-      ]
+        'csv', 'excel', 'pdf', 'print', 'colvis',
+        {
+          extend: "searchBuilder",
+          text: "Filter Builder",
+          searchBuilder: {
+            columns: [0, 1, 2, 3, 4, 5, 6, 7, 8,9,10,11] // Specify the columns to enable in the search builder
+          }
+        } // Add the required buttons
+      ],
+      
     });
-  
-// Apply search filter
-$('#searchInput').on('keyup', function() {
-    var searchValue = this.value;
-    if (searchValue) {
-      var filteredData = originalData.filter(function(row) {
-        // Match search value against all columns
-        return Object.values(row).some(function(column) {
-          return column.toString().toLowerCase().includes(searchValue.toLowerCase());
-        });
+      // Attach event handler for edit button using event delegation
+  $('#userTable').on('click', '.edit-user-btn', function () {
+    // var userId = table.row($(this).closest('tr')).data()[0];
+
+    var userId = table.row($(this).parents('tr')).data()[0];
+    editUser(userId);
+  });
+}
+console.log(tableData,"tableData");
+
+ // Edit user
+async function editUser(userId) {
+  var userData = tableData.find((data) => data[0] === userId);
+  console.log(userData,"userData")
+  console.log("User ID:", userId);
+
+  if (userData) {
+    var name = userData[1];
+    var email = userData[2];
+    var phone = userData[3];
+    var status = userData[10];
+    console.log(status);
+    // Set the values in the modal
+    $('#editName').val(name || '');
+    $('#editEmail').val(email || '');
+    $('#editPhone').val(phone || '');
+    $('#editStatus').val(status || '');
+
+    // Set the "data-user-id" attribute on the update button
+    $('#updateUserBtn').attr('data-user-id', userId);
+
+    // Show the modal
+    $('#editUserModal').modal('show');
+  } else {
+    console.error("User not found.");
+  }
+}
+ // Update user in Firestore
+ async function updateUser(userId) {
+  const userRef = doc(collection(db, "f_users"), userId);
+  console.log(userRef,"userRef")
+  console.log(userId,"userId")
+  var userData = tableData.find((data) => data[0] === userId);
+
+  if (userData) {
+    var name = userData[1];
+    var email = userData[2];
+    var phone = userData[3];
+    var status = userData[10];
+    console.log(status);
+    try {
+      // Perform the update operation
+      await updateDoc(userRef, {
+        name: name,
+        email: email,
+        phone: phone,
+        status_user: status
       });
-      table.clear().rows.add(filteredData).draw();
-    } else {
-      table.clear().rows.add(originalData).draw();
+      console.log("User updated successfully!");
+      // Hide the modal after update
+      $('#editUserModal').modal('hide');
+    } catch (error) {
+      console.error("Error updating user: ", error);
     }
-  });
-  
-  // Apply custom filters
-  $('#filterSelect').on('change', function() {
-    var columnIndex = parseInt($(this).val());
-    var filterValue = '';
-
-    if (columnIndex !== 0) {
-      filterValue = this.value;
-    }
-
-    table.columns().every(function() {
-      this.search('').draw(); // Reset all column filters
-    });
-
-    if (filterValue) {
-      table.columns(columnIndex - 1).search(filterValue).draw();
-    }
-  });
+  } else {
+    console.error("User data not found.");
   }
-  
-  // Edit user
-  function editUser(userId) {
-    // Implement your edit logic here
-    console.log("Edit user with ID:", userId);
-  }
-  
+}
+
   // Delete user
   function deleteUser(userId) {
-    // Implement your delete logic here
     console.log("Delete user with ID:", userId);
   }
   
-  // Call the fetchFirestoreData function to populate DataTable
-  fetchFirestoreData();
+
+    // Initialize the DataTable and fetch Firestore data
+    $(document).ready(function () {
+      fetchFirestoreData();
+      $('#updateUserBtn').click(function () {
+        var userId = $(this).data('userId');
+        updateUser(userId);
+      });
+    });
