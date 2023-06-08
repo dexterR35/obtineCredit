@@ -1,5 +1,6 @@
-
-*,*::after,*::before {
+*,
+*::after,
+*::before {
   padding: 0;
   margin: 0;
   -webkit-box-sizing: border-box;
@@ -14,7 +15,7 @@
   --modal-inputBg: #dbdbdb;
   --bg-white: #fff;
   --color-white: #fff;
-  --border-input: #cdcdcd ;
+  --border-input: #cdcdcd;
   --border-inputFocus: orange;
   --border-error: #ff4c16;
   --border-active: red;
@@ -30,7 +31,7 @@
   --selected_banks: #c0ffee;
 
 
-  --text-bg:#41c0ae14;
+  --text-bg: #41c0ae14;
 }
 
 body {
@@ -105,8 +106,9 @@ h6 {
   z-index: 100;
   margin: 4rem 0;
   display: none;
-  
+
 }
+
 .logo_spinner {
   font-weight: bold;
   font-size: 0.9em;
@@ -186,7 +188,14 @@ h6 {
 .btn-half {
   width: 40%;
 }
-
+.btn a {
+  text-decoration: none;
+  font-size: 0.85em;
+  color: var(--color-white);
+}
+.checkImg {
+  width: 60px;
+}
 .btn-primary {
   padding: 0.7em 1em;
   background: var(--soft-green) !important;
@@ -228,6 +237,7 @@ h6 {
   top: 0;
   position: sticky !important;
 }
+
 /* .modal-header::after{
 
   content: "";
@@ -269,6 +279,9 @@ h6 {
 .modal-dialog {
   width: 100% !important;
   margin: 0 !important;
+}
+.modal.show{
+  display: noe;
 }
 
 @media (orientation: portrait) and (max-width: 480px) {
@@ -314,14 +327,19 @@ h6 {
   pointer-events: none;
   font-weight: 400;
 }
-.form-select,form-select option {
+
+.form-select,
+form-select option {
   font-size: 0.95rem;
 }
+
 .form-select {
   height: 55px;
   border-color: var(--border-input) !important;
 }
-.form-select:focus, .form-select:active {
+
+.form-select:focus,
+.form-select:active {
   border-color: var(--soft-green) !important;
 }
 
@@ -346,11 +364,12 @@ h6 {
   outline: none;
   box-shadow: 0px 1px 5px rgb(211, 211, 211);
 }
+
 .form-select:focus {
   border: 1px solid !important;
-    border-color: var(--soft-green) !important;
-    outline: none;
-    box-shadow: 0px 1px 5px rgb(211, 211, 211);
+  border-color: var(--soft-green) !important;
+  outline: none;
+  box-shadow: 0px 1px 5px rgb(211, 211, 211);
 }
 
 /* progress bar  */
@@ -448,9 +467,11 @@ h6 {
   font-weight: 500;
   text-align: center;
 }
+
 #step3-container .question-s2 {
   font-size: 1.05rem;
 }
+
 .selected_banks {
   background-color: var(--selected_banks);
   border: 1px solid var(--soft-green) !important;
@@ -488,12 +509,13 @@ h6 {
   /* border: none !important;
   background: #dddddd !important; */
 }
+
 input[type="radio"] {
   width: 1.2em !important;
   height: 1.2em !important;
 }
 
-.form-control + .form-control {
+.form-control+.form-control {
   margin-top: 1em;
 }
 
@@ -511,7 +533,7 @@ input[type="text"]::placeholder {
   text-align: justify !important;
   border-radius: 14px;
   background: var(--text-bg);
-  padding: 1.3em ;
+  padding: 1.3em;
 }
 
 .step3-container .question-s2 {
@@ -525,26 +547,31 @@ input[type="text"]::placeholder {
   text-align: center;
   /* text-transform: uppercase; */
 }
+
 .hidden_c {
   display: none;
 }
+
 .text-s4 {
   font-weight: 700;
   font-size: 1.25rem;
   text-align: center !important;
   line-height: 1.4;
 }
+
 .text-s-bottom {
   text-align: center !important;
   font-size: 0.9rem;
   /* background: red; */
-  height: 235px;
+  /* height: 235px; */
   display: flex;
   justify-content: center;
   align-items: end;
   font-weight: 600;
 }
-
+._date_div {
+  gap: 10px;
+}
 .s-2 .title_quiz h2 {
   text-transform: uppercase;
   font-size: 1.5rem;
@@ -558,9 +585,10 @@ input[type="text"]::placeholder {
 #selectedItems {
   margin-top: 20px;
 }
+
 #errorMsg {
   text-align: center;
-    font-size: 0.8em;
+  font-size: 0.8em;
 }
 
 
@@ -586,7 +614,8 @@ input[type="text"]::placeholder {
   height: 40px;
   justify-content: center;
   /* padding: 0.25em 0.3em; */
-  border: 1px solid var(--border-input);;
+  border: 1px solid var(--border-input);
+  ;
   border-radius: 5px;
   cursor: pointer;
 }
@@ -595,6 +624,7 @@ input[type="text"]::placeholder {
 .list_inf .col-6 {
   width: 48% !important;
 }
+
 ._img_Bank {
   /* padding: 0.1em 0.2em; */
   width: 88px;
@@ -632,9 +662,31 @@ input[type="text"]::placeholder {
 ._alpha {
   width: 120px;
 }
+
+._provident {
+  width: 100px;
+}
+
+._icredit {
+  width: 88px;
+}
+
 ._cetelem {
   width: 100px;
 }
+
+._credius {
+  width: 112px;
+}
+
+._hora {
+  width: 112px;
+}
+
+._brd-finance {
+  width: 125px;
+}
+
 ._cec {
   width: 106px;
 }
@@ -677,7 +729,7 @@ input[type="text"]::placeholder {
 }
 
 #selectedDivs li {
-border: 1px solid var(--soft-green);
+  border: 1px solid var(--soft-green);
   width: fit-content;
   padding: 0.4em 0.5em;
   border-radius: 5px;
@@ -708,7 +760,8 @@ border: 1px solid var(--soft-green);
   border-right: none;
   border-left: none;
 }
-#selectedDate { 
+
+#selectedDate {
   border-radius: 5px;
   font-weight: 500;
 }
@@ -717,8 +770,8 @@ border: 1px solid var(--soft-green);
 /* SECTION 4 DATE */
 /* SECTION 4 DATE */
 .date_box {
-   padding: 0.6em;
-    border-radius: 5px;
-    border: 1px solid var(--border-input);
-    font-size: 0.9em;
+  padding: 0.6em;
+  border-radius: 5px;
+  border: 1px solid var(--border-input);
+  font-size: 0.9em;
 }

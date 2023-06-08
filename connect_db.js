@@ -61,15 +61,20 @@ const step5Container = document.getElementById("step5-container");
 const stepFinal = document.getElementById("step-final");
 const termsDiv = document.querySelector(".terms_div");
 
-const selectedDay = document.getElementById("jobDay").value;
-const selectedMonth = document.getElementById("jobMonth").value;
-const selectedYear = document.getElementById("jobYear").value;
+const selectedDay = document.getElementById("jobDay");
+const selectedMonth = document.getElementById("jobMonth");
+const selectedYear = document.getElementById("jobYear");
+
+
+
+
 
 let name_user = document.getElementById("f_name");
 let phone_user = document.getElementById("p_phone");
 let email_user = document.getElementById("e_email");
 let option_user = document.getElementById("o_option");
-
+let anotherIFN = document.querySelector(".another_ifn");
+console.log(anotherIFN,"anotherIFM");
 // const addUserBtn = document.querySelector("#continue-btn3");
 
 let attrSelect = window.selectedDivs;
@@ -101,7 +106,6 @@ let no_nbc = 0;
 
 let yes_ibc = 0;
 let no_ibc = 0;
-
 let ref_ = collection(db, "f_users");
 const newDocRef = doc(ref_);
 
@@ -114,14 +118,15 @@ async function userID_add() {
     email: email_user.value,
     aboutUs: option_user.value,
     select_banks: attrSelect,
-    selectedDate: selectedDay + " " + selectedMonth + " " + selectedYear,
+    another_ifn:anotherIFN.value,
+    selectedDate: selectedDay.value + " " + selectedMonth.value + " " + selectedYear.value,
     idkeys: newDocRef.id,
     timestamp: serverTimestamp(),
     btn_continueStepOne,
     yes_nbc,
-    no_nbc,
     yes_ibc,
-    no_ibc,
+    no_ibc
+    
   };
 
   // showLoadingModal("data added succesfully", "_addSucces");
@@ -191,7 +196,7 @@ async function handleYesStep2Btn() {
   toggleLoadingSpinner(true);
   progressBar.Next();
   await showHideSteps(step2Container, step4Container);
-  yes_nbc = "yes-negativ-birou-credit";
+  yes_nbc = "yes-negativ-birou-credit(3)";
   toggleLoadingSpinner(false);
 }
 
@@ -200,7 +205,7 @@ async function handleNoStep2Btn() {
   progressBar.Next();
   progressBar.Next();
   await showHideSteps(step2Container, step3Container);
-  no_nbc = "no-negativ-birou-credit";
+  // no_nbc = "no-negativ-birou-credit";
   toggleLoadingSpinner(false);
   console.log("step3-angajare");
 }
@@ -231,6 +236,7 @@ async function handleYesStep5Btn() {
   contentNo.classList.add("hidden_c");
   contentYes.classList.remove("hidden_c");
   contentContinue.classList.add("hidden_c");
+  yes_ibc = "yes-istoric-bancar(2)";
   await showHideSteps(step5Container, stepFinal);
   toggleLoadingSpinner(false);
 }
@@ -241,21 +247,12 @@ async function handleNoStep5Btn() {
   contentNo.classList.remove("hidden_c");
   contentYes.classList.add("hidden_c");
   contentContinue.classList.add("hidden_c");
+  no_ibc = "no-istoric-bancar(2)";
   await showHideSteps(step5Container, stepFinal);
   toggleLoadingSpinner(false);
 }
 
-function toggleLoadingSpinner(showSpinner) {
-  let spinner = document.getElementById("container-spinner");
-  if (!showSpinner) {
-    spinner.style.display = "flex";
-    setTimeout(() => {
-      spinner.style.display = "none";
-    }, 800);
-  } else {
-    spinner.style.display = "none";
-  }
-}
+
 
 function generateGreeting() {
   const now = new Date();

@@ -43,7 +43,7 @@ const storage = getStorage(app);
 
 var table;
 var tableData = [];
-let status_user = "new"
+
 
 // Fetch Firestore data and populate DataTable
 async function fetchFirestoreData() {
@@ -60,9 +60,8 @@ async function fetchFirestoreData() {
         user.selectedDate,
         user.no_ibc,
         user.yes_ibc,
-        user.no_nbc,
+
         user.yes_nbc,
-        user.status_user,
         '<button class="btn btn-secondary" onclick="infoUser(\'' + doc.id + '\')">info</button>' +
         '<button class="btn btn-secondary edit-user-btn">Edit</button>' +
         '<button class="btn btn-danger" onclick="deleteUser(\'' + doc.id + '\')">Delete</button>'
@@ -84,9 +83,7 @@ async function fetchFirestoreData() {
         { title: "Date" },
         { title: "NIBC" },
         { title: "YIBC" },
-        { title: "NNBC" },
         { title: "YNBC" },
-        { title: "status" },
         { title: "Actions", orderable: false }
       ],
       dom: 'Bfrtip', // Display the buttons

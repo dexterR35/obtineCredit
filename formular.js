@@ -67,7 +67,7 @@ function setFocus(on) {
   }
 }
 
-function displayAttribute(div_) {
+async function displayAttribute(div_) {
   console.log(div_, "divs");
   let dataName = div_.getAttribute("data-name");
   selectAttribute = dataName;

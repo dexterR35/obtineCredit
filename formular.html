@@ -28,10 +28,43 @@
   <script></script>
   <div class="container mt-5">
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-outline-success btn-lg float-right" data-toggle="modal"
-      data-target="#modal_quiz" onclick="progressBar.Next()">
+    <button type="button" id="credit_button" class="btn btn-outline-success btn-lg float-right" data-toggle="modal"
+      data-target="#modal_quiz"  style="display: none;">
       Obtine Credit
     </button>
+    <script>
+     function toggleLoadingSpinner(showSpinner) {
+      let spinner = document.getElementById("container-spinner");
+      if (!showSpinner) {
+        spinner.style.display = "flex";
+        setTimeout(() => {
+          spinner.style.display = "none";
+        }, 800);
+      } else {
+        spinner.style.display = "none";
+      }
+    }
+ 
+
+
+  
+  
+
+  document.addEventListener('readystatechange', function() {
+    if (document.readyState === 'loading' || document.readyState === 'interactive') {
+
+      toggleLoadingSpinner(true);
+      document.getElementById('credit_button').click();
+    } else if (document.readyState === 'complete') {
+      toggleLoadingSpinner(false);
+
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    handleButtonAction();
+  });
+    </script>
     <!-- Modal -->
     <div class="modal fade modal_quiz" id="modal_quiz" tabindex="-1" aria-labelledby="modal_quiz" aria-hidden="true">
       <div class="modal-dialog">
@@ -73,15 +106,15 @@
                   </div>
                 </div>
                 <div class="form-group py-2 my-2 _forms">
-                  <label for="name" class="_label">nume</label>
+                  <label for="f_name" class="_label">nume</label>
                   <input type="text" class="form-control form-control-lg _input" id="f_name" name="f_name" />
                 </div>
                 <div class="form-group py-2 my-2 _forms">
-                  <label for="phone" class="_label">Telefon</label>
+                  <label for="p_phone" class="_label">Telefon</label>
                   <input type="number" class="form-control form-control-lg _input" id="p_phone" name="p_phone" />
                 </div>
                 <div class="form-group py-2 my-2 _forms">
-                  <label for="email" class="_label">Email</label>
+                  <label for="e_email" class="_label">Email</label>
                   <input type="email" class="form-control form-control-lg _input" id="e_email" name="e_email" />
                 </div>
                 <div class="form-group py-2 my-2 _forms">
@@ -91,7 +124,7 @@
                     <option value="Facebook">Facebook</option>
                     <option value="Consultant">Consultant</option>
                     <option value="Pliant">Pliant</option>
-                    <option value="test">Recomandare</option>
+                    <option value="Recomandare">Recomandare</option>
                   </select>
                 </div>
                 <div class="row mx-auto"> <span id="errorMsg" style="display:none; color:red">Te rog sa completeazio
@@ -129,8 +162,8 @@
                   </div>
                   <div class="col-12  text-startquestions">
                     <div class="text-standard_s2">
-                      Însă, înainte de a crea un <b>plan</b>, m-ar interesa să
-                      aflu câteva <b>detalii</b> esențiale de la tine.
+                      Însă, înainte de a a găsi o <b>solutie</b>, m-ar interesa să
+                      aflu câteva <b>detalii</b> esențiale de la dumneavoastă.
                     </div>
                   </div>
                 </div>
@@ -169,7 +202,7 @@
                   </div>
                 </div>
                 <div class="row mt-4 mx-0">
-                  <div class="col-12 d-flex justify-content-evenly mb-2 p-0">
+                  <div class="col-12 d-flex justify-content-evenly mb-2 p-0 _date_div">
                     <select id="jobDay" class="date_box" style="width:40%">
                       <option value="0">Zi</option>
                     </select>
@@ -207,65 +240,65 @@
                     </div>
                     <div class="row mb-2 mx-auto d_gap">
                       <div class="col-6 sel" data-name="Bcr" onclick="await displayAttribute(this)">
-                        <img src="./png/logo/bcr.png" alt="Image 1" class="_img_Bank _bcr" />
+                        <img src="./png/logo/bcr.png" alt="Image 1" class="_img_Bank _bcr" loading="lazy"/>
                       </div>
                       <div class="col-6 sel" data-name="Raiffeisen" onclick="displayAttribute(this)">
-                        <img src="./png/logo/raiff.png" alt="Image 2" class="_img_Bank _raiff" />
+                        <img src="./png/logo/raiff.png" alt="Image 2" class="_img_Bank _raiff" loading="lazy"/>
                       </div>
                     </div>
                     <div class="row mb-2 mx-auto d_gap">
                       <div class="col-6 sel" data-name="Unicredit" onclick="displayAttribute(this)">
-                        <img src="./png/logo/unicredit.png" alt="Image 5" class="_img_Bank _unicredit" />
+                        <img src="./png/logo/unicredit.png" alt="Image 5" class="_img_Bank _unicredit" loading="lazy"/>
                       </div>
                       <div class="col-6 sel" data-name="otp Bank" onclick="displayAttribute(this)">
-                        <img src="./png/logo/otp.png" alt="Image 6" class="_img_Bank _otp" />
+                        <img src="./png/logo/otp.png" alt="Image 6" class="_img_Bank _otp" loading="lazy"/>
                       </div>
                     </div>
                     <div class="row mb-2 mx-auto d_gap">
                       <div class="col-6" data-name="ing" onclick="displayAttribute(this)">
-                        <img src="./png/logo/ing.png" alt="Image 6" class="_img_Bank _ing" />
+                        <img src="./png/logo/ing.png" alt="Image 6" class="_img_Bank _ing" loading="lazy"/>
                       </div>
                       <div class="col-6" data-name="brd" onclick="displayAttribute(this)">
-                        <img src="./png/logo/brd.png" alt="Image 6" class="_img_Bank _brd" />
+                        <img src="./png/logo/brd.png" alt="Image 6" class="_img_Bank _brd" loading="lazy"/>
                       </div>
                     </div>
                     <div class="row mb-2 mx-auto d_gap">
                       <div class="col-6" data-name="tbi Bank" onclick="displayAttribute(this)">
-                        <img src="./png/logo/tbi-bank.png" alt="Image 7" class="_img_Bank _tbiBank" />
+                        <img src="./png/logo/tbi-bank.png" alt="Image 7" class="_img_Bank _tbiBank" loading="lazy"/>
                       </div>
                       <div class="col-6" data-name="Cetelem" onclick="displayAttribute(this)">
-                        <img src="./png/logo/cetelem.png" alt="Image 9" class="_img_Bank _cetelem" />
+                        <img src="./png/logo/cetelem.png" alt="Image 9" class="_img_Bank _cetelem" loading="lazy"/>
                       </div>
                     </div>
                     <div class="row mb-2 mx-auto d_gap">
                       <div class="col-6" data-name="alpha Bank" onclick="displayAttribute(this)">
-                        <img src="./png/logo/alpha.png" alt="Image 10" class="_img_Bank _alpha" />
+                        <img src="./png/logo/alpha.png" alt="Image 10" class="_img_Bank _alpha" loading="lazy"/>
                       </div>
                       <div class="col-6" data-name="CEC Bank" onclick="displayAttribute(this)">
-                        <img src="./png/logo/cec.png" alt="Image 10" class="_img_Bank _cec" />
+                        <img src="./png/logo/cec.png" alt="Image 10" class="_img_Bank _cec" loading="lazy"/>
                       </div>
                     </div>
                     <div class="row mb-2 mx-auto d_gap">
                       <div class="col-6" data-name="Libra Bank" onclick="displayAttribute(this)">
-                        <img src="./png/logo/Libra_Bank.webp" alt="Image 10" class="_img_Bank _libra" />
+                        <img src="./png/logo/Libra_Bank.webp" alt="Image 10" class="_img_Bank _libra" loading="lazy"/>
                       </div>
                       <div class="col-6" data-name="First Bank" onclick="displayAttribute(this)">
-                        <img src="./png/logo/first_Banks.png" alt="Image 6" class="_img_Bank _first_bank" />
+                        <img src="./png/logo/first_Banks.png" alt="Image 6" class="_img_Bank _first_bank" loading="lazy"/>
                       </div>
                     </div>
                     <div class="row mb-2 mx-auto d_gap">
                       <div class="col-6 justify-content-center" data-name="Garanti Bank"
                         onclick="displayAttribute(this)">
-                        <img src="./png/logo/garanti.png" alt="Image 4" class="_img_Bank _garanti mx-auto" />
+                        <img src="./png/logo/garanti.png" alt="Image 4" class="_img_Bank _garanti mx-auto" loading="lazy"/>
                       </div>
                       <div class="col-6 justify-content-center li_bt" data-name="Banca Transilvania"
                         onclick="displayAttribute(this)">
-                        <img src="./png/logo/bt.png" alt="Image 3" class="_img_Bank _bt" />
+                        <img src="./png/logo/bt.png" alt="Image 3" class="_img_Bank _bt" loading="lazy"/>
                       </div>
                     </div>
                     <div class="row mb-2 mx-auto">
                       <div class="col-12 li_br" data-name="Banca Romaneasca" onclick="displayAttribute(this)">
-                        <img src="./png/logo/banca_romaneasca.png" alt="Image 8" class="_img_Bank _br" />
+                        <img src="./png/logo/banca_romaneasca.png" alt="Image 8" class="_img_Bank _br" loading="lazy"/>
                       </div>
                     </div>
                   </div>
@@ -279,27 +312,27 @@
                       </div>
                     </div>
                     <div class="row mb-2 mx-auto d_gap">
-                      <div class="col-6" data-name="alpha Bank" onclick="displayAttribute(this)">
-                        <img src="./png/logo/alpha.png" alt="Image 10" class="_img_Bank _alpha" />
+                      <div class="col-6" data-name="provident" onclick="displayAttribute(this)">
+                        <img src="./png/logo/providet.png" alt="Image 10" class="_img_Bank _provident" loading="lazy"/>
                       </div>
-                      <div class="col-6" data-name="tes6a" onclick="displayAttribute(this)">
-                        <img src="./png/logo/cec.png" alt="Image 10" class="_img_Bank _cec" />
-                      </div>
-                    </div>
-                    <div class="row mb-2 mx-auto d_gap">
-                      <div class="col-6" data-name="test" onclick="displayAttribute(this)">
-                        <img src="./png/logo/ing.png" alt="Image 6" class="_img_Bank _ing" />
-                      </div>
-                      <div class="col-6" data-name="test43" onclick="displayAttribute(this)">
-                        <img src="./png/logo/brd.png" alt="Image 6" class="_img_Bank _brd" />
+                      <div class="col-6" data-name="icredit" onclick="displayAttribute(this)">
+                        <img src="./png/logo/icredit.png" alt="Image 10" class="_img_Bank _icredit" loading="lazy"/>
                       </div>
                     </div>
                     <div class="row mb-2 mx-auto d_gap">
-                      <div class="col-6" data-name="test56" onclick="displayAttribute(this)">
-                        <img src="./png/logo/tbi-bank.png" alt="Image 7" class="_img_Bank _tbiBank" />
+                      <div class="col-6" data-name="hora-credit" onclick="displayAttribute(this)">
+                        <img src="./png/logo/horacredit.png" alt="Image 6" class="_img_Bank _hora" loading="lazy" />
                       </div>
-                      <div class="col-6" data-name="test76" onclick="displayAttribute(this)">
-                        <img src="./png/logo/cetelem.png" alt="Image 9" class="_img_Bank _cetelem" />
+                      <div class="col-6" data-name="viva-credit" onclick="displayAttribute(this)">
+                        <img src="./png/logo/vivacredit.png" alt="Image 6" class="_img_Bank _brd" loading="lazy"/>
+                      </div>
+                    </div>
+                    <div class="row mb-2 mx-auto d_gap">
+                      <div class="col-6" data-name="bnr-finance" onclick="displayAttribute(this)">
+                        <img src="./png/logo/brdfinance.png" alt="Image 7" class="_img_Bank _brd-finance" loading="lazy"/>
+                      </div>
+                      <div class="col-6" data-name="credius" onclick="displayAttribute(this)">
+                        <img src="./png/logo/credius.png" alt="Image 9" class="_img_Bank _credius" loading="lazy"/>
                       </div>
                     </div>
                     <div class="row">
@@ -345,7 +378,7 @@
                 </div>
                 <div class="col-12 row my-2 mx-auto">
                   <div class="question-s2">
-                    Detine-ti istoric bancar sau credite in prezent?
+                    Detine-ți istoric bancar sau credite in prezent?
                   </div>
                 </div>
                 <div class="row my-4 mx-auto">
@@ -362,11 +395,16 @@
                 </div>
               </section>
               <section id="step-final" class="_steps" style="display: none">
-                <div class="col-12 mb-4">
+                <div class="col-12 py-3 mb-3">
+                  <div class="check d-flex justify-content-center">
+                    <img src="./png/logo/check_small.png" alt="check_small" class="checkImg">
+                  </div>
+                </div>
+                <!-- <div class="col-12 mb-4">
                   <div class="text-s4">
                     <br />Mr/Ms<b> <br /><span id="output-sF"></span></b>
                   </div>
-                </div>
+                </div> -->
                 <div class="col-12 mb-4 hidden_c" id="content-continue">
                   <div class="text-standard_s2">
                     In <b>80%</b> din cazuri, <b>am reușit</b> sa soluționam problemele in mod <b>pozitiv</b>. Ne
@@ -378,10 +416,10 @@
                 </div>
                 <div class="col-12 mb-4 hidden_c" id="content-no">
                   <div class="text-standard_s2">
-                    Suntem conștienți ca fără un istoric bancar, accesul la unele servici financiare poate fi o
-                    provocare. Însă , echipa ObtineCredit.ro te va ajuta sa depășești aceasta situație și sa îți ofere
-                    soluțiile potrivite pentru nevoile tale financiare. Multuemsc ca ai ales sa faci parte din
-                    comunitatea nostra si te asiguram va suntem aici pentru a te sprijini.
+                    Suntem <b>conștienți</b> că fără un istoric bancar, accesul la unele servici financiare poate fi o
+                    provocare. Însă , echipa <b>ObtineCredit.ro</b> te va ajuta sa depășești aceasta situație și sa îți ofere
+                  <b>soluțiile potrivite</b> pentru nevoile tale financiare. Mulțumesc că ai ales sa faci parte din
+                <b>comunitatea nostră</b> și te asigurăm că suntem aici pentru a te <b>sprijini.</b>
                   </div>
                 </div>
                 <div class="col-12 mb-4 hidden_c" id="content-yes">
@@ -395,6 +433,11 @@
                   <div class="text-standard_s2">
                     Situația dvs va fi examinată cu atenție și un reprezentant va reveni în cel mai scurt timp posibil
                     cu o soluție rapidă si eficientă.
+                  </div>
+                </div>
+                <div class="row py-5">
+                  <div class="col-12 d-flex justify-content-center w-100">
+                   <button class="btn btn-primary btn w-100" disabled><a href="http://obtinecredit.ro" target="_blank">Află mai multe</a></button>
                   </div>
                 </div>
                 <div class="col-12 mb-4">
