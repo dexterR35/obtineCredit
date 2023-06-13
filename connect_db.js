@@ -109,9 +109,11 @@ let no_ibc = 0;
 let ref_ = collection(db, "f_users");
 const newDocRef = doc(ref_);
 
+$(document).ready(function () {
+  progressBar.Next();
+});
+
 async function userID_add() {
-
-
   const user_data = {
     name: name_user.value,
     phone: phone_user.value,
@@ -128,23 +130,10 @@ async function userID_add() {
     no_ibc
     
   };
-
-  // showLoadingModal("data added succesfully", "_addSucces");
-
   setDoc(newDocRef, user_data);
-  // /* Reset Form */
-  // .then(() => {
-  //   console.log("data added succesfully");
-  //   name_user.value = "";
-  //   phone_user.value = "";
-  //   email_user.value = "";
-  //   option_user.value = "";
-  //   attrSelect.value = "";
-  // })
-  // .catch((error) => {
-  //   alert("unsecc operation. error:" + error);
-  // });
+
   console.log("document id is" + newDocRef.id);
+
   console.log("user_data id is" + user_data.idkeys);
 }
 
@@ -152,7 +141,6 @@ async function showHideSteps(currentStep, nextStep) {
   currentStep.style.display = "none";
   nextStep.style.display = "block";
 }
-
 
 
 async function checkEmailInNetworkCollection(email) {
@@ -253,7 +241,6 @@ async function handleNoStep5Btn() {
 }
 
 
-
 function generateGreeting() {
   const now = new Date();
   const hour = now.getHours();
@@ -261,11 +248,11 @@ function generateGreeting() {
   let greeting;
 
   if (hour >= 5 && hour < 12) {
-    greeting = "Buna dimineata";
+    greeting = "Bună dimineața";
   } else if (hour >= 12 && hour < 18) {
-    greeting = "O dupa-masa frumoasa";
+    greeting = "Bună ziua";
   } else {
-    greeting = "Buna seara";
+    greeting = "Bună seara";
   }
 
   return greeting;
@@ -277,23 +264,21 @@ const greetingSpan = document.getElementById("output-s2");
 greetingSpan.textContent = timeGreeting;
 
 
+function showError(errorMessage) {
+  const _forms = document.querySelectorAll("._forms");
+  const errDiv = document.createElement("div");
+  errDiv.classList.add("new-class");
+  errDiv.textContent = errorMessage;
 
+  _forms.forEach(form => {
+    const clickHandler = function() {
+      form.appendChild(errDiv);
+      form.removeEventListener("click", clickHandler);
+    };
 
-// function showError(errorMessage) {
-//   const _forms = document.querySelectorAll("._forms");
-//   const errDiv = document.createElement("div");
-//   errDiv.classList.add("new-class");
-//   errDiv.textContent = errorMessage;
-
-//   _forms.forEach(form => {
-//     const clickHandler = function() {
-//       form.appendChild(errDiv);
-//       form.removeEventListener("click", clickHandler);
-//     };
-
-//     form.addEventListener("click", clickHandler);
-//   });
-// }
+    form.addEventListener("click", clickHandler);
+  });
+}
 
 // Usage example
 // showError("Please fill in this form.");
