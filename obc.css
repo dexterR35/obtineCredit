@@ -25,13 +25,13 @@
   --transition-mask: 0.5s ease-out;
   --transition-input: ease 250ms;
   --de_salvat: #ff7e7e;
-  --soft-green: #39bdabf5;
+  --soft-green: #39b8a0;
+  /* --soft-green: #ffd223f5; */
   --soft-progress: #39bdabf5;
   --dark-progress: #acacac;
-  --selected_banks: #c0ffee;
-
-
-  --text-bg: #41c0ae14;
+  /* --soft-green:#ffd223f5; */
+  --selected_banks: #fff2be38;
+  --text-bg: #a7a7a714;
 }
 
 body {
@@ -104,8 +104,8 @@ h6 {
   top: 0;
   left: 0;
   z-index: 100;
-  margin: 4rem 0;
-  display: none;
+  /* margin: 4rem 0; */
+  display: flex;
 
 }
 
@@ -120,11 +120,11 @@ h6 {
 
 #loading-spinner {
   position: absolute;
-  top: 43.5%;
+  top: 40.5%;
   left: 45.5%;
   transform: translate(-50%, -50%);
-  border: 3px solid #cdcdcd;
-  border-top: 3px solid #55b776;
+  border: 3px solid #787272;
+  border-top: 3px solid #ffffff;
   border-radius: 50%;
   width: 33px;
   height: 33px;
@@ -186,7 +186,7 @@ h6 {
 }
 
 .btn-half {
-  width: 40%;
+  width: 46%;
 }
 .btn a {
   text-decoration: none;
@@ -199,10 +199,11 @@ h6 {
 .btn-primary {
   padding: 0.7em 1em;
   background: var(--soft-green) !important;
+  color: var(--color-white);
   border: none !important;
   font-weight: 600;
   font-size: 1.1em;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 /* modal */
@@ -227,30 +228,25 @@ h6 {
 }
 
 .modal-header {
-  padding: 0.7rem 3rem !important;
+  padding:1rem 1rem !important;
   position: relative !important;
   width: 100% !important;
   background: var(--bg-white) !important;
   border: none;
-  border-bottom: 1px solid var(--border-input) !important;
+  /* border-bottom: 1px solid var(--border-input) !important; */
   z-index: 10;
   top: 0;
   position: sticky !important;
+
+
 }
-
-/* .modal-header::after{
-
-  content: "";
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  position:fixed !important
-} */
-
+.headerBtn {
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+}
 .modal-footer {
   justify-content: flex-start !important;
-  position: relative !important;
+  position: sticky !important;
   background: var(--bg-white) !important;
   border: 0;
   width: 100%;
@@ -260,16 +256,20 @@ h6 {
 }
 
 .modal-content {
-  /* overflow-y: scroll !important; */
   height: 100vh !important;
   border: none !important;
   border-radius: 0 !important;
   outline: none !important;
+  background: var(--soft-green);
+
 }
 
 .modal-body {
-  padding: 1.5rem 1.3rem !important;
+  padding: 1rem 1.45rem 1rem !important;
   background: var(--bg-white) !important;
+  /* border-top: 1px solid black; */
+  /* border-top-left-radius: 40px;
+  border-top-right-radius: 40px; */
 }
 
 .modal-open .modal {
@@ -281,7 +281,7 @@ h6 {
   margin: 0 !important;
 }
 .modal.show{
-  display: noe;
+  display: none;
 }
 
 @media (orientation: portrait) and (max-width: 480px) {
@@ -340,7 +340,7 @@ form-select option {
 
 .form-select:focus,
 .form-select:active {
-  border-color: var(--soft-green) !important;
+  /* border-color: var(--soft-green) !important; */
 }
 
 ._input .input-border-color {
@@ -360,14 +360,14 @@ form-select option {
 
 ._input:focus {
   border: 1px solid !important;
-  border-color: var(--soft-green) !important;
+  border-color: var(--color_text) !important;
   outline: none;
   box-shadow: 0px 1px 5px rgb(211, 211, 211);
 }
 
 .form-select:focus {
   border: 1px solid !important;
-  border-color: var(--soft-green) !important;
+  border-color: var(--color_text) !important;
   outline: none;
   box-shadow: 0px 1px 5px rgb(211, 211, 211);
 }
@@ -394,48 +394,50 @@ form-select option {
   justify-content: center;
   text-align: center;
   text-transform: capitalize;
-  color: var(--dark-progress);
+  color: var(--bg-white);
 }
 
 .progressbar li:before {
-  width: 12px;
-  height: 12px;
+  width:100%;
+  height: 10px;
   content: "";
   line-height: 30px;
-  background: var(--dark-progress);
+  background: var(--bg-white);
   display: block;
   text-align: center;
   margin: 0 auto 10px auto;
-  border-radius: 50%;
-
+  /* border-radius: 50%; */
 }
 
-.progressbar li:after {
-  width: 100%;
-  height: 2px;
+/* .progressbar li:after {
+  width: 30px;
+  height: 30px;
   content: "";
   position: absolute;
-  background: var(--dark-progress);
-  top: 5px;
-  left: -50%;
+  background: var(--bg-white);
+  top: 0;
+
   z-index: -1;
 
-}
+} */
 
 .progressbar li:first-child:after {
   content: none;
+
 }
 
 .progressbar li.active:before {
-  border-color: var(--soft-progress);
-  background: var(--soft-progress);
-  transition: ease 0.8s;
+  /* border-color: var(--soft-green); */
+  background: var(--soft-green);
+  /* transition: ease 0.8s; */
 }
 
-.progressbar li.active:after {
-  background-color: var(--soft-progress);
+/* .progressbar li.active:after {
+  background-color: green;
   transition: ease 0.8s;
-}
+  font-family: 'Material Icons';
+  z-index: 1;
+} */
 
 .progressbar ul {
   padding: 0 !important;
@@ -479,7 +481,7 @@ form-select option {
 
 .selected_b {
   background: var(--selected_banks);
-  border: 1px solid var(--soft-green) !important;
+  /* border: 1px solid var(--soft-green) !important; */
 }
 
 /* section 2 */
@@ -530,7 +532,7 @@ input[type="text"]::placeholder {
   line-height: 1.4;
   text-align: start !important;
   margin: 0 auto;
-  text-align: justify !important;
+  text-align: start !important;
   border-radius: 14px;
   background: var(--text-bg);
   padding: 1.3em;

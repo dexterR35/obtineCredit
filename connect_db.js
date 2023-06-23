@@ -158,18 +158,45 @@ async function handleContinueBtn(event) {
     option_user.value === "Cum ati auzit de noi!?" ? "" : option_user.value;
   console.log(aboutUs, "aboutuys");
   // Check if inputs are filled
-  if (!name || !phone || !aboutUs || !emails) {
-    console.log("Fill all the inputs.");
-    // showError("Please fill in all fields.");
+  // if (!name || !phone || !aboutUs || !emails) {
+  //   console.log("Fill all the inputs.");
+  //   return;
+  // }
+   // Check if name is a number
+   if (!isNaN(name)) {
+    console.log("Name should be text, not a number.");
+    showError("Please enter a valid name.");
     return;
   }
-
+    // Check if name input has no value
+    if (name.trim() === "") {
+      console.log("Please put your name.");
+      showError("Please put your name.");
+      return;
+    }
+    const phoneRegex = /^\d{10}$/;
+  if (!phoneRegex.test(phone)) {
+    console.log("Please enter a valid phone number.");
+    showError("Please enter a valid phone number.");
+    return;
+  }
+    // Check if nothing is selected from the option value
+ 
+     // Check if phone is a number and has a valid format
+  
   try {
     const emailExists = await checkEmailInNetworkCollection(emails);
     if (emailExists) {
       console.log("Email already exists in the network.");
       return;
     }
+    if (aboutUs === "") {
+      console.log("Please select an option.");
+      showError("Please select an option.");
+      return;
+    }
+    const outputS3Element = document.getElementById("output-s3");
+    outputS3Element.textContent = name;
     btn_continueStepOne = "continue-step-one";
     progressBar.Next();
     await showHideSteps(step1Container, step2Container);
@@ -258,27 +285,36 @@ function generateGreeting() {
   return greeting;
 }
 
-// Usage example
+
 const timeGreeting = generateGreeting();
 const greetingSpan = document.getElementById("output-s2");
 greetingSpan.textContent = timeGreeting;
 
-
-function showError(errorMessage) {
-  const _forms = document.querySelectorAll("._forms");
-  const errDiv = document.createElement("div");
-  errDiv.classList.add("new-class");
-  errDiv.textContent = errorMessage;
-
-  _forms.forEach(form => {
-    const clickHandler = function() {
-      form.appendChild(errDiv);
-      form.removeEventListener("click", clickHandler);
-    };
-
-    form.addEventListener("click", clickHandler);
-  });
+function displayWelcomeMessage(message) {
+  const welcomeMessageElement = document.getElementById("welcomeMessage");
+  welcomeMessageElement.textContent = message;
 }
+
+function showError(message) {
+  // Display the error message to the user
+  const errorElement = document.querySelector(".error-message");
+  errorElement.textContent = message;
+}
+// function showError(errorMessage) {
+//   const _forms = document.querySelectorAll("._forms");
+//   const errDiv = document.createElement("div");
+//   errDiv.classList.add("new-class");
+//   errDiv.textContent = errorMessage;
+
+//   _forms.forEach(form => {
+//     const clickHandler = function() {
+//       form.appendChild(errDiv);
+//       form.removeEventListener("click", clickHandler);
+//     };
+
+//     form.addEventListener("click", clickHandler);
+//   });
+// }
 
 // Usage example
 // showError("Please fill in this form.");
