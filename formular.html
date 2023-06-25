@@ -64,12 +64,10 @@
     <div class="modal fade modal_quiz" id="modal_quiz" tabindex="-1" aria-labelledby="modal_quiz" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
+    
           <div class="modal-header d-flex justify-content-center align-content-center flex-column align-items-center">
-            <button type="button" class="close headerBtn" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
             <div class="row w-100">
-              <div class="col">
+              <div class="col-11">
                 <ul id="progress-bar" class="progressbar">
                   <li class="active"></li>
                   <li></li>
@@ -79,7 +77,13 @@
                   <li></li>
                 </ul>
               </div>
-            </div>
+              <div class="col-1">
+                <button type="button" class="close headerBtn" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            </div>    
+          
           </div>
           <div class="modal-body">
             <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -93,6 +97,7 @@
             <!-- <form class="form_class" onsubmit="return validateForm()"> -->
             <form class="form_class">
               <section id="step1-container" class="_steps pt-4">
+                
                 <div class="row title_quiz">
                   <div class="col-12 text-title text-start mb-3 mx-auto">
                     Soluții de creditare personalizate
@@ -102,20 +107,23 @@
                     intermediul experților.
                   </div>
                 </div>
+               <div class="col-12 pb-3 mx-auto">
+                <div class="error-message"></div>
+               </div>
                 <div class="form-group py-2 my-2 _forms">
                   <label for="f_name" class="_label">nume</label>
                   <input type="text" class="form-control form-control-lg _input" id="f_name" name="f_name" />
-                  <div id="error-message"></div>
+              
                 </div>
                 <div class="form-group py-2 my-2 _forms">
                   <label for="p_phone" class="_label">Telefon</label>
                   <input type="number" class="form-control form-control-lg _input" id="p_phone" name="p_phone" />
-                  <div id="error-message"></div>
+                
                 </div>
                 <div class="form-group py-2 my-2 _forms">
                   <label for="e_email" class="_label">Email</label>
                   <input type="email" class="form-control form-control-lg _input" id="e_email" name="e_email" />
-                  <div id="error-message"></div>
+            
                 </div>
                 <div class="form-group py-2 my-2 _forms">
                   <select class="form-select form-select-lg" aria-label=".default input example" id="o_option">
@@ -126,16 +134,12 @@
                     <option value="Pliant">Pliant</option>
                     <option value="Recomandare">Recomandare</option>
                   </select>
+                
                 </div>
-                <div class="error-message"></div>
-                <!-- <div class="row mx-auto"> <span id="errorMsg" style="display:none; color:red">Te rog sa completeaza
-                    toate campurile</span></div>
-                <div class="col-12 pb-4"> -->
                   <button id="continue-btn" type="submit" value="Submit"
-                    class="btn btn-primary mt-3 w-100 justify-content-center submitBtn">
+                    class="btn btn-primary my-3 w-100 justify-content-center submitBtn">
                     Pasul Următor
                   </button>
-                </div>
                 <div class="col-12 text-subtitle text-below my-2">
                   Acesta este un chestionar interactiv care te va ajuta să
                   obții informații despre opțiunile tale de creditare. Vom
@@ -150,7 +154,7 @@
                       <span id="output-s3" class="output-name"></span>
                     </h2>
                   </div>
-                  <div class="col-12 pb-4">
+                  <div class="col-12 py-4">
                     <div class="text-standard_s2">
                       Eu sunt <b>Gabriela,</b> consultantul tău online cu o
                       <b>experientă de peste 6 ani in domeniu.</b> Te voi

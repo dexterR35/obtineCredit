@@ -18,10 +18,7 @@
 window.selectedDivs = [];
 console.log("selectedDivs top", selectedDivs);
 
-let outputName = [
-  document.querySelector("#output-s3"),
-  document.querySelector("#output-sF"),
-];
+
 
 
 $("._input").attr({
@@ -29,21 +26,6 @@ $("._input").attr({
   onblur: "setFocus(false)",
   maxlength: "40",
 });
-
-let progressBar = {
-  Bar: $("#progress-bar"),
-  Reset: function () {
-    if (this.Bar) {
-      this.Bar.find("li").removeClass("active");
-    }
-  },
-  Next: function () {
-    $("#progress-bar li:not(.active):first").addClass("active");
-  },
-  Back: function () {
-    $("#progress-bar li.active:last").removeClass("active");
-  },
-};
 
 function setFocus(on) {
   let elementFocus = document.activeElement;
@@ -60,12 +42,73 @@ function setFocus(on) {
       let $parent = $input.closest("._forms");
       if ($input.val()) {
         $parent.addClass("focus");
+      
       } else {
         $parent.removeClass("focus");
+        // showError(this, "This field is required");
       }
     });
   }
 }
+
+
+// function showError(element, message) {
+//   const errorElement = element.parentNode.querySelector(".error-message");
+//   errorElement.textContent = message;
+// }
+
+// function setupInputErrorHandling() {
+//   const inputElements = document.querySelectorAll("._input");
+//   inputElements.forEach(function (input) {
+//     input.addEventListener("focus", function () {
+//       // showError(input, "This field is required");
+//     });
+
+//     input.addEventListener("input", function () {
+//       if (input.value.trim() !== "") {
+//         showError(input, "");
+//       }
+//     });
+//   });
+// }
+// setupInputErrorHandling();
+// setFocus(true); 
+// setupInputErrorHandling();
+// function showError(errorMessage) {
+//   const _forms = document.querySelectorAll("._forms");
+//   const errDiv = document.createElement("div");
+//   errDiv.classList.add("new-class");
+//   errDiv.textContent = errorMessage;
+
+//   _forms.forEach(form => {
+//     const clickHandler = function() {
+//       form.appendChild(errDiv);
+//       form.removeEventListener("click", clickHandler);
+//     };
+
+//     form.addEventListener("click", clickHandler);
+//   });
+// }
+
+
+
+
+
+let progressBar = {
+  Bar: $("#progress-bar"),
+  Reset: function () {
+    if (this.Bar) {
+      this.Bar.find("li").removeClass("active");
+    }
+  },
+  Next: function () {
+    $("#progress-bar li:not(.active):first").addClass("active");
+  },
+  Back: function () {
+    $("#progress-bar li.active:last").removeClass("active");
+  },
+};
+
 
 async function displayAttribute(div_) {
   console.log(div_, "divs");
@@ -103,22 +146,6 @@ async function displayAttribute(div_) {
     selectedDivs_Div.appendChild(_li);
   }
 }
-// continueBtn.style.visibility = "visible";
-
-// Function to check if all inputs are filled
-// function checkInputs() {
-//   const nameValue = nameInput.value.trim();
-//   const phoneValue = phoneInput.value.trim();
-//   const emailValue = emailInput.value.trim();
-//   outputName.forEach((span) => {
-//     span.innerHTML = nameValue.toUpperCase();
-//   });
-//   if (nameValue !== "" && phoneValue !== "" && emailValue !== "") {
-//     continueBtn.disabled = false;
-//   } else {
-//     continueBtn.disabled = true;
-//   }
-// }
 
 function checkRadio() {
   const input_r = document.querySelector(".another_ifn");

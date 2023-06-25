@@ -25,12 +25,12 @@
   --transition-mask: 0.5s ease-out;
   --transition-input: ease 250ms;
   --de_salvat: #ff7e7e;
-  --soft-green: #39b8a0;
+  --soft-green: #50C19A;
   /* --soft-green: #ffd223f5; */
   --soft-progress: #39bdabf5;
   --dark-progress: #acacac;
   /* --soft-green:#ffd223f5; */
-  --selected_banks: #fff2be38;
+  --selected_banks: #50c19a21;
   --text-bg: #a7a7a714;
 }
 
@@ -116,6 +116,11 @@ h6 {
 
 .text-start {
   text-align: start;
+}
+.error-message {
+  background: var(--soft-green);
+  color: var(--color-white);
+  text-align: center;
 }
 
 #loading-spinner {
@@ -226,9 +231,13 @@ h6 {
 .modal_quiz {
   padding: 0 !important;
 }
+.modal-header .close {
+  padding: 0;
+  margin: 0;
+}
 
 .modal-header {
-  padding:1rem 1rem !important;
+  padding:0.2rem 0.4rem 0.2rem 0.8rem !important;
   position: relative !important;
   width: 100% !important;
   background: var(--bg-white) !important;
@@ -481,7 +490,7 @@ form-select option {
 
 .selected_b {
   background: var(--selected_banks);
-  /* border: 1px solid var(--soft-green) !important; */
+  border: 1px solid var(--modal-input) !important;
 }
 
 /* section 2 */
@@ -613,7 +622,7 @@ input[type="text"]::placeholder {
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 40px;
+  height: 45px;
   justify-content: center;
   /* padding: 0.25em 0.3em; */
   border: 1px solid var(--border-input);
