@@ -97,11 +97,12 @@ buttons_add.forEach((button) => {
 });
 // const addUserBtn = document.querySelector(".btn-Sec4");
 
-let btn_continueStepOne = 0;
-let yes_nbc = 0;
+let btn_continueStepOne = "none";
+let yes_nbc = "none";
 // let no_nbc = 0;
-let yes_ibc = 0;
-let no_ibc = 0;
+let yes_ibc = "none";
+let no_ibc = "none";
+
 let ref_ = collection(db, "f_users");
 const newDocRef = doc(ref_);
 
@@ -115,15 +116,16 @@ async function userID_add() {
     phone: phone_user.value,
     email: email_user.value,
     aboutUs: option_user.value,
-    select_banks: attrSelect,
-    another_ifn: anotherIFN.value,
-    selectedDate: selectedDay.value + " " + selectedMonth.value + " " + selectedYear.value,
+    select_banks: attrSelect || "none",
+    another_ifn: anotherIFN.value || "none",
+    selectedDate: selectedDay.value + " " + selectedMonth.value + " " + selectedYear.value || "none",
     idkeys: newDocRef.id,
+    user_status:"new",
     timestamp: serverTimestamp(),
     btn_continueStepOne,
-    yes_nbc,
-    yes_ibc,
-    no_ibc,
+    yes_nbc: yes_nbc || "none",
+    yes_ibc: yes_ibc || "none",
+    no_ibc: no_ibc || "none"
   };
 
   setDoc(newDocRef, user_data);

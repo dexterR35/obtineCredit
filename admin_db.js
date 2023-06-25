@@ -52,7 +52,7 @@ async function fetchFirestoreData() {
     querySnapshot.forEach((doc) => {
       var user = doc.data();
       tableData.push([
-        doc.id,
+        // doc.id,
         user.name,
         user.email,
         user.phone,
@@ -60,8 +60,8 @@ async function fetchFirestoreData() {
         user.selectedDate,
         user.no_ibc,
         user.yes_ibc,
-
         user.yes_nbc,
+        user.user_status,
         '<button class="btn btn-secondary" onclick="infoUser(\'' + doc.id + '\')">info</button>' +
         '<button class="btn btn-secondary edit-user-btn">Edit</button>' +
         '<button class="btn btn-danger" onclick="deleteUser(\'' + doc.id + '\')">Delete</button>'
@@ -75,15 +75,16 @@ async function fetchFirestoreData() {
      table = $('#userTable').DataTable({
       data: tableData,
       columns: [
-        { title: "ID" },
+        // { title: "ID" },
         { title: "Name" },
         { title: "Email" },
         { title: "Phone" },
         { title: "Banks" },
         { title: "Date" },
-        { title: "NIBC" },
-        { title: "YIBC" },
-        { title: "YNBC" },
+        { title: "No Istoric Bancar" },
+        { title: "Yes Istoric Bancar" },
+        { title: "Yes Negativ Birou Credit" },
+        { title: "Status" },
         { title: "Actions", orderable: false }
       ],
       dom: 'Bfrtip', // Display the buttons
@@ -119,7 +120,7 @@ async function editUser(userId) {
     var name = userData[1];
     var email = userData[2];
     var phone = userData[3];
-    var status = userData[10];
+    var status = userData[9];
     console.log(status);
     // Set the values in the modal
     $('#editName').val(name || '');

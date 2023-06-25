@@ -42,7 +42,6 @@ function setFocus(on) {
       let $parent = $input.closest("._forms");
       if ($input.val()) {
         $parent.addClass("focus");
-      
       } else {
         $parent.removeClass("focus");
         // showError(this, "This field is required");
@@ -50,48 +49,6 @@ function setFocus(on) {
     });
   }
 }
-
-
-// function showError(element, message) {
-//   const errorElement = element.parentNode.querySelector(".error-message");
-//   errorElement.textContent = message;
-// }
-
-// function setupInputErrorHandling() {
-//   const inputElements = document.querySelectorAll("._input");
-//   inputElements.forEach(function (input) {
-//     input.addEventListener("focus", function () {
-//       // showError(input, "This field is required");
-//     });
-
-//     input.addEventListener("input", function () {
-//       if (input.value.trim() !== "") {
-//         showError(input, "");
-//       }
-//     });
-//   });
-// }
-// setupInputErrorHandling();
-// setFocus(true); 
-// setupInputErrorHandling();
-// function showError(errorMessage) {
-//   const _forms = document.querySelectorAll("._forms");
-//   const errDiv = document.createElement("div");
-//   errDiv.classList.add("new-class");
-//   errDiv.textContent = errorMessage;
-
-//   _forms.forEach(form => {
-//     const clickHandler = function() {
-//       form.appendChild(errDiv);
-//       form.removeEventListener("click", clickHandler);
-//     };
-
-//     form.addEventListener("click", clickHandler);
-//   });
-// }
-
-
-
 
 
 let progressBar = {
@@ -154,6 +111,7 @@ function checkRadio() {
     radio_r.checked = true;
   });
 }
+
 checkRadio();
 // Add event listeners to input fields
 
