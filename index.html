@@ -23,36 +23,6 @@
       padding: 0;
     }
 
-    @media (min-width: 320px) {
-      body {
-        font-size: 65%;
-      }
-    }
-
-    @media (min-width: 470px) {
-      body {
-        font-size: 70%;
-      }
-    }
-
-    @media (min-width: 992px) {
-      body {
-        font-size: 70%;
-      }
-    }
-
-    @media (min-width: 1200px) {
-      body {
-        font-size: 75%;
-      }
-    }
-
-    @media (min-width: 1600px) {
-      body {
-        font-size: 100%;
-      }
-    }
-
     :root {
       /* colorpallete
        white #F7FBFC; blue-hite:#D6E6F2; blue-blue-white:#B9D7EA;  blue:#769FCD; */
@@ -81,10 +51,12 @@
       text-decoration: none;
       color: black;
     }
+
     .section_one {
       background: var(--bg-one);
       color: rgb(106, 106, 106);
     }
+
     /* .card {
       height: 100%;
     } */
@@ -94,7 +66,7 @@
 
     .header.navbar {
       background: var(--bg-one) !important;
-      position: fixed;
+      position: relative;
       /* box-shadow: 0px 5px 25px #ecedee; */
       width: 100vw;
       z-index: 100;
@@ -115,11 +87,11 @@
       color: white;
     }
 
-    .section {
-      height: 100vh;
+    /* .section {
+      height: 100dvh;
       width: 100%;
       margin: auto;
-    }
+    } */
 
     .navbar-nav {
       width: 100%;
@@ -152,6 +124,7 @@
       border: none;
       outline: none;
     }
+
     .btn-lg {
       padding: 1rem 2rem;
     }
@@ -195,10 +168,16 @@
     }
 
     .card {
-      height: 100%;
+      /* height: 100%; */
       text-align: center;
       cursor: pointer;
     }
+
+    .card img {
+      width: 50%;
+      height: 50%;
+    }
+
     .card-title {
       font-weight: bold;
       margin-bottom: 1em;
@@ -224,18 +203,17 @@
       display: flex;
       justify-content: center;
       align-items: center;
-     
     }
   </style>
   <title>Obtine Credit</title>
-
 </head>
+
 <body>
-  <div class="wrapper-page" style="overflow: hidden">
-    <header class="header navbar navbar-expand-lg bg-light navbar-sticky">
+  <div class="wrapper-page js-scroll" style="overflow: hidden">
+    <header class="header navbar navbar-expand-lg bg-light navbar-relative">
       <div class="container px-3">
         <a href="index.html" class="navbar-brand pe-3">
-          <img src="#" width="47" alt="logo" />
+          <img src="#" alt="logo" />
         </a>
         <div id="navbarNav" class="offcanvas offcanvas-end">
           <div class="offcanvas-header border-bottom">
@@ -269,15 +247,15 @@
         </a>
       </div>
     </header>
-    <section class="section section-one d-flex align-items-center">
+    <section class="section section-one">
       <div class="container">
         <div class="row justify-content-center align-items-center flex-lg-row flex-md-row-reverse">
           <div class="col-lg-6 mb-lg-5">
             <h1 class="display-3 pb-2">Soluții de creditare personalizate</h1>
             <p class="lead pb-3">
-              Servicii complete de maximizare a șanselor de a obține un
-            credit favorabil, servicii complete de maximizare a șanselor de a obține un
-                credit 
+              Servicii complete de maximizare a șanselor de a obține un credit
+              favorabil, servicii complete de maximizare a șanselor de a
+              obține un credit
             </p>
             <a href="#" class="btn btn-primary btn-lg py-3 text-uppercase">Obține Credit</a>
           </div>
@@ -288,125 +266,219 @@
       </div>
     </section>
     <!-- Section 2 -->
-   
-    <section class="bg-light py-5 section-two section">
-      <div class="container d-flex flex-column">
-        <div class="row flex-column">
+
+    <section class="bg-light section-two section">
+      <div class="container pb-5">
+        <div class="row">
           <div class="col-6 text-center">
             <h1 class="display-3">De ce noi?</h1>
             <p class="lead pb-3">pentru ca putem</p>
-            
-           
           </div>
-          <div class="col-6 flex-row d-flex">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id
-              augue aliquam, lobortis quam vel, euismod nulla. Aenean
-              consectetur lectus quis risus euismod, ac feugiat lorem
-              hendrerit.ssssssssss
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc id
-              augue aliquam, lobortis quam vel, euismod nulla. Aenean
-              consectetur lectus quis risus euismod, ac feugiat lorem
-              hendrerit.ssssssssss
-            </p>
-          </div>
-          
         </div>
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-6">
+            <p>
+              Dacă te afli în căutarea unui sprijin pentru a obține creditul
+              pe care ți-l dorești, echipa noastră de experți este disponibilă
+              pentru a-ți fi de ajutor. Cu o vastă experiență de peste 10 ani
+              în acest domeniu, consultanții noștri depun eforturi
+              considerabile pentru a te ajuta să obții rezultatele dorite
+              într-un interval de timp cât mai scurt posibil.
+            </p>
+          </div>
+          <div class="col-6">
             <img src="https://via.placeholder.com/600x400" alt="Section 3 Image" class="img-fluid" />
+          </div>
+        </div>
+      </div>
+      <div class="row pt-5">
+        <div class="col-lg-2 col-md-3 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Box 1</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Box 2</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Box 3</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Box 3</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="bg-dark text-dark py-5 ">
+    <section class="bg-dark text-dark section">
       <div class="container flex-row-reverse d-flex">
         <div class="row flex-lg-row flex-md-row flex-sm-row g-4 mx-auto">
           <div class="col-sm-6 col-md-4 col-lg-4">
-           
             <div class="card">
-              <img src="./png/cards/leasing.jpg" alt="Box 1 Image" class="card-img-top">
+              <img src="./png/cards/leasing.jpg" alt="Box 1 Image" class="card-img-top" />
               <div class="card-body">
-                <h5 class="card-title">
-                  LEASING-URI AUTO</h5>
-                <p class="card-text">Obținerea de fonduri pentru achiziționarea unui bun prin intermediul unui contract de leasing, cu rambursare în rate.</p>
+                <h5 class="card-title">LEASING-URI AUTO</h5>
+                <p class="card-text">
+                  Obținerea de fonduri pentru achiziționarea unui bun prin
+                  intermediul unui contract de leasing, cu rambursare în rate.
+                </p>
                 <a href="#" class="btn btn-primary btn-full">Aplica aici</a>
               </div>
             </div>
-         
           </div>
           <div class="col-sm-6 col-md-4 col-lg-4">
             <div class="card">
-              <img src="./png/cards/calculation.jpg" alt="Box 1 Image" class="card-img-top">
+              <img src="./png/cards/calculation.jpg" alt="Box 1 Image" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title">REFINANTARI</h5>
-                <p class="card-text">Obținerea de fonduri pentru achiziționarea unui bun prin intermediul unui contract de leasing, cu rambursare în rate.</p>
+                <p class="card-text">
+                  Obținerea de fonduri pentru achiziționarea unui bun prin
+                  intermediul unui contract de leasing, cu rambursare în rate.
+                </p>
                 <a href="#" class="btn btn-primary btn-full">Aplica aici</a>
               </div>
             </div>
           </div>
-     
+
           <div class="col-sm-6 col-md-4 col-lg-4">
             <div class="card">
-              <img src="./png/cards/credite.jpg" alt="Box 1 Image" class="card-img-top">
+              <img src="./png/cards/credite.jpg" alt="Box 1 Image" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title">Credite Imobiliare</h5>
-                <p class="card-text">Obținerea de fonduri pentru achiziționarea unui bun prin intermediul unui contract de leasing, cu rambursare în rate.</p>
+                <p class="card-text">
+                  Obținerea de fonduri pentru achiziționarea unui bun prin
+                  intermediul unui contract de leasing, cu rambursare în rate.
+                </p>
                 <a href="#" class="btn btn-primary btn-full">Aplica aici</a>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-md-4 col-lg-4">
             <div class="card">
-              <img src="./png/cards/imm.jpg" alt="Box 1 Image" class="card-img-top">
+              <img src="./png/cards/imm.jpg" alt="Box 1 Image" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title">CREDITE IMM-URI</h5>
-                <p class="card-text">Obținerea de fonduri pentru achiziționarea unui bun prin intermediul unui contract de leasing, cu rambursare în rate.</p>
+                <p class="card-text">
+                  Obținerea de fonduri pentru achiziționarea unui bun prin
+                  intermediul unui contract de leasing, cu rambursare în rate.
+                </p>
                 <a href="#" class="btn btn-primary btn-full">Aplica aici</a>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-md-4 col-lg-4">
             <div class="card">
-              <img src="./png/cards/imm.jpg" alt="Box 1 Image" class="card-img-top">
+              <img src="./png/cards/imm.jpg" alt="Box 1 Image" class="card-img-top" />
               <div class="card-body">
-                <h5 class="card-title">STERGERE DIN
-                  BIROUL DE CREDIT</h5>
-                <p class="card-text">Obținerea de fonduri pentru achiziționarea unui bun prin intermediul unui contract de leasing, cu rambursare în rate.</p>
+                <h5 class="card-title">STERGERE DIN BIROUL DE CREDIT</h5>
+                <p class="card-text">
+                  Obținerea de fonduri pentru achiziționarea unui bun prin
+                  intermediul unui contract de leasing, cu rambursare în rate.
+                </p>
                 <a href="#" class="btn btn-primary btn-full">Aplica aici</a>
               </div>
             </div>
           </div>
           <div class="col-sm-6 col-md-4 col-lg-4">
             <div class="card">
-              <img src="./png/cards/imm.jpg" alt="Box 1 Image" class="card-img-top">
+              <img src="./png/cards/imm.jpg" alt="Box 1 Image" class="card-img-top" />
               <div class="card-body">
                 <h5 class="card-title">CREDITE IMM-URI</h5>
-                <p class="card-text">Obținerea de fonduri pentru achiziționarea unui bun prin intermediul unui contract de leasing, cu rambursare în rate.</p>
+                <p class="card-text">
+                  Obținerea de fonduri pentru achiziționarea unui bun prin
+                  intermediul unui contract de leasing, cu rambursare în rate.
+                </p>
                 <a href="#" class="btn btn-primary btn-full">Aplica aici</a>
               </div>
             </div>
           </div>
         </div>
       </div>
+      
     </section>
     <!-- Footer -->
-    <footer class="bg-dark text-light py-3">
-      <div class="container">
+    <footer class="bg-dark text-white position">
+      <div class="container py-5">
         <div class="row">
-          <div class="col-lg-6">
-            <p>Copyright © 2023</p>
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <h4>About Us</h4>
+            <p class="text-muted">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              euismod, turpis id lobortis aliquet, mauris nibh venenatis
+              velit, in convallis augue odio ut tellus.
+            </p>
           </div>
-          <div class="col-lg-6 text-right">
-            <p>Designed by Me</p>
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <h4>Navigation</h4>
+            <ul class="list-unstyled">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Contact Us</a></li>
+            </ul>
           </div>
+          <div class="col-lg-4">
+            <h4>Follow Us</h4>
+            <p class="text-muted">
+              Stay connected with us through social media.
+            </p>
+            <div class="social-icons">
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-twitter"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bg-dark text-muted py-3">
+        <div class="container text-center">
+          <p>&copy; 2023 Your Company. All rights reserved.</p>
         </div>
       </div>
     </footer>
   </div>
+
+  <!-- <script>
+    const body = document.body,
+      jsScroll = document.getElementsByClassName("js-scroll")[0],
+      height = jsScroll.getBoundingClientRect().height - 1,
+      speed = 0.05;
+      var offset = 0;
+      body.style.height = Math.floor(height) + "px";
+    function smoothScroll() {
+      offset += (window.pageYOffset - offset) * speed;
+      var scroll = "translateY(-" + offset + "px) translateZ(0)";
+      jsScroll.style.transform = scroll;
+      raf = requestAnimationFrame(smoothScroll);
+    }
+    smoothScroll();
+  </script> -->
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
