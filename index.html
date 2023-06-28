@@ -14,13 +14,15 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.js"
     integrity="sha512-2rSKyHme2mrplfIGsA8bFYAYddQ66qR+Dh71OrNZsZOtMdCYa8V1lJvl2mr/qzwcMIs20ddYz4JLiBmwS2K7Iw=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.min.js" integrity="sha512-UyX8JsMsNRW1cYl8BoxpcamonpwU2y7mSTsN0Z52plp7oKo1u92Xqfpv6lOlTyH3yiMXK+gU1jw0DVCsPTfKew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
   <style>
     *,
     *::after,
     *::before {
-      box-sizing: border-box;
+  
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     :root {
@@ -45,6 +47,12 @@
 
       /* --button-- */
       --btn-custom: orange;
+    }
+
+    .d-flex-new{
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     a {
@@ -87,11 +95,11 @@
       color: white;
     }
 
-    /* .section {
+    .section {
       height: 100dvh;
       width: 100%;
       margin: auto;
-    } */
+    }
 
     .navbar-nav {
       width: 100%;
@@ -199,17 +207,19 @@
       background-size: cover;
     }
 
-    .section-two .row {
+    /* .section-two .row {
       display: flex;
       justify-content: center;
       align-items: center;
-    }
+    } */
+
   </style>
   <title>Obtine Credit</title>
 </head>
 
 <body>
-  <div class="wrapper-page js-scroll" style="overflow: hidden">
+  <div class="wrapper-page container-fluid js-scroll" style="overflow-x: hidden">
+        <!-- header -->
     <header class="header navbar navbar-expand-lg bg-light navbar-relative">
       <div class="container px-3">
         <a href="index.html" class="navbar-brand pe-3">
@@ -247,35 +257,39 @@
         </a>
       </div>
     </header>
-    <section class="section section-one">
-      <div class="container">
-        <div class="row justify-content-center align-items-center flex-lg-row flex-md-row-reverse">
-          <div class="col-lg-6 mb-lg-5">
+    <!-- Section 1 -->
+    <section class="section section-one ">
+      <div class="container overflow-hidden h-75 w-lg-75 w-md-100 pt-4 d-flex-new">
+        <div class="row">
+          <div class="col-12 col-lg-6">
             <h1 class="display-3 pb-2">Soluții de creditare personalizate</h1>
             <p class="lead pb-3">
               Servicii complete de maximizare a șanselor de a obține un credit
               favorabil, servicii complete de maximizare a șanselor de a
               obține un credit
             </p>
-            <a href="#" class="btn btn-primary btn-lg py-3 text-uppercase">Obține Credit</a>
+            <div class="col-6">
+              <a href="#" class="btn btn-primary btn-lg py-3 text-uppercase">Obține Credit</a>
+            </div>
           </div>
-          <div class="col-lg-6">
-            <!-- <img src="./png/cards/green-landscape-small.jpg" alt="Illustration" class="img-fluid" /> -->
-          </div>
+          <!-- <div class="col-lg-6">
+            <img src="./png/cards/green-landscape-small.jpg" alt="Illustration" class="img-fluid" />
+          </div> -->
         </div>
       </div>
     </section>
+
     <!-- Section 2 -->
 
     <section class="bg-light section-two section">
-      <div class="container pb-5">
-        <div class="row">
-          <div class="col-6 text-center">
+      <div class="container h-100 d-flex-new flex-column">
+        <div class="row py-4">
+          <div class="col-12 text-center">
             <h1 class="display-3">De ce noi?</h1>
             <p class="lead pb-3">pentru ca putem</p>
           </div>
         </div>
-        <div class="row">
+        <div class="row py-4">
           <div class="col-6">
             <p>
               Dacă te afli în căutarea unui sprijin pentru a obține creditul
@@ -290,54 +304,56 @@
             <img src="https://via.placeholder.com/600x400" alt="Section 3 Image" class="img-fluid" />
           </div>
         </div>
-      </div>
-      <div class="row pt-5">
-        <div class="col-lg-2 col-md-3 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Box 1</h5>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
+        <div class="row py-4 d-flex-new">
+          <div class="col-lg-3 col-md-3 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Box 1</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-2 col-md-3 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Box 2</h5>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
+          <div class="col-lg-3 col-md-3 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Box 2</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-2 col-md-3 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Box 3</h5>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
+          <div class="col-lg-3 col-md-3 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Box 3</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-2 col-md-3 mb-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Box 3</h5>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </p>
+          <div class="col-lg-3 col-md-3 mb-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Box 3</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="bg-dark text-dark section">
-      <div class="container flex-row-reverse d-flex">
-        <div class="row flex-lg-row flex-md-row flex-sm-row g-4 mx-auto">
+    <!-- Section 3 -->
+
+    <section class="bg-dark text-dark">
+      <div class="container overflow-hidden">
+        <div class="row">
           <div class="col-sm-6 col-md-4 col-lg-4">
             <div class="card">
               <img src="./png/cards/leasing.jpg" alt="Box 1 Image" class="card-img-top" />
@@ -364,7 +380,6 @@
               </div>
             </div>
           </div>
-
           <div class="col-sm-6 col-md-4 col-lg-4">
             <div class="card">
               <img src="./png/cards/credite.jpg" alt="Box 1 Image" class="card-img-top" />
@@ -419,8 +434,8 @@
           </div>
         </div>
       </div>
-      
     </section>
+
     <!-- Footer -->
     <footer class="bg-dark text-white position">
       <div class="container py-5">
@@ -456,13 +471,15 @@
           </div>
         </div>
       </div>
-      <div class="bg-dark text-muted py-3">
-        <div class="container text-center">
+      <div class="bg-dark container text-muted py-3">
+        <div class="col-12 text-center">
           <p>&copy; 2023 Your Company. All rights reserved.</p>
         </div>
       </div>
     </footer>
   </div>
+
+  
 
   <!-- <script>
     const body = document.body,
