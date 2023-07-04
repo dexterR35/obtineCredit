@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+      integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.js"
+      integrity="sha512-2rSKyHme2mrplfIGsA8bFYAYddQ66qR+Dh71OrNZsZOtMdCYa8V1lJvl2mr/qzwcMIs20ddYz4JLiBmwS2K7Iw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollify/1.0.21/jquery.scrollify.min.js" integrity="sha512-UyX8JsMsNRW1cYl8BoxpcamonpwU2y7mSTsN0Z52plp7oKo1u92Xqfpv6lOlTyH3yiMXK+gU1jw0DVCsPTfKew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+    <style>
+      *,
+      *::after,
+      *::before {
+    
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+  
+      :root {
+        /* colorpallete
+         white #F7FBFC; blue-hite:#D6E6F2; blue-blue-white:#B9D7EA;  blue:#769FCD; */
+        /* --pallete-- */
+        --p-white: #f7fbfc;
+        --p-1xblue-white: #d6e6f2;
+        --p-2xblue-white: #b9d7ea;
+        --p-blue: #769fcd;
+  
+        /* --text-- */
+  
+        --text-color-dark: black;
+        --text-color-white: white;
+  
+        /* --bg-- */
+        --bg-one: #f7fbfc;
+        --bg-two: red;
+        --bg-three: red;
+        --bg-four: red;
+  
+        /* --button-- */
+        --btn-custom: orange;
+      }
+  
+      .d-flex-new{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+  
+      a {
+        text-decoration: none;
+        color: black;
+      }
+  
+      .section_one {
+        background: var(--bg-one);
+        color: rgb(106, 106, 106);
+      }
+  
+      /* .card {
+        height: 100%;
+      } */
+      .card-title {
+        text-transform: uppercase;
+      }
+  
+      .header.navbar {
+        background: var(--bg-one) !important;
+        position: relative;
+        /* box-shadow: 0px 5px 25px #ecedee; */
+        width: 100vw;
+        z-index: 100;
+      }
+  
+      .section_two {
+        background: #e4fbff;
+        color: black !important;
+      }
+  
+      .section_three {
+        background: crimson;
+        color: white;
+      }
+  
+      .section_four {
+        background: goldenrod;
+        color: white;
+      }
+  
+      .section {
+        height: 100dvh;
+        width: 100%;
+        margin: auto;
+      }
+  
+      .navbar-nav {
+        width: 100%;
+      }
+  
+      .wrapper-page {
+        flex: 1 0 auto;
+      }
+  
+      .section_one .data-right {
+        border: 1px solid black;
+        height: 40vh;
+      }
+  
+      .title-right {
+        border: 1px solid black;
+      }
+  
+      .box-bg {
+        /* box-shadow: -4px 4px 12px #eaedee; */
+      }
+  
+      .box-bg>p {
+        font-size: 1.16em;
+        font-weight: 400;
+      }
+  
+      .btn {
+        background: #39bdabf5;
+        border: none;
+        outline: none;
+      }
+  
+      .btn-lg {
+        padding: 1rem 2rem;
+      }
+  
+      .btn.btn-full {
+        width: 100%;
+        padding: 0.7em;
+      }
+  
+      .btn-stock {
+        font-size: 1.5em;
+        text-transform: capitalize;
+        font-weight: 500;
+        letter-spacing: 0.6px;
+      }
+  
+      .box-title-p1 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+      }
+  
+      .box-title-p1>h1 {
+        font-size: 4em;
+        font-weight: bold;
+        letter-spacing: -0.5px;
+        text-align: start;
+      }
+  
+      .box-title-p1>h5 {
+        font-size: 1.55em;
+        text-align: start;
+      }
+  
+      /* section 2 */
+      .bg-box-s2 {
+        background: #769fcd;
+        border-radius: 12px;
+        /* box-shadow: -4px 4px 6px #a1a1a1; */
+      }
+  
+      .card {
+        /* height: 100%; */
+        text-align: center;
+        cursor: pointer;
+      }
+  
+      .card img {
+        width: 50%;
+        height: 50%;
+      }
+  
+      .card-title {
+        font-weight: bold;
+        margin-bottom: 1em;
+        /* height: 2em;
+        font-weight: bold;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center; */
+      }
+  
+      .card-body {
+        padding: 1.4rem 1rem;
+      }
+  
+      .section-one {
+        background-image: url(./png/cards/green-landscape-small.jpg);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+  
+      /* .section-two .row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      } */
+  
+    </style>
+    <title>Obtine Credit</title>
+  </head>
+
+  <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-transparent navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Logo Here</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a class="page-scroll" href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">Services</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Intro Section -->
+    <section id="intro" class="intro-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>One Page Website</h1>
+                    <p>I like clean code and I cannot lie</p>
+                    <a class="btn btn-default page-scroll" href="#about">Click Me to Scroll Down!</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>About Section</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Services Section</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>Contact Section</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
