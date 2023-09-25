@@ -5,25 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css"
-    integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs4/3.2.2/dataTables.bootstrap4.css"
-    integrity="sha512-DvU/HWgBiHwhGaNLFSfv8MnnQ5hNslxWBS3hn7ohc81rWm+OFJYqDxcnxXLHffF7j88pPtmym1oBZ+Zb/e+4ig=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/css/bootstrap.min.css"
+      integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <link
-    rel="stylesheet"
-    href="https://cdn.datatables.net/searchbuilder/1.4.2/css/searchBuilder.dataTables.min.css"
-  />
-  <link
-  href="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/cr-1.6.2/date-1.4.1/fc-4.2.2/r-2.4.1/rg-1.3.1/sb-1.4.2/sp-2.1.2/sl-1.6.2/sr-1.2.2/datatables.min.css"
-  rel="stylesheet"
-/>
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs4/3.2.2/dataTables.bootstrap4.css"
+      integrity="sha512-DvU/HWgBiHwhGaNLFSfv8MnnQ5hNslxWBS3hn7ohc81rWm+OFJYqDxcnxXLHffF7j88pPtmym1oBZ+Zb/e+4ig=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/searchbuilder/1.4.2/css/searchBuilder.dataTables.min.css"
+    />
+    <link
+      href="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/cr-1.6.2/date-1.4.1/fc-4.2.2/r-2.4.1/rg-1.3.1/sb-1.4.2/sp-2.1.2/sl-1.6.2/sr-1.2.2/datatables.min.css"
+      rel="stylesheet"
+    />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -37,399 +47,302 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-editor/2.1.0/dataTables.editor.min.js" integrity="sha512-BKsIfYRuTSaLQncTO/3CUtWr6zko7hbmxWYcBhJ7YqVB1zPIcG0S7hCNf3PLcQds22RlBaVHnKkKLxjSmn9hZA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     <title>ObtineCredit-CRM</title>
     <style>
-    body {
-  background: #f7f7f7;
-}
+      .table {
+        border-spacing: 0 0.85rem !important;
+      }
 
-.table {
-  border-spacing: 0 0.85rem  !important;
-}
+      .dt-buttons.btn-group {
+        display: flex;
+        gap: 1em;
+        width: 40%;
+      }
 
-.table .dropdown {
-  display: inline-block;
-}
+      .thead-dark {
+        background: #333;
+        color: white;
+      }
+      .thead-dark tr th {
+        color: white;
+      }
 
-.table td,
-.table th {
-  vertical-align: middle;
-  margin-bottom: 10px;
-  border: none;
-}
+      .table td,
+      .table th {
+        vertical-align: middle;
+        margin-bottom: 10px;
+        border: none;
+      }
 
-.table thead tr,
-.table thead th {
-  border: none;
-  font-size: 12px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  background: transparent;
-}
+      .table thead tr,
+      .table thead th {
+        border: none;
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        background: transparent;
+      }
 
-.table td {
-  background: #fff;
-}
+      .table td {
+        background: var(--color-white);
+      }
 
-.table td:first-child {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-}
+      .table td:first-child {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
 
-.table td:last-child {
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
+      .table td:last-child {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
 
-.avatar {
-  width: 2.75rem;
-  height: 2.75rem;
-  line-height: 3rem;
-  border-radius: 50%;
-  display: inline-block;
-  background: transparent;
-  position: relative;
-  text-align: center;
-  color: #868e96;
-  font-weight: 700;
-  vertical-align: bottom;
-  font-size: 1rem;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+      .avatar-table {
+        width: 2.75rem;
+        height: 2.75rem;
+        line-height: 2.8rem;
+        border-radius: 50%;
+        display: inline-block;
+        background: transparent;
+        position: relative;
+        text-align: center;
+        color: #868e96;
+        font-weight: 700;
+        vertical-align: bottom;
+        font-size: 1rem;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
 
-.avatar-sm {
-  width: 2.5rem;
-  height: 2.5rem;
-  font-size: 0.83333rem;
-  line-height: 1.5;
-}
+      .avatar-sm {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 0.83333rem;
+        line-height: 1.5;
+      }
 
-.avatar-img {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover;
-}
+      .avatar-img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
 
-.avatar-blue {
-  background-color: #c8d9f1;
-  color: #467fcf;
-}
+      .avatar-blue {
+        background-color: #c8d9f1;
+        color: #467fcf;
+      }
 
-table.dataTable.dtr-inline.collapsed
-  > tbody
-  > tr[role="row"]
-  > td:first-child:before,
-table.dataTable.dtr-inline.collapsed
-  > tbody
-  > tr[role="row"]
-  > th:first-child:before {
-  top: 28px;
-  left: 14px;
-  border: none;
-  box-shadow: none;
-}
+      table.dataTable.dtr-inline.collapsed
+        > tbody
+        > tr[role="row"]
+        > td:first-child:before,
+      table.dataTable.dtr-inline.collapsed
+        > tbody
+        > tr[role="row"]
+        > th:first-child:before {
+        top: 28px;
+        right: 14px !important;
+        left: unset;
+        height: 18px;
+        width: 18px;
+        border: none;
+        font-family: unset;
+        box-shadow: none;
+      }
+      .dtr-control div {
+        gap: 10px;
+      }
 
-table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > td:first-child,
-table.dataTable.dtr-inline.collapsed > tbody > tr[role="row"] > th:first-child {
-  padding-left: 48px;
-}
+      table.dataTable.dtr-inline.collapsed
+        > tbody
+        > tr[role="row"]
+        > td:first-child,
+      table.dataTable.dtr-inline.collapsed
+        > tbody
+        > tr[role="row"]
+        > th:first-child {
+        padding-left: 15px;
+      }
 
-table.dataTable > tbody > tr.child ul.dtr-details {
-  width: 100%;
-}
+      table.dataTable > tbody > tr.child ul.dtr-details {
+        width: 100%;
+      }
 
-table.dataTable > tbody > tr.child span.dtr-title {
-  min-width: 50%;
-}
+      table.dataTable > tbody > tr.child span.dtr-title {
+        min-width: 50%;
+      }
 
-table.dataTable.dtr-inline.collapsed > tbody > tr > td.child,
-table.dataTable.dtr-inline.collapsed > tbody > tr > th.child,
-table.dataTable.dtr-inline.collapsed > tbody > tr > td.dataTables_empty {
-  padding: 0.75rem 1rem 0.125rem;
-}
+      table.dataTable.dtr-inline.collapsed > tbody > tr > td.child,
+      table.dataTable.dtr-inline.collapsed > tbody > tr > th.child,
+      table.dataTable.dtr-inline.collapsed > tbody > tr > td.dataTables_empty {
+        padding: 0.75rem 1rem 0.125rem;
+      }
 
-div.dataTables_wrapper div.dataTables_length label,
-div.dataTables_wrapper div.dataTables_filter label {
-  margin-bottom: 0;
-}
+      div.dataTables_wrapper div.dataTables_length label,
+      div.dataTables_wrapper div.dataTables_filter label {
+        margin-bottom: 0;
+      }
+      .dataTables_wrapper {
+        /* background: #f5f5f5; */
+        /* border: coral; */
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* padding: 2em; */
+        position: relative;
+        /* height: 40em; */
+      }
+      .section_three .table-responsive {
+        background: #f5f5f5;
+        padding: 1.5em;
+      }
+      .table-dark {
+        background: var(--bg_dark_color);
+      }
+      div.dataTables_wrapper div.dataTables_paginate {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        /* display: flex; */
+        /* gap: 10px; */
+      }
 
-@media (max-width: 767px) {
-  div.dataTables_wrapper div.dataTables_paginate ul.pagination {
-    -ms-flex-pack: center !important;
-    justify-content: center !important;
-    margin-top: 1rem;
-  }
-}
+      @media (max-width: 767px) {
+        div.dataTables_wrapper div.dataTables_paginate ul.pagination {
+          -ms-flex-pack: center !important;
+          justify-content: center !important;
+          margin-top: 1rem;
+        }
+      }
+      .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+        /* border: 1px solid crimson; */
+        color: white;
+        background: #c8d9f1;
+      }
+      .dataTables_wrapper .dataTables_paginate .paginate_button {
+        border: 1px solid crimson;
+      }
+      .dataTables_wrapper .dataTables_paginate .paginate_button {
+        box-sizing: border-box;
+        display: inline-block;
+        min-width: 2em;
+        padding: 0.1em 0.5em;
+        margin-left: 2px;
+        text-align: center;
+        cursor: pointer;
+        color: inherit !important;
+        border: 1px solid #c3c1c1;
+        border-radius: 2px;
+        /* background: transparent; */
+      }
+      .btn-icon {
+        background: var(--color-white);
+      }
 
-.btn-icon {
-  background: #fff;
-}
-.btn-icon .bx {
-  font-size: 20px;
-}
+      .btn-icon .bx {
+        font-size: 20px;
+      }
 
-.btn .bx {
-  vertical-align: middle;
-  font-size: 20px;
-}
+      .btn .bx {
+        vertical-align: middle;
+        font-size: 20px;
+      }
 
-.dropdown-menu {
-  padding: 0.25rem 0;
-}
+      .dropdown-menu {
+        padding: 0.25rem 0;
+      }
 
-.dropdown-item {
-  padding: 0.5rem 1rem;
-}
+      .dropdown-item {
+        padding: 0.5rem 1rem;
+      }
 
-.badge {
-  padding: 0.5em 0.75em;
-}
+      .badge {
+        padding: 0.7em 0.75em;
+        text-transform: uppercase;
+        font-size: 0.7em;
+      }
 
-.badge-success-alt {
-  background-color: #d7f2c2;
-  color: #7bd235;
-}
+      .badge-success-alt {
+        background-color: #d7f2c2;
+        color: #7bd235;
+      }
 
-.table a {
-  color: #212529;
-}
+      .table a {
+        color: #212529;
+      }
 
-.table a:hover,
-.table a:focus {
-  text-decoration: none;
-}
+      .table a:hover,
+      .table a:focus {
+        text-decoration: none;
+      }
 
-table.dataTable {
-  margin-top: 12px !important;
-}
+      table.dataTable {
+        /* margin-top: 12px !important; */
+      }
 
-.icon > .bx {
-  display: block;
-  min-width: 1.5em;
-  min-height: 1.5em;
-  text-align: center;
-  font-size: 1.0625rem;
-}
+      .icon > .bx {
+        display: block;
+        min-width: 1.5em;
+        min-height: 1.5em;
+        text-align: center;
+        font-size: 1.0625rem;
+      }
 
-.btn {
-  font-size: 0.9375rem;
-  font-weight: 500;
-  padding: 0.5rem 0.75rem;
-}
+      .btn {
+        font-size: 0.9375rem;
+        font-weight: 500;
+        padding: 0.5rem 0.75rem;
+      }
 
-.avatar-blue {
-      background-color: #c8d9f1;
-      color: #467fcf;
-    }
+      .avatar-blue {
+        background-color: #c8d9f1;
+        color: #467fcf;
+      }
 
-    .avatar-pink {
-      background-color: #fcd3e1;
-      color: #f66d9b;
-    }
+      .avatar-pink {
+        background-color: #fcd3e1;
+        color: #f66d9b;
+      }
+      .child ul li {
+        display: flex;
+        flex-wrap: wrap;
+      }
     </style>
   </head>
 
   <body>
-    <div class="container">
-      <div class="row py-5">
-        <div class="col-12">
-          <table id="userTable" class="table table-hover responsive nowrap" style="width:100%">
-            <thead class="thead-dark">
-              <tr>
-                <th>Numele Clientului</th>
-                <th>Numar Telefon</th>
-                <th>Data angajarii</th>
-                <th>banci</th>
-                <th>App Access</th>
-                <th>Actions</th>
-                <th>Actions</th>
-              </tr>
-            </thead>
-            <tbody >
-              <!-- <tr>
-                <td>
-                  <a href="#">
-                    <div class="d-flex align-items-center">
-                      <div class="avatar avatar-blue mr-3">EB</div>
-    
-                      <div class="">
-                        <p class="font-weight-bold mb-0">Ethan Black</p>
-                        <p class="text-muted mb-0">ethan-black@example.com</p>
-                      </div>
-                    </div>
-                  </a>
-                </td>
-                <td>(784) 667 8768</td>
-                <td>Designer</td>
-                <td>09/04/1996</td>
-                <td>
-                  <div class="badge badge-success badge-success-alt">Enabled</div>
-                </td>
-                <td>
-                  <div class="dropdown">
-                    <button class="btn btn-sm btn-icon" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="bx bx-dots-horizontal-rounded" data-toggle="tooltip" data-placement="top"
-                            title="Actions"></i>
-                        </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                      <a class="dropdown-item" href="#"><i class="bx bxs-pencil mr-2"></i> Edit Profile</a>
-                      <a class="dropdown-item text-danger" href="#"><i class="bx bxs-trash mr-2"></i> Remove</a>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-    
-              <tr>
-                <td>
-                  <a href="#">
-                    <div class="d-flex align-items-center">
-                      <div class="avatar avatar-pink mr-3">JR</div>
-    
-                      <div class="">
-                        <p class="font-weight-bold mb-0">Julie Richards</p>
-                        <p class="text-muted mb-0">julie_89@example.com</p>
-                      </div>
-                    </div>
-                  </a>
-                </td>
-                <td> (937) 874 6878</td>
-                <td>Investment Banker</td>
-                <td>13/01/1989</td>
-                <td>
-                  <div class="badge badge-success badge-success-alt">Enabled</div>
-                </td>
-                <td>
-                  <div class="dropdown">
-                    <button class="btn btn-sm btn-icon" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="bx bx-dots-horizontal-rounded" data-toggle="tooltip" data-placement="top"
-                            title="Actions"></i>
-                        </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                      <a class="dropdown-item" href="#"><i class="bx bxs-pencil mr-2"></i> Edit Profile</a>
-                      <a class="dropdown-item text-danger" href="#"><i class="bx bxs-trash mr-2"></i> Remove</a>
-                    </div>
-                  </div>
-                </td>
-              </tr> -->
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-    
-    
-
-
-
-    <div class="container-fluid">
-      <div class="col-12 d-flex align-items-center justify-content-center py-5">
-        <h2 class="text-center">Formular</h2>
-      </div>
-<!-- 
-      <div class="table-responsive">
-        <table id="userTable" class="table table-hover responsive nowrap">
-          <thead class="thead-dark">
-            <tr>
-              <th>ID</th>
-              <th>Numne</th>
-                      <th>Streamer</th>
-                      <th>Puncte</th>
-                      <th>Challenge</th>
-            </tr>
-          </thead>
-          <tbody>
-
-          </tbody>
-        </table>
-      </div> -->
-
-      <div
-        class="history container-legend d-flex flex-row mx-auto justify-content-end"
-      >
-        <h5>Legend:</h5>
-        <div class="nibc">
-          <span>NIBC -</span><span> Nu istoric bancar credit </span>:
-        </div>
-        <div class="yibc">
-          <span>YIBC -</span><span> Da istoric bancar credit </span>:
-        </div>
-
-        <div class="ynbc">
-          <span>YNBC -</span><span> Da negativ birou credit </span>:
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal for editing user -->
-    <div
-      class="modal fade"
-      id="editUserModal"
-      tabindex="-1"
-      aria-labelledby="editUserModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="editUserModalLabel">Edit User</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form id="editUserForm">
-              <input
-                type="text"
-                id="editName"
-                class="form-control my-2"
-                placeholder="Name"
-              />
-              <input
-                type="email"
-                id="editEmail"
-                class="form-control my-2"
-                placeholder="Email"
-              />
-              <input
-                type="number"
-                id="editPhone"
-                class="form-control my-2"
-                placeholder="Phone"
-              />
-              <div class="form-group my-2">
-                <select
-                  class="form-select"
-                  aria-label=".default input example"
-                  id="o_option"
-                >
-                  <option disabled selected>Status</option>
-                  <option value="Approved">Approved</option>
-                  <option value="Rejected">Rejected</option>
-                  <option value="Pending">Pending</option>
-                </select>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
+    <div class="wrapper" style="width: 100%">
+      <div class="container-fluid">
+        <div class="row py-5">
+          <div class="col-12">
+            <table
+              id="userTable"
+              class="tableData table table-hover responsive nowrap"
+              style="width: 100%"
             >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary" id="updateUserBtn">
-              Update
-            </button>
+              <thead class="thead-dark">
+                <tr>
+                  <th>Numele Clientului</th>
+                  <th>Numar Telefon</th>
+                  <th>Data angajarii</th>
+                  <th>Banci</th>
+                  <th>IFN-URI</th>
+                  <th>Istoric Bancar</th>
+                  <th>Negativ Birou Credit</th>
+                  <th>Email</th>
+                  <th>Data Inscrierii</th>
+                  <th>Despre noi</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
           </div>
         </div>
       </div>
     </div>
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
       integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
@@ -438,23 +351,32 @@ table.dataTable {
     ></script>
     <script src="https://unpkg.com/jquery-dropdown-datepicker@1.3.0/dist/jquery-dropdown-datepicker.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"
-    integrity="sha512-fHY2UiQlipUq0dEabSM4s+phmn+bcxSYzXP4vAXItBvBHU7zAM/mkhCZjtBEIJexhOMzZbgFlPLuErlJF2b+0g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
- 
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"
+      integrity="sha512-fHY2UiQlipUq0dEabSM4s+phmn+bcxSYzXP4vAXItBvBHU7zAM/mkhCZjtBEIJexhOMzZbgFlPLuErlJF2b+0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"
       integrity="sha512-ANkGm5vSmtDaoFA/NB1nVJzOKOiI4a/9GipFtkpMG8Rg2Bz8R1GFf5kfL0+z0lcv2X/KZRugwrAlVTAgmxgvIg=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
-    integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
+      integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables-responsive/2.5.0/dataTables.responsive.min.js"
-    integrity="sha512-DY4twak65A5MI1m/CEKadDVrb0O8p7pLluLAXvpg0FjuQ4ZSzKyfcUtkM+ek4fIVUeaD7+nsv9k+mzTcFsDXIQ=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/datatables-responsive/2.5.0/dataTables.responsive.min.js"
+      integrity="sha512-DY4twak65A5MI1m/CEKadDVrb0O8p7pLluLAXvpg0FjuQ4ZSzKyfcUtkM+ek4fIVUeaD7+nsv9k+mzTcFsDXIQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/cr-1.6.2/date-1.4.1/fc-4.2.2/r-2.4.1/rg-1.3.1/sb-1.4.2/sp-2.1.2/sl-1.6.2/sr-1.2.2/datatables.min.js"></script>
     <!-- <script src="https://cdn.datatables.net/searchbuilder/1.4.2/js/dataTables.searchBuilder.min.js"></script> -->
     <script type="module" src="admin_db.js" async></script>

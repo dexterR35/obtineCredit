@@ -44,74 +44,88 @@ const storage = getStorage(app);
 
 
 var table;
-var tableData = [];
 
+function generateDataTable(user) {
+  const tableAHtml = `<tr>
+    <td>
+        <div class="d-flex align-items-center">
+            <div class="avatar-table avatar-blue mr-3">${(user.name).slice(0, 2).toUpperCase()}</div>
+            <div class="">
+                <p class="font-weight-bold mb-0">${user.name}</p>
+                <p class="text-muted mb-0">Istoric Bancar: ${user.yes_ibc.slice(0, 3).toUpperCase()}</p>
+            </div>
+        </div>
+    </td>
+    <td>${user.phone}</td>
+    <td>${user.selectedDate}</td>
+    <td> ${Array.isArray(user.select_banks) && user.select_banks.length > 0 ? user.select_banks.join(', ') : 'Nu exista'}</td>
+    <td>${user.another_ifn === "none" ? "Nu exista" : (user.another_ifn || "Nu exista")}</td>
+    <td>${user.yes_ibc ? user.yes_ibc.slice(0, 4) : user.no_ibc.slice(0, 4) ? user.no_ibc.slice(0, 4) : 'Nu exista'}</td>
+    <td>${user.yes_nbc.slice(0, 3) ? user.yes_nbc.slice(0, 11) : "Nu exista"}</td>
+    <td>${user.email ? user.email : "none"}</td>
 
-// Fetch Firestore data and populate DataTable
+    <td>${user.timestamp.toDate().toLocaleDateString('ro-RO', {
+      weekday: 'short',
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    })}</td>
+    <td>${user.aboutUs}</td>
+
+  </tr>`;
+  // console.log(user.select_banks)
+  // Append the HTML to the table
+  return tableAHtml;
+}
+
 async function fetchFirestoreData() {
   const usersRef = collection(db, "f_users");
   const querySnapshot = await getDocs(usersRef);
+
+  // Initialize the DataTable if it doesn't exist
+  if (!table) {
+    table = $('#userTable').DataTable({
+      aaSorting: [],
+      // fixedColumns: true,
+      fixedHeader: true,
+      "bAutoWidth": false,
+      "lengthMenu": false,
+      select: true,
+      responsive: true,
+      dom: 'Bfrtip', // Display the buttons
+      buttons: [
+        'csv', 'excel', 'pdf', 'print', 'colvis',
+        {
+          extend: "searchBuilder",
+          text: "Filter Builder",
+        }
+      ],
+      pageLength: 8,
+    });
+  }
+
+  table.clear().draw();
+
   querySnapshot.forEach((doc) => {
     var user = doc.data();
     console.log(user);
-    tableData.push([
-      // doc.id,
-      user.name,
-      user.phone,
-      user.selectedDate,           
-      user.select_banks,
-      user.no_ibc,
-      user.yes_ibc,
-      user.yes_nbc,
-      user.email,
-      user.user_status,
-    ]);
+    // Generate HTML for the user data
+    const userHtml = generateDataTable(user);
+    // Append the user data to the table
+    table.row.add($(userHtml));
   });
-  if (table) {
-    table.clear().draw();
-  }
-  table = $('#userTable').DataTable({
-    data: tableData,
 
-    
-    columnDefs: [
-      {
-        responsivePriority: 1,
-        targets:0
-      },
-      {
-        responsivePriority: 2,
-        targets: -1
-      }
-    ],
-    aaSorting: [],
-    responsive: true,
-    dom: 'Bfrtip', // Display the buttons
-    buttons: [
-      'csv', 'excel', 'pdf', 'print', 'colvis',
-      {
-        extend: "searchBuilder",
-        text: "Filter Builder",
-        searchBuilder: {
-          columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] // Specify the columns to enable in the search builder
-        }
-      } // Add the required buttons
-    ],
-
-  });
-  
+  // Draw the table to display the added data
+  table.draw();
   $(".dataTables_filter input")
     .attr("placeholder", "Search here...")
     .css({
       width: "300px",
       display: "inline-block"
     });
-
   $('[data-toggle="tooltip"]').tooltip();
 }
-console.log(tableData, "tableData");
 
-// Initialize the DataTable and fetch Firestore data
 $(document).ready(function () {
   fetchFirestoreData();
 });
