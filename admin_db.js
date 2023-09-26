@@ -87,9 +87,9 @@ async function fetchFirestoreData() {
     table = $('#userTable').DataTable({
       aaSorting: [],
       // fixedColumns: true,
-      fixedHeader: true,
-      "bAutoWidth": false,
-      "lengthMenu": false,
+      fixedHeader: false,
+      bAutoWidth: false,
+      lengthMenu: true,
       select: true,
       responsive: true,
       dom: 'Bfrtip', // Display the buttons
@@ -99,6 +99,13 @@ async function fetchFirestoreData() {
           extend: "searchBuilder",
           text: "Filter Builder",
         }
+      ],
+      "columns": [
+        { className: "my_class" },
+        null,
+        null,
+        null,
+        null
       ],
       pageLength: 8,
     });
