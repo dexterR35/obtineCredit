@@ -121,82 +121,76 @@
     </div>
 
     <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 
-      import {
-        getFirestore,
-        collection,
-        getDocs,
-        getDoc,
-        setDoc,
-        doc,
-        addDoc,
-        updateDoc,
-        deleteDoc,
-        deleteField,
-        onSnapshot,
-        serverTimestamp,
-        query,
-        where,
-      } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-      import {
-        getStorage,
-        ref,
-        getDownloadURL,
-        listAll,
-        uploadBytes,
-      } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js";
+       import {
+         getFirestore,
+         collection,
+         getDocs,
+         getDoc,
+         setDoc,
+         doc,
+         addDoc,
+         updateDoc,
+         deleteDoc,
+         deleteField,
+         onSnapshot,
+         serverTimestamp,
+         query,
+         where,
+       } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+       import {
+         getStorage,
+         ref,
+         getDownloadURL,
+         listAll,
+         uploadBytes,
+       } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js";
 
-      import {
-        getAuth,
-        signInWithEmailAndPassword,
-      } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+       import {
+         getAuth,
+         signInWithEmailAndPassword,
+       } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
 
-      const firebaseConfig2 = {
-        apiKey: "AIzaSyCs3m9ZWLYoQZYVXzW9URyDTqfGq9Cc4ds",
-        authDomain: "obtinecredit-b43cd.firebaseapp.com",
-        projectId: "obtinecredit-b43cd",
-        storageBucket: "obtinecredit-b43cd.appspot.com",
-        messagingSenderId: "670878608599",
-        appId: "1:670878608599:web:b45c23f9ceeb363b255492",
-        measurementId: "G-SR97YYFBB6",
-      };
+       const firebaseConfig2 = {
+      "yourcfg"
+       };
 
-      const app = initializeApp(firebaseConfig2);
+       const app = initializeApp(firebaseConfig2);
 
-      // Get a reference to the Firebase authentication
-      const auth = getAuth(app);
+       // Get a reference to the Firebase authentication
+       const auth = getAuth(app);
 
-      // Get the login form element
-      const form = document.getElementById("loginForm");
+       // Get the login form element
+       const form = document.getElementById("loginForm");
 
-      // Add event listener to the form submit event
-      form.addEventListener("submit", async (event) => {
-        event.preventDefault(); // Prevent form submission
+       // Add event listener to the form submit event
+       form.addEventListener("submit", async (event) => {
+         event.preventDefault(); // Prevent form submission
 
-        const email = document.getElementById("p_user").value;
-        console.log(email, "email");
-        const password = document.getElementById("p_pass").value;
+         const email = document.getElementById("p_user").value;
+         console.log(email, "email");
+         const password = document.getElementById("p_pass").value;
 
-        try {
-          // Authenticate the user with the provided email and password
-          const userCredential = await signInWithEmailAndPassword(
-            auth,
-            email,
-            password
-          );
-          const user = userCredential.user;
+         try {
+           // Authenticate the user with the provided email and password
+           const userCredential = await signInWithEmailAndPassword(
+             auth,
+             email,
+             password
+           );
+           const user = userCredential.user;
 
-          // Authentication successful, display the admin page or perform any other action
-          if (user) {
-            // Display the admin page or redirect to another HTML page
-            window.location.href = "admin.html";
-          }
-        } catch (error) {
-          // Authentication failed, show an error message
-          alert("Authentication failed. Please check your email and password.");
-        }
-      });
+           // Authentication successful, display the admin page or perform any other action
+           if (user) {
+             // Display the admin page or redirect to another HTML page
+             window.location.href = "admin.html";
+           }
+         } catch (error) {
+           // Authentication failed, show an error message
+           alert("Authentication failed. Please check your email and password.");
+         }
+       });
     </script>
   </body>
 </html>

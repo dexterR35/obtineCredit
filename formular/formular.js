@@ -1,25 +1,5 @@
-// Get input elements and buttons
-// const nameInput = document.getElementById("f_name");
-// const phoneInput = document.getElementById("p_phone");
-// const emailInput = document.getElementById("e_email");
-// const continueBtn = document.getElementById("continue-btn");
-
-// const yesStep2Btn = document.getElementById("yes-step2");
-// const noStep2Btn = document.getElementById("no-step2");
-// const continueStep3 = document.getElementById("continue-btn3");
-// const SendInfoStep4Btn = document.getElementById("continueStep4");
-// const yesStep5Btn = document.getElementById("yes-step5");
-// const noStep5Btn = document.getElementById("no-step5");
-// const contentYes = document.getElementById("content-yes");
-// const contentNo = document.getElementById("content-no");
-// const contentContinue = document.getElementById("content-continue");
-// Get step containers
-
 window.selectedDivs = [];
 console.log("selectedDivs top", selectedDivs);
-
-
-
 
 $("._input").attr({
   onfocus: "setFocus(true)",
@@ -50,7 +30,6 @@ function setFocus(on) {
   }
 }
 
-
 let progressBar = {
   Bar: $("#progress-bar"),
   Reset: function () {
@@ -65,7 +44,6 @@ let progressBar = {
     $("#progress-bar li.active:last").removeClass("active");
   },
 };
-
 
 async function displayAttribute(div_) {
   console.log(div_, "divs");
@@ -186,7 +164,6 @@ function displayDate() {
 displayDate();
 
 progressBar.Reset();
-
 
 // $( window ).on( "load", function() {
 //   console.log( "window loaded" );
