@@ -1,41 +1,41 @@
-import {
-  initializeApp
-} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 
 import {
   getFirestore,
   collection,
   getDocs,
-  getDoc,
-  setDoc,
-  doc,
-  addDoc,
-  updateDoc,
-  deleteDoc,
-  deleteField,
-  onSnapshot,
-  serverTimestamp,
-  query,
-  where,
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-import {
-  getStorage,
-  ref,
-  getDownloadURL,
-  listAll,
-  uploadBytes,
-} from "https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js";
-
-//   import { displayAttribute } from './formular.js';
+import { getStorage } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js";
 
 const firebaseConfig = {
-    "yourconf"
+  apiKey: "AIzaSyCs3m9ZWLYoQZYVXzW9URyDTqfGq9Cc4ds",
+  authDomain: "obtinecredit-b43cd.firebaseapp.com",
+  projectId: "obtinecredit-b43cd",
+  storageBucket: "obtinecredit-b43cd.appspot.com",
+  messagingSenderId: "670878608599",
+  appId: "1:670878608599:web:b45c23f9ceeb363b255492",
+  measurementId: "G-SR97YYFBB6",
 };
+// ${user.yes_ibc
+//   .slice(0, 3)
+//   .toUpperCase()}
 
+{
+  /* <td>${
+  user.yes_ibcs
+    ? user.yes_ibc.slice(0, 1)
+    : user.no_ibc.slice(0, 1)
+    ? user.no_ibc.slice(0, 6)
+    : "Nu"
+}</td> 
+
+
+
+    <td>${user.yes_nbc.slice(0, 3) ? user.yes_nbc.slice(0, 11) : "nu"}</td>*/
+}
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const storage = getStorage(app);
-
 
 var table;
 
@@ -43,34 +43,37 @@ function generateDataTable(user) {
   const tableAHtml = `<tr>
     <td>
         <div class="d-flex align-items-center">
-            <div class="avatar-table avatar-blue mr-3">${(user.name).slice(0, 2).toUpperCase()}</div>
+            <div class="avatar-table avatar-blue mr-3">${user.name
+              .slice(0, 2)
+              .toUpperCase()}</div>
             <div class="">
                 <p class="font-weight-bold mb-0">${user.name}</p>
-                <p class="text-muted mb-0">Istoric Bancar: ${user.yes_ibc.slice(0, 3).toUpperCase()}</p>
+                <p class="text-muted mb-0">${user.phone} </p>
+
             </div>
         </div>
     </td>
-    <td>${user.phone}</td>
-    <td>${user.selectedDate}</td>
-    <td> ${Array.isArray(user.select_banks) && user.select_banks.length > 0 ? user.select_banks.join(', ') : 'Nu exista'}</td>
-    <td>${user.another_ifn === "none" ? "Nu exista" : (user.another_ifn || "Nu exista")}</td>
-    <td>${user.yes_ibc ? user.yes_ibc.slice(0, 4) : user.no_ibc.slice(0, 4) ? user.no_ibc.slice(0, 4) : 'Nu exista'}</td>
-    <td>${user.yes_nbc.slice(0, 3) ? user.yes_nbc.slice(0, 11) : "Nu exista"}</td>
-    <td>${user.email ? user.email : "none"}</td>
+    <td>${user.selectedDate === "0 0 0" ? "nu" : user.selectedDate}</td>
+    <td> ${
+      Array.isArray(user.select_banks) && user.select_banks.length > 0
+        ? user.select_banks.join(",")
+        : "nu"
+    }</td>
+    <td>${user.another_ifn === "none" ? "nu" : user.another_ifn || "nu"}</td>
+    <td>${user.yes_ibc === "yes-istoric-bancar(2)" ? "da" : "nu"}</td>
+<td>${user.yes_nbc === "yes-negativ-birou-credit(3)" ? "da" : "nu"}</td>
+    <td>${user.email ? user.email : "nu"}</td>
 
-    <td>${user.timestamp.toDate().toLocaleDateString('ro-RO', {
-      weekday: 'short',
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
+    <td>${user.timestamp.toDate().toLocaleDateString("ro-RO", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
     })}</td>
     <td>${user.aboutUs}</td>
-
   </tr>`;
-  // console.log(user.select_banks)
-  // Append the HTML to the table
   return tableAHtml;
 }
+// Event listener for showing tooltips on cell click
 
 async function fetchFirestoreData() {
   const usersRef = collection(db, "f_users");
@@ -78,30 +81,50 @@ async function fetchFirestoreData() {
 
   // Initialize the DataTable if it doesn't exist
   if (!table) {
-    table = $('#userTable').DataTable({
+    table = $("#userTable").DataTable({
       aaSorting: [],
       // fixedColumns: true,
-      fixedHeader: false,
-      bAutoWidth: false,
+      // fixedHeader: true,
+      fixedHeader: true,
+      language: { search: "" },
+      bInfo: false,
+
       lengthMenu: true,
       select: true,
       responsive: true,
-      dom: 'Bfrtip', // Display the buttons
+      dom: "Bfrtip", // Display the buttons,
+      // sDom: "lfrti",
       buttons: [
-        'csv', 'excel', 'pdf', 'print', 'colvis',
+        "csv",
+        "excel",
+        "pdf",
+        "print",
+        "colvis",
         {
           extend: "searchBuilder",
-          text: "Filter Builder",
-        }
+          text: "Filtre",
+        },
       ],
-      "columns": [
-        { className: "my_class" },
-        null,
-        null,
-        null,
-        null
+      // columns: [{ className: "my_class" }, null, null, null, null],
+      pageLength: 10,
+      columnDefs: [
+        {
+          targets: 2, // Target the third column (0-indexed)
+          createdCell: function (td) {
+            $(td).css("max-width", "200px");
+            $(td).css("text-wrap", "balance");
+          },
+        },
+
+        {
+          responsivePriority: 1,
+          targets: 7,
+        },
+        {
+          responsivePriority: 2,
+          targets: 0,
+        },
       ],
-      pageLength: 8,
     });
   }
 
@@ -118,12 +141,10 @@ async function fetchFirestoreData() {
 
   // Draw the table to display the added data
   table.draw();
-  $(".dataTables_filter input")
-    .attr("placeholder", "Search here...")
-    .css({
-      width: "300px",
-      display: "inline-block"
-    });
+  $(".dataTables_filter input").attr("placeholder", "Cauta..").css({
+    // width: "200px",
+    // display: "inline-block",
+  });
   $('[data-toggle="tooltip"]').tooltip();
 }
 
