@@ -16,30 +16,30 @@ const firebaseConfig = {
   appId: "1:670878608599:web:b45c23f9ceeb363b255492",
   measurementId: "G-SR97YYFBB6",
 };
-// ${user.yes_ibc
-//   .slice(0, 3)
-//   .toUpperCase()}
 
-{
-  /* <td>${
-  user.yes_ibcs
-    ? user.yes_ibc.slice(0, 1)
-    : user.no_ibc.slice(0, 1)
-    ? user.no_ibc.slice(0, 6)
-    : "Nu"
-}</td> 
-
-
-
-    <td>${user.yes_nbc.slice(0, 3) ? user.yes_nbc.slice(0, 11) : "nu"}</td>*/
-}
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
 var table;
 
+function formatDateForDisplay(timestamp) {
+  if (!timestamp) {
+    return "Error";
+  }
+
+  const date = new Date(timestamp);
+  const day = date.getDate();
+  const month = date.toLocaleString("en-us", { month: "short" });
+  const year = date.getFullYear();
+
+  return `${day} ${month} ${year}`;
+}
+
 function generateDataTable(user) {
+  const displayDate = formatDateForDisplay(user.timestamp);
+  const sortableDate = user.timestamp;
+
   const tableAHtml = `<tr>
     <td>
         <div class="d-flex align-items-center">
@@ -64,36 +64,27 @@ function generateDataTable(user) {
 <td>${user.yes_nbc === "yes-negativ-birou-credit(3)" ? "da" : "nu"}</td>
     <td>${user.email ? user.email : "nu"}</td>
 
-    <td>${user.timestamp.toDate().toLocaleDateString("ro-RO", {
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    })}</td>
+    <td data-order="${sortableDate}">${displayDate}</td>
     <td>${user.aboutUs}</td>
   </tr>`;
   return tableAHtml;
 }
-// Event listener for showing tooltips on cell click
 
 async function fetchFirestoreData() {
   const usersRef = collection(db, "f_users");
   const querySnapshot = await getDocs(usersRef);
 
-  // Initialize the DataTable if it doesn't exist
   if (!table) {
     table = $("#userTable").DataTable({
-      aaSorting: [],
-      // fixedColumns: true,
-      // fixedHeader: true,
-      fixedHeader: true,
+      // aaSorting: [[7, "desc"]],
       language: { search: "" },
+      fixedHeader: true,
+      responsive: true,
       bInfo: false,
-
+      autoFill: true,
       lengthMenu: true,
       select: true,
-      responsive: true,
-      dom: "Bfrtip", // Display the buttons,
-      // sDom: "lfrti",
+      dom: "Bfrtip",
       buttons: [
         "csv",
         "excel",
@@ -105,47 +96,57 @@ async function fetchFirestoreData() {
           text: "Filtre",
         },
       ],
-      // columns: [{ className: "my_class" }, null, null, null, null],
-      pageLength: 10,
       columnDefs: [
         {
-          targets: 2, // Target the third column (0-indexed)
+          responsivePriority: 1,
+          targets: [0, 7],
+        },
+        {
+          responsivePriority: 10001,
+          targets: "_all",
+        },
+        {
+          targets: [0, 2, 3],
           createdCell: function (td) {
-            $(td).css("max-width", "200px");
             $(td).css("text-wrap", "balance");
           },
         },
-
         {
-          responsivePriority: 1,
           targets: 7,
+          type: "date",
         },
         {
-          responsivePriority: 2,
+          targets: 7,
+          createdCell: function (td) {
+            $(td).css("background", "#ecfff2");
+          },
+        },
+        {
           targets: 0,
+          createdCell: function (td) {
+            $(td).css("text-wrap", "balance");
+            $(td).css("width", "300px");
+          },
         },
       ],
+      order: [[7, "desc"]],
+      pageLength: 10,
     });
+  } else {
+    table.clear();
   }
-
-  table.clear().draw();
 
   querySnapshot.forEach((doc) => {
     var user = doc.data();
-    console.log(user);
-    // Generate HTML for the user data
+    user.timestamp = user.timestamp.toDate
+      ? user.timestamp.toDate()
+      : new Date();
+
+    console.log(user.timestamp);
     const userHtml = generateDataTable(user);
-    // Append the user data to the table
     table.row.add($(userHtml));
   });
-
-  // Draw the table to display the added data
   table.draw();
-  $(".dataTables_filter input").attr("placeholder", "Cauta..").css({
-    // width: "200px",
-    // display: "inline-block",
-  });
-  $('[data-toggle="tooltip"]').tooltip();
 }
 
 $(document).ready(function () {

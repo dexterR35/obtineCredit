@@ -13,38 +13,31 @@
       referrerpolicy="no-referrer"
     />
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-bs4/3.2.2/dataTables.bootstrap4.css"
-      integrity="sha512-DvU/HWgBiHwhGaNLFSfv8MnnQ5hNslxWBS3hn7ohc81rWm+OFJYqDxcnxXLHffF7j88pPtmym1oBZ+Zb/e+4ig=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
     <link
       rel="stylesheet"
-      href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css"
+      href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/fixedheader/3.4.0/css/fixedHeader.dataTables.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css"
     />
 
     <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       rel="stylesheet"
-      href="https://cdn.datatables.net/searchbuilder/1.4.2/css/searchBuilder.dataTables.min.css"
     />
+
     <link
       href="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/cr-1.6.2/date-1.4.1/fc-4.2.2/r-2.4.1/rg-1.3.1/sb-1.4.2/sp-2.1.2/sl-1.6.2/sr-1.2.2/datatables.min.css"
       rel="stylesheet"
     />
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <script src="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables.net-editor/2.1.0/dataTables.editor.min.js" integrity="sha512-BKsIfYRuTSaLQncTO/3CUtWr6zko7hbmxWYcBhJ7YqVB1zPIcG0S7hCNf3PLcQds22RlBaVHnKkKLxjSmn9hZA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
     <title>ObtineCredit-CRM</title>
     <style>
@@ -140,80 +133,8 @@
         color: #fff;
       }
 
-      table.dataTable.dtr-inline.collapsed
-        > tbody
-        > tr[role="row"]
-        > td:first-child:before,
-      table.dataTable.dtr-inline.collapsed
-        > tbody
-        > tr[role="row"]
-        > th:first-child:before {
-        top: 28px;
-        right: 14px !important;
-        left: unset;
-        height: 18px;
-        width: 18px;
-        border: none;
-        font-family: unset;
-        box-shadow: none;
-      }
       .dtr-control div {
         gap: 10px;
-      }
-
-      table.dataTable.dtr-inline.collapsed
-        > tbody
-        > tr[role="row"]
-        > td:first-child,
-      table.dataTable.dtr-inline.collapsed
-        > tbody
-        > tr[role="row"]
-        > th:first-child {
-        padding-left: 15px;
-      }
-
-      table.dataTable > tbody > tr.child ul.dtr-details {
-        width: 100%;
-      }
-
-      table.dataTable > tbody > tr.child span.dtr-title {
-        min-width: 50%;
-      }
-
-      table.dataTable.dtr-inline.collapsed > tbody > tr > td.child,
-      table.dataTable.dtr-inline.collapsed > tbody > tr > th.child,
-      table.dataTable.dtr-inline.collapsed > tbody > tr > td.dataTables_empty {
-        padding: 0.75rem 1rem 0.125rem;
-      }
-
-      div.dataTables_wrapper div.dataTables_length label,
-      div.dataTables_wrapper div.dataTables_filter label {
-        margin-bottom: 0;
-      }
-      .dataTables_wrapper {
-        /* background: #f5f5f5; */
-        /* border: coral; */
-        border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        /* padding: 2em; */
-        position: relative;
-        /* height: 40em; */
-      }
-      .section_three .table-responsive {
-        background: #f5f5f5;
-        padding: 1.5em;
-      }
-      .table-dark {
-        background: var(--bg_dark_color);
-      }
-      div.dataTables_wrapper div.dataTables_paginate {
-        position: relative;
-        bottom: 0;
-        right: 0;
-        /* display: flex; */
-        /* gap: 10px; */
       }
 
       @media (max-width: 767px) {
@@ -280,15 +201,6 @@
         color: #212529;
       }
 
-      .table a:hover,
-      .table a:focus {
-        text-decoration: none;
-      }
-
-      table.dataTable {
-        /* margin-top: 12px !important; */
-      }
-
       .icon > .bx {
         display: block;
         min-width: 1.5em;
@@ -310,7 +222,8 @@
       /* tr.selected {
         background-color: var(--green-color) !important;
       } */
-      table.dataTable > tbody > tr.selected > * {
+      table.dataTable > tbody > tr.selected > *,
+      table.dataTable.table-hover > tbody > tr.selected:hover > * {
         box-shadow: inset 0 0 0 9999px var(--green-color) !important;
       }
       tr.selected .avatar-blue {
@@ -329,6 +242,23 @@
           width: 100%;
         }
       }
+
+      tr .child [data-dtr-index="3"],
+      tr .child [data-dtr-index="2"] {
+        text-wrap: balance;
+      }
+      .dtr-control div div:nth-child(2) {
+        flex: 1;
+      }
+      .paginate_button.previous,
+      .paginate_button.next {
+        display: none !important;
+      }
+
+      /* table.dataTable.stripe > tbody > tr.odd > *,
+      table.dataTable.display > tbody > tr.odd > * {
+        box-shadow: unset !important;
+      } */
     </style>
   </head>
 
@@ -339,12 +269,12 @@
           <div class="col-12">
             <table
               id="userTable"
-              class="tableData table table-hover responsive nowrap"
+              class="tableData table table-hover responsive nowrap display nowrap"
               style="width: 100%"
             >
               <thead class="thead-dark">
                 <tr>
-                  <th>Numele Clientului</th>
+                  <th>Numele</th>
                   <th>Data angajarii</th>
                   <th>Banci</th>
                   <th>IFN-URI</th>
@@ -362,42 +292,11 @@
       </div>
     </div>
 
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
-      integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script src="https://unpkg.com/jquery-dropdown-datepicker@1.3.0/dist/jquery-dropdown-datepicker.min.js"></script>
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/js/bootstrap.min.js"
-      integrity="sha512-fHY2UiQlipUq0dEabSM4s+phmn+bcxSYzXP4vAXItBvBHU7zAM/mkhCZjtBEIJexhOMzZbgFlPLuErlJF2b+0g=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha512-ANkGm5vSmtDaoFA/NB1nVJzOKOiI4a/9GipFtkpMG8Rg2Bz8R1GFf5kfL0+z0lcv2X/KZRugwrAlVTAgmxgvIg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"
-      integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
-
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/datatables-responsive/2.5.0/dataTables.responsive.min.js"
-      integrity="sha512-DY4twak65A5MI1m/CEKadDVrb0O8p7pLluLAXvpg0FjuQ4ZSzKyfcUtkM+ek4fIVUeaD7+nsv9k+mzTcFsDXIQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    ></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/3.4.0/js/dataTables.fixedHeader.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
     <script src="https://cdn.datatables.net/v/bs5/jszip-2.5.0/dt-1.13.4/b-2.3.6/b-colvis-2.3.6/b-html5-2.3.6/b-print-2.3.6/cr-1.6.2/date-1.4.1/fc-4.2.2/r-2.4.1/rg-1.3.1/sb-1.4.2/sp-2.1.2/sl-1.6.2/sr-1.2.2/datatables.min.js"></script>
-    <!-- <script src="https://cdn.datatables.net/searchbuilder/1.4.2/js/dataTables.searchBuilder.min.js"></script> -->
     <script type="module" src="admin_db.js" async></script>
   </body>
 </html>
